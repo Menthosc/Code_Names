@@ -7,6 +7,9 @@ import java.util.List;
 
 public interface IDAO<T> {
 
+	
+	
+	
 	public List<T> findAll();
 
 	public T findById(int id);
