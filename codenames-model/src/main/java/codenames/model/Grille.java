@@ -1,10 +1,22 @@
 package codenames.model;
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.*;
+
+@Entity
 
 public class Grille {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	@Column(name="GRI_ID")
 	private int id;
-	private ArrayList<Case> cases = new ArrayList<Case>();
+	
+	@OneToMany(mappedBy="grilles")
+	private List<Case> casesGrille;
+	
+	@Column(name="GRI_DIFFICULTE")
 	private Difficulte difficulte;
 	
 	
@@ -14,11 +26,12 @@ public class Grille {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public ArrayList<Case> getCases() {
-		return cases;
+	
+	public List<Case> getCasesGrille() {
+		return casesGrille;
 	}
-	public void setCases(ArrayList<Case> cases) {
-		this.cases = cases;
+	public void setCasesGrille(List<Case> casesGrille) {
+		this.casesGrille = casesGrille;
 	}
 	public Difficulte getDifficulte() {
 		return difficulte;
@@ -29,7 +42,7 @@ public class Grille {
 
 	public static Grille creerGrille(ArrayList<Case> cases , Difficulte d) {
 		Grille g = new Grille() ;
-		g.setCases(cases);
+		g.setCasesGrille(cases);
 		g.setDifficulte(d);
 		return g ;
 	}

@@ -1,13 +1,37 @@
 package codenames.model;
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.*;
+
+
+@Entity
+
 public class Case {
 	
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	@Column(name="CAS_ID")
 	private int id;
+	
+	@Column(name="CAS_COULEUR")
 	private Couleur couleur;
+	
+	@ManyToOne
+	@JoinColumn(name="CAS_CARTES_ID")
 	private Carte carte;
 	
+	@ManyToOne
+	@JoinColumn(name="CAS_GRILLES_ID")
+	private List<Grille> grilles;
 	
+	
+	public List<Grille> getGrilles() {
+		return grilles;
+	}
+	public void setGrilles(List<Grille> grilles) {
+		this.grilles = grilles;
+	}
 	public int getId() {
 		return id;
 	}
