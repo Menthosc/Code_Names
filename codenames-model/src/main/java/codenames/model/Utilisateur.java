@@ -5,7 +5,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "Utilisateur")
+@Table(name = "Utilisateurs")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Utilisateur {
 

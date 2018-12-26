@@ -20,6 +20,12 @@ public class Grille {
 	private Difficulte difficulte;
 	
 	
+	@OneToMany(mappedBy="grille")
+	private Grille laGrille;
+	
+	
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -40,11 +46,26 @@ public class Grille {
 		this.difficulte = difficulte;
 	}
 
-	public static Grille creerGrille(ArrayList<Case> cases , Difficulte d) {
-		Grille g = new Grille() ;
-		g.setCasesGrille(cases);
-		g.setDifficulte(d);
-		return g ;
-	}
+	
+	
+	
+	
+	
+	
+//	public static Grille creerGrille(ArrayList<Case> cases , Difficulte d) {
+//		Grille g = new Grille() ;
+//		g.setCasesGrille(cases);
+//		g.setDifficulte(d);
+//		return g ;
+//	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

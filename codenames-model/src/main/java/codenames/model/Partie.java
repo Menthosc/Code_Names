@@ -1,14 +1,53 @@
 package codenames.model;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 
 
+@Entity
+@Table(name="parties")
 public class Partie {
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "PAR_ID")
 	private int id ;
+	
+	@NotEmpty
+	@NotNull
+	@ManyToOne
+	@JoinColumn(name = "PAR_GRILLE_ID")
 	private Grille grille ;
+	
+	@NotEmpty
+	@NotNull
+	@ManyToOne
+	@Column(name = "PAR_CAPITAINE")
 	private Joueur capitaine ;
+	
+	
+	
+	@OneToMany(mappedBy="partie")
+	private List<Participation> lesParticipations;
+
+	
+	
+	@OneToMany(mappedBy="laPartie")
 	private ArrayList<Message> Messages = new ArrayList<Message>();
+	
+	
+	
+	@OneToMany(mappedBy="laPartie")
+	private ArrayList<Joueur> lesJoueurs= new ArrayList<Joueur>();
+	
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -33,4 +72,11 @@ public class Partie {
 	public void setMessages(ArrayList<Message> messages) {
 		Messages = messages;
 	}
+	
+	
+	
+	
+	
+	
+	
 }
