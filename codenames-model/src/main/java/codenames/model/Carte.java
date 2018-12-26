@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 
 
 @Entity
-
+@Table(name = "cases")
 public class Carte {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
