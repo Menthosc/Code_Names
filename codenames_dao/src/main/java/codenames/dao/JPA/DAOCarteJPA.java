@@ -12,7 +12,6 @@ import codenames_dao.IDAOCarte;
 public class DAOCarteJPA implements IDAOCarte{
 	EntityManager em ;
 	
-	
 	public DAOCarteJPA(EntityManagerFactory emf) {
 		em = emf.createEntityManager();
 	}
