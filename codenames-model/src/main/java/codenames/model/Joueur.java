@@ -26,7 +26,8 @@ public class Joueur extends Utilisateur {
 	@Column(name = "JOU_BANNI")
 	private boolean banni;
 	
-	
+	@OneToMany(mappedBy="joueur")
+	private List<Participation> participations ;
 	
 	
 	public String getPseudo() {

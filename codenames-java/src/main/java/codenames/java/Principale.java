@@ -15,9 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 
 
 public class Principale {
+	EntityManagerFactory emf = Persistence.createEntityManagerFactory("NomPersistenceUnit");
+	
 	public static ArrayList<Carte> mesCartes = new ArrayList<Carte>();
 	public static ArrayList<Case> mesCases = new ArrayList<Case>();
 
@@ -66,21 +71,21 @@ public class Principale {
 //		Carte ananas = Carte.creerCarte(9, "ananas", mesCartes);
 //		
 		// Création de 4 utilisateurs et association au profil "Joueur"
-		Utilisateur u1 = Utilisateur.creerUtilisateur(0, "durand", "pierre", "pierre00", "0123");
-		Utilisateur u2 = Utilisateur.creerUtilisateur(1, "dupont", "marie", "marie00", "1234");
-		Utilisateur u3 = Utilisateur.creerUtilisateur(2, "faure", "felix", "felix00", "2345");
-		Utilisateur u4 = Utilisateur.creerUtilisateur(3, "einstein", "albert", "albert00", "3456");
-
-		ArrayList<Utilisateur> Groupe = new ArrayList<Utilisateur>();
-		Groupe.add(u1);
-		Groupe.add(u2);
-		Groupe.add(u3);
-		Groupe.add(u4);
-
-		Joueur j1 = Joueur.creerJoueur(u1.getUsername(), false);
-		Joueur j2 = Joueur.creerJoueur(u2.getUsername(), false);
-		Joueur j3 = Joueur.creerJoueur(u3.getUsername(), false);
-		Joueur j4 = Joueur.creerJoueur(u4.getUsername(), false);
+//		Utilisateur u1 = Utilisateur.creerUtilisateur(0, "durand", "pierre", "pierre00", "0123");
+//		Utilisateur u2 = Utilisateur.creerUtilisateur(1, "dupont", "marie", "marie00", "1234");
+//		Utilisateur u3 = Utilisateur.creerUtilisateur(2, "faure", "felix", "felix00", "2345");
+//		Utilisateur u4 = Utilisateur.creerUtilisateur(3, "einstein", "albert", "albert00", "3456");
+//
+//		ArrayList<Utilisateur> Groupe = new ArrayList<Utilisateur>();
+//		Groupe.add(u1);
+//		Groupe.add(u2);
+//		Groupe.add(u3);
+//		Groupe.add(u4);
+//
+//		Joueur j1 = Joueur.creerJoueur(u1.getUsername(), false);
+//		Joueur j2 = Joueur.creerJoueur(u2.getUsername(), false);
+//		Joueur j3 = Joueur.creerJoueur(u3.getUsername(), false);
+//		Joueur j4 = Joueur.creerJoueur(u4.getUsername(), false);
 
 //	
 //		//Connexion
