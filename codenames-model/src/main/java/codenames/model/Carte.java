@@ -45,6 +45,7 @@ public class Carte {
 	}
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
+	
 	}
 	
 	

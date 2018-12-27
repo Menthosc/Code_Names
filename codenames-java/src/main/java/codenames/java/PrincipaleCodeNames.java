@@ -62,6 +62,7 @@ public class PrincipaleCodeNames {
 		// Utilisation des DAO JPA
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("CodeNames");
 		
+		
 		// Afficher toutes les cartes
 		DAOCarteJPA daoCarte = new DAOCarteJPA(emf);
 		List<Carte> mesCartesJPA = new ArrayList<Carte>();
