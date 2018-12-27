@@ -2,6 +2,8 @@ package codenames.java;
 
 import codenames.dao.JPA.DAOCarteJPA;
 import codenames.dao.JPA.DAOCaseJPA;
+import codenames.dao.JPA.DAOParticipationJPA;
+import codenames.dao.JPA.DAOPartieJPA;
 import codenames.dao.JPA.DAOUtilisateurJPA;
 import codenames.dao.SQL.DAOUtilisateurSQL;
 import codenames.model.Carte;
@@ -10,6 +12,8 @@ import codenames.model.Couleur;
 import codenames.model.Difficulte;
 import codenames.model.Grille;
 import codenames.model.Joueur;
+import codenames.model.Role;
+import codenames.model.Participation;
 import codenames.model.Partie;
 import codenames.model.Utilisateur;
 import codenames_dao.IDAOUtilisateur;
@@ -162,42 +166,43 @@ public class PrincipaleCodeNames {
 		
 		//Connexion d'un utilisateur 
 		
-//		System.out.println("Connexion");
-//		System.out.println();
-//		
-//		int i = 0;
-//		boolean isConnected = false;
-//
-//		while (isConnected == false && i < 3) {
-//			
-//			System.out.println();
-//			System.out.println("Entrez votre login");
-//			System.out.println();
-//			String login = lireChaine();
-//			System.out.println();
-//			System.out.println("Entrez votre mot de passe");
-//			System.out.println();
-//			String mdp = lireChaine();
-//
-//			DAOUtilisateurJPA daoUtilisateur2 = new DAOUtilisateurJPA(emf);
-//
-//			Utilisateur verifConnexion = daoUtilisateur2.connexion(login, mdp);
-//			System.out.println();
-//
-//			if (verifConnexion != null) {
-//				isConnected = true;
-//			
-//	
-//			}
-//			
-//			i++;
-//			
-//			if (i == 3) {
-//				System.out.println();
-//				System.out.println("Nombre de tentatives depasse !");
-//			}
-//			
-//		}
+		Joueur newJoueur = new Joueur() ;
+		System.out.println("Connexion");
+		System.out.println();
+		
+		int i = 0;
+		boolean isConnected = false;
+
+		while (isConnected == false && i < 3) {
+			
+			System.out.println();
+			System.out.println("Entrez votre login");
+			System.out.println();
+			String login = lireChaine();
+			System.out.println();
+			System.out.println("Entrez votre mot de passe");
+			System.out.println();
+			String mdp = lireChaine();
+
+			DAOUtilisateurJPA daoUtilisateur2 = new DAOUtilisateurJPA(emf);
+
+			Utilisateur verifConnexion = daoUtilisateur2.connexion(login, mdp);
+			System.out.println();
+
+			if (verifConnexion != null) {
+				isConnected = true;
+				newJoueur = (Joueur) verifConnexion ;
+	
+			}
+			
+			i++;
+			
+			if (i == 3) {
+				System.out.println();
+				System.out.println("Nombre de tentatives depasse !");
+			}
+			
+		}
 		
 		
 		// Creation de 25 cases
@@ -228,7 +233,7 @@ public class PrincipaleCodeNames {
 		int diff = lireEntier();
 
 			// Creation des cases avec couleur et carte
-		for (int i = 0 ; i < 9; i++) {
+		for (int k = 0 ; k < 9; k++) {
 			Couleur couleur = Couleur.ROUGE ;
 			Case newCase = new Case() ;
 			Carte newCarte = mesCartes.remove(0) ;
@@ -237,7 +242,7 @@ public class PrincipaleCodeNames {
 			mesCases.add(newCase);
 		}
 		
-		for (int i = 0 ; i < 8; i++) {
+		for (int k = 0 ; k < 8; k++) {
 			Couleur couleur = Couleur.BLEUE;
 			Case newCase = new Case() ;
 			Carte newCarte = mesCartes.remove(0) ;
@@ -246,7 +251,7 @@ public class PrincipaleCodeNames {
 			mesCases.add(newCase);
 		}
 		
-		for (int i = 0 ; i < 8 - diff ; i++) {
+		for (int k = 0 ; k < 8 - diff ; k++) {
 			Couleur couleur = Couleur.NEUTRE ;
 			Case newCase = new Case() ;
 			Carte newCarte = mesCartes.remove(0) ;
@@ -255,7 +260,7 @@ public class PrincipaleCodeNames {
 			mesCases.add(newCase);
 		}
 		
-		for (int i = 0 ; i < diff; i++) {
+		for (int k = 0 ; k < diff; k++) {
 			Couleur couleur = Couleur.NOIRE ;
 			Case newCase = new Case() ;
 			Carte newCarte = mesCartes.remove(0) ;
@@ -264,7 +269,7 @@ public class PrincipaleCodeNames {
 			mesCases.add(newCase);
 		}
 		
-			// Melanger et retourner les cartes
+			// Melanger les cartes et creer la grille
 		java.util.Collections.shuffle(mesCases);
 		
 		Grille nouvelleGrille = new Grille() ;
@@ -290,8 +295,19 @@ public class PrincipaleCodeNames {
 		}
 		
 		
+		// Création de la partie et de la participation
+		Partie newPartie = new Partie() ;
+		newPartie.setGrille(nouvelleGrille);
+		newPartie.setCapitaine(newJoueur);
+		DAOPartieJPA daoPartie = new DAOPartieJPA(emf) ;
+		daoPartie.save(newPartie);
 		
-		
+		Participation participation = new Participation () ;
+		participation.setJoueur(newJoueur);
+		participation.setPartie(newPartie);
+		participation.setRole(Role.ESPION);
+		DAOParticipationJPA daoParticipation = new DAOParticipationJPA(emf) ;
+		daoParticipation.save(participation);
 		
 		
 		
