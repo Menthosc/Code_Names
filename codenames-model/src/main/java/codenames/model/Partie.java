@@ -28,7 +28,7 @@ public class Partie {
 	@NotEmpty
 	@NotNull
 	@ManyToOne
-	@Column(name = "PAR_CAPITAINE")
+	@JoinColumn(name = "PAR_CAPITAINE")
 	private Joueur capitaine ;
 	
 	
