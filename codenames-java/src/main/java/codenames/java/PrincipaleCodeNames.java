@@ -1,11 +1,13 @@
 package codenames.java;
 
 import codenames.dao.JPA.DAOCarteJPA;
+import codenames.dao.JPA.DAOCaseJPA;
 import codenames.dao.JPA.DAOUtilisateurJPA;
 import codenames.dao.SQL.DAOUtilisateurSQL;
 import codenames.model.Carte;
 import codenames.model.Case;
 import codenames.model.Couleur;
+import codenames.model.Difficulte;
 import codenames.model.Grille;
 import codenames.model.Joueur;
 import codenames.model.Partie;
@@ -86,7 +88,7 @@ public class PrincipaleCodeNames {
 		// Création de cartes et suppression
 //				DAOCarteJPA daoCartes = new DAOCarteJPA(emf);
 //				Carte carte = new Carte() ;
-//				carte.setLibelle("gros");
+//				carte.setLibelle("funiculaire");
 //				daoCartes.save(carte);
 //				daoCartes.deleteById(24);
 
@@ -160,52 +162,131 @@ public class PrincipaleCodeNames {
 		
 		//Connexion d'un utilisateur 
 		
-		System.out.println("Connexion");
-		System.out.println();
+//		System.out.println("Connexion");
+//		System.out.println();
+//		
+//		int i = 0;
+//		boolean isConnected = false;
+//
+//		while (isConnected == false && i < 3) {
+//			
+//			System.out.println();
+//			System.out.println("Entrez votre login");
+//			System.out.println();
+//			String login = lireChaine();
+//			System.out.println();
+//			System.out.println("Entrez votre mot de passe");
+//			System.out.println();
+//			String mdp = lireChaine();
+//
+//			DAOUtilisateurJPA daoUtilisateur2 = new DAOUtilisateurJPA(emf);
+//
+//			Utilisateur verifConnexion = daoUtilisateur2.connexion(login, mdp);
+//			System.out.println();
+//
+//			if (verifConnexion != null) {
+//				isConnected = true;
+//			
+//	
+//			}
+//			
+//			i++;
+//			
+//			if (i == 3) {
+//				System.out.println();
+//				System.out.println("Nombre de tentatives dépassé !");
+//			}
+//			
+//		}
 		
-		int i = 0;
-		boolean isConnected = false;
-
-		while (isConnected == false && i < 3) {
-			
-			System.out.println();
-			System.out.println("Entrez votre login");
-			System.out.println();
-			String login = lireChaine();
-			System.out.println();
-			System.out.println("Entrez votre mot de passe");
-			System.out.println();
-			String mdp = lireChaine();
-
-			DAOUtilisateurJPA daoUtilisateur2 = new DAOUtilisateurJPA(emf);
-
-			Utilisateur verifConnexion = daoUtilisateur2.connexion(login, mdp);
-			System.out.println();
-
-			if (verifConnexion != null) {
-				isConnected = true;
-			
-	
+		
+		// Création de 25 cases
+		
+			//Récupération de 25 cartes qui ne peuvent pas être vides
+		DAOCarteJPA daoCartes = new DAOCarteJPA(emf);
+		List<Carte> mesCartes = daoCartes.findAll();
+		for (Carte c : mesCartes) {
+			if (c.getLibelle()=="") {
+				mesCartes.remove(c);	
 			}
-			
-			i++;
-			
-			if (i == 3) {
-				System.out.println();
-				System.out.println("Nombre de tentatives dépassé !");
-				
-			}
-			
-			
 		}
 		
+		java.util.Collections.shuffle(mesCartes);
 		
 		
+		DAOCaseJPA daoCases = new DAOCaseJPA(emf);
+		List<Case> mesCases = new ArrayList<Case>();
 		
+			//Définition du niveau de difficulté
+		System.out.println();
+		System.out.println("Entrez le niveau de difficulté");
+		System.out.println("Entrez 1 pour FACILE");
+		System.out.println("Entrez 2 pour MOYEN");
+		System.out.println("Entrez 3 pour DIFFICILE");
+		System.out.println();
+		int diff = lireEntier();
+
+			// Création des cases avec couleur et carte
+		for (int i = 0 ; i < 9; i++) {
+			Couleur couleur = Couleur.ROUGE ;
+			Case newCase = new Case() ;
+			Carte newCarte = mesCartes.remove(0) ;
+			newCase.setCarte(newCarte);
+			newCase.setCouleur(couleur);
+			mesCases.add(newCase);
+		}
 		
+		for (int i = 0 ; i < 8; i++) {
+			Couleur couleur = Couleur.BLEUE;
+			Case newCase = new Case() ;
+			Carte newCarte = mesCartes.remove(0) ;
+			newCase.setCarte(newCarte);
+			newCase.setCouleur(couleur);
+			mesCases.add(newCase);
+		}
 		
+		for (int i = 0 ; i < 8 - diff ; i++) {
+			Couleur couleur = Couleur.NEUTRE ;
+			Case newCase = new Case() ;
+			Carte newCarte = mesCartes.remove(0) ;
+			newCase.setCarte(newCarte);
+			newCase.setCouleur(couleur);
+			mesCases.add(newCase);
+		}
 		
+		for (int i = 0 ; i < diff; i++) {
+			Couleur couleur = Couleur.NOIRE ;
+			Case newCase = new Case() ;
+			Carte newCarte = mesCartes.remove(0) ;
+			newCase.setCarte(newCarte);
+			newCase.setCouleur(couleur);
+			mesCases.add(newCase);
+		}
 		
+			// Mélanger et retourner les cartes
+		java.util.Collections.shuffle(mesCases);
+		
+		Grille nouvelleGrille = new Grille() ;
+		nouvelleGrille.setCasesGrille(mesCases);
+		Difficulte difficulte = null ;
+		
+		if (diff == 1) {
+			difficulte = Difficulte.FACILE ;
+		}
+		if (diff == 2) {
+			difficulte = Difficulte.MOYEN ;
+		}
+		if (diff == 3) {
+			difficulte = Difficulte.DIFFICILE ;
+		}
+		
+		nouvelleGrille.setDifficulte(difficulte);
+		
+		for (Case c : nouvelleGrille.getCasesGrille()) {
+			System.out.println(c.getCarte().getLibelle());
+			System.out.println(c.getCouleur());
+			System.out.println("--------------");
+		}
 		
 		
 		
