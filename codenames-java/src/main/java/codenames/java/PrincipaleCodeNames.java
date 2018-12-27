@@ -75,21 +75,25 @@ public class PrincipaleCodeNames {
 //			System.out.println();	
 //		}
 		
-		// Afficher tous les utilisateurs
-				DAOUtilisateurJPA daoUtilisateur = new DAOUtilisateurJPA(emf);
-				List<Utilisateur> mesUtilisateursJPA = new ArrayList<Utilisateur>();
-				mesUtilisateursJPA = daoUtilisateur.findAll();
-				for (Utilisateur u : mesUtilisateursJPA) {
-					System.out.println(u.getId());
-					System.out.println();
-					System.out.println(u.getNom());
-					System.out.println();	
-					System.out.println(u.getPrenom());
-					System.out.println();	
-				}
+//		// Afficher tous les utilisateurs
+//				DAOUtilisateurJPA daoUtilisateur = new DAOUtilisateurJPA(emf);
+//				List<Utilisateur> mesUtilisateursJPA = new ArrayList<Utilisateur>();
+//				mesUtilisateursJPA = daoUtilisateur.findAll();
+//				for (Utilisateur u : mesUtilisateursJPA) {
+//					System.out.println(u.getId());
+//					System.out.println();
+//					System.out.println(u.getNom());
+//					System.out.println();	
+//					System.out.println(u.getPrenom());
+//					System.out.println();	
+//				}
 		
-		
-		
+		//Création de cartes et suppression
+//				DAOCarteJPA daoCartes = new DAOCarteJPA(emf);
+//				Carte carte = new Carte() ;
+//				carte.setLibelle("gros");
+//				daoCartes.save(carte);
+//				daoCartes.deleteById(24);
 		
 		
 		

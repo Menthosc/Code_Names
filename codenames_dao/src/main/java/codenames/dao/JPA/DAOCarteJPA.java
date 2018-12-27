@@ -38,7 +38,10 @@ public class DAOCarteJPA implements IDAOCarte {
 	}
 
 	public void delete(Carte c) {
+		EntityTransaction tx = em.getTransaction(); 
+		tx.begin();
 		em.remove(em.merge(c));
+		tx.commit(); 
 	}
 
 	public void deleteById(int id) {

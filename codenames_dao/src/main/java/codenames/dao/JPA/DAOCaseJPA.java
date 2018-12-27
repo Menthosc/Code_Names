@@ -39,7 +39,10 @@ public class DAOCaseJPA implements IDAOCase{
 		}
 		
 		public void delete(Case c) {
+			EntityTransaction tx = em.getTransaction(); 
+			tx.begin();
 			em.remove(em.merge(c));
+			tx.commit(); 
 		}
 	
 		public void deleteById(int id) {

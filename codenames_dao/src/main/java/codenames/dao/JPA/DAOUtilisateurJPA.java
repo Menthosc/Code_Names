@@ -40,7 +40,10 @@ public class DAOUtilisateurJPA implements IDAOUtilisateur {
 	}
 
 	public void delete(Utilisateur u) {
+		EntityTransaction tx = em.getTransaction(); 
+		tx.begin();
 		em.remove(em.merge(u));
+		tx.commit(); 
 	}
 
 	public void deleteById(int id) {
