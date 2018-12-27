@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 import javax.persistence.*;
 
-
+@Entity
+@Table(name = "message")
 public class Message {
 	
 	
@@ -14,15 +15,23 @@ public class Message {
 	@Column(name="MES_ID")
 	private int id ;
 	
-	@Column(name="MES_PARTIES_ID")
-	private Partie partie ;
-	
-	@Column(name="MES_JOUEURS_ID")
-	private Joueur joueur ;
-	
+	@ManyToOne
+	@JoinColumn(name="MES_PARTIES_ID")
+	private Partie laPartie;
 
+	@ManyToOne
+	@JoinColumn(name="MES_JOUEURS_ID")
+	private Joueur leJoueur;
+
+	
+	
+	
 	public int getId() {
 		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public Partie getLaPartie() {
@@ -33,44 +42,14 @@ public class Message {
 		this.laPartie = laPartie;
 	}
 
-	public Partie getLeJoueur() {
+	public Joueur getLeJoueur() {
 		return leJoueur;
 	}
 
-	public void setLeJoueur(Partie leJoueur) {
+	public void setLeJoueur(Joueur leJoueur) {
 		this.leJoueur = leJoueur;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public Partie getPartie() {
-		return partie;
-	}
-
-	public void setPartie(Partie partie) {
-		this.partie = partie;
-	}
-
-	public Joueur getJoueur() {
-		return joueur;
-	}
-
-	public void setJoueur(Joueur joueur) {
-		this.joueur = joueur;
-	}
-	
-	
-	@ManyToOne
-	@JoinColumn(name="MES_PARTIES_ID")
-	private Partie laPartie;
-
-	@ManyToOne
-	@JoinColumn(name="MES_JOUEURS_ID")
-	private Partie leJoueur;
-
-	
 	
 	
 }

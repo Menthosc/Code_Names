@@ -21,7 +21,7 @@ import javax.persistence.Persistence;
 
 
 
-public class Principale {
+public class PrincipaleCodeNames {
 	
 	static String lireChaine() {
 
@@ -60,7 +60,7 @@ public class Principale {
 	public static void main(String[] args) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Utilisation des DAO JPA
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("NomPersistenceUnit");
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("CodeNames");
 		
 		// Afficher toutes les cartes
 		DAOCarteJPA daoCarte = new DAOCarteJPA(emf);
