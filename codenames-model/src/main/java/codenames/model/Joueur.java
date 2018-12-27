@@ -47,18 +47,18 @@ public class Joueur extends Utilisateur {
 	
 	
 	@OneToMany(mappedBy="leJoueur")
-	private ArrayList<Message> Messages;
+	private List<Message> Messages;
 	
 	@ManyToOne
 	@JoinColumn(name="JOU_PARTIES_ID")
 	private Partie laPartie;
 	
 	@OneToMany(mappedBy="leJoueur")
-	private ArrayList<Joueur> lesJoueurs;
+	private List<Joueur> lesJoueurs;
 	
 	
 	@OneToMany(mappedBy="capitaine")
-	private ArrayList<Partie> lesParties;
+	private List<Partie> lesParties;
 	
 	
 	

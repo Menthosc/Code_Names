@@ -32,7 +32,6 @@ public class Partie {
 	private Joueur capitaine ;
 	
 	
-	
 	@OneToMany(mappedBy="partie")
 	private List<Participation> lesParticipations;
 
