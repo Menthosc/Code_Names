@@ -1,5 +1,6 @@
 package codenames.java;
 
+import codenames.dao.JPA.DAOCarteJPA;
 import codenames.dao.SQL.DAOUtilisateurSQL;
 import codenames.model.Carte;
 import codenames.model.Case;
@@ -21,11 +22,7 @@ import javax.persistence.Persistence;
 
 
 public class Principale {
-	EntityManagerFactory emf = Persistence.createEntityManagerFactory("NomPersistenceUnit");
 	
-	public static ArrayList<Carte> mesCartes = new ArrayList<Carte>();
-	public static ArrayList<Case> mesCases = new ArrayList<Case>();
-
 	static String lireChaine() {
 
 		Scanner myScanner = new Scanner(System.in);
@@ -57,7 +54,40 @@ public class Principale {
 		}
 	}
 
+	
+
+	
 	public static void main(String[] args) {
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// Utilisation des DAO JPA
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("NomPersistenceUnit");
+		
+		// Afficher toutes les cartes
+		DAOCarteJPA daoCarte = new DAOCarteJPA(emf);
+		List<Carte> mesCartesJPA = new ArrayList<Carte>();
+		mesCartesJPA = daoCarte.findAll();
+		for (Carte c : mesCartesJPA) {
+			System.out.println(c.getId());
+			System.out.println();
+			System.out.println(c.getLibelle());
+			System.out.println();	
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// Utilisation des DAO SQL
+		
+//		public static ArrayList<Carte> mesCartes = new ArrayList<Carte>();
+//		public static ArrayList<Case> mesCases = new ArrayList<Case>();
+		
+		
 //		// Création de 10 cartes	
 //		Carte table = Carte.creerCarte(0, "table", mesCartes);
 //		Carte conseil = Carte.creerCarte(1, "conseil", mesCartes);
@@ -328,62 +358,62 @@ public class Principale {
 
 ///////////////////////    INSCRIPTION
 
-		DAOUtilisateurSQL daoUtilisateur2 = new DAOUtilisateurSQL();
-		Utilisateur u = null;
-		int verifUsername = -1;
-
-		System.out.println("---------------------------------");
-		System.out.println("INSCRIPTION AU SERVEUR DE JEU");
-		System.out.println();
-		System.out.println("Entrez votre nom:");
-		System.out.println();
-		String nom = lireChaine();
-		System.out.println("Entrez votre prénom:");
-		System.out.println();
-		String prenom = lireChaine();
-
-		for (int i = 0; i < 3; i++) {
-
-			System.out.println("Entrez un Login:");
-			System.out.println();
-			String username = lireChaine();
-
-			verifUsername = daoUtilisateur2.inscription(username);
-
-			for (int h = 0; h < 3; h++) {
-				if (verifUsername == 0 && !username.equals("")) {
-					i = 3;
-					System.out.println("Entrez un mot de passe:");
-					System.out.println();
-					String mdp = lireChaine();
-					System.out.println("Entrez de nouveau votre mot de passe:");
-					System.out.println();
-					String mdp2 = lireChaine();
-
-					if (mdp2.equals(mdp) && !mdp2.equals("") && !mdp2.equals("")) {
-						u = new Utilisateur();
-						u.setNom(nom);
-						u.setPrenom(prenom);
-						u.setUsername(username);
-						u.setPassword(mdp);
-
-						daoUtilisateur2.save(u);
-						System.out.println("Vous etes désormais inscrit!");
-						h = 3;
-
-					}
-
-				}
-
-			}
-		}
-
-		if (u == null) {
-
-			System.out.println("Nombre de tentatives maxi atteint...");
-			System.out.println();
-
-		}
+//		DAOUtilisateurSQL daoUtilisateur2 = new DAOUtilisateurSQL();
+//		Utilisateur u = null;
+//		int verifUsername = -1;
+//
+//		System.out.println("---------------------------------");
+//		System.out.println("INSCRIPTION AU SERVEUR DE JEU");
+//		System.out.println();
+//		System.out.println("Entrez votre nom:");
+//		System.out.println();
+//		String nom = lireChaine();
+//		System.out.println("Entrez votre prénom:");
+//		System.out.println();
+//		String prenom = lireChaine();
+//
+//		for (int i = 0; i < 3; i++) {
+//
+//			System.out.println("Entrez un Login:");
+//			System.out.println();
+//			String username = lireChaine();
+//
+//			verifUsername = daoUtilisateur2.inscription(username);
+//
+//			for (int h = 0; h < 3; h++) {
+//				if (verifUsername == 0 && !username.equals("")) {
+//					i = 3;
+//					System.out.println("Entrez un mot de passe:");
+//					System.out.println();
+//					String mdp = lireChaine();
+//					System.out.println("Entrez de nouveau votre mot de passe:");
+//					System.out.println();
+//					String mdp2 = lireChaine();
+//
+//					if (mdp2.equals(mdp) && !mdp2.equals("") && !mdp2.equals("")) {
+//						u = new Utilisateur();
+//						u.setNom(nom);
+//						u.setPrenom(prenom);
+//						u.setUsername(username);
+//						u.setPassword(mdp);
+//
+//						daoUtilisateur2.save(u);
+//						System.out.println("Vous etes désormais inscrit!");
+//						h = 3;
+//
+//					}
+//
+//				}
+//
+//			}
+//		}
+//
+//		if (u == null) {
+//
+//			System.out.println("Nombre de tentatives maxi atteint...");
+//			System.out.println();
+//
+//		}
 
 ///////////////////////    CREATION D'UNE PARTIE
 
