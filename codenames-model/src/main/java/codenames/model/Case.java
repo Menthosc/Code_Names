@@ -52,12 +52,20 @@ public class Case {
 		this.carte = carte;
 	}
 	
-	public static Case CreerCase(Carte c, Couleur couleur, ArrayList<Case> mesCases) {
-		Case cs = new Case() ;
-		cs.setCarte(c);
-		cs.setCouleur(couleur);
-		mesCases.add(cs);
-		return cs ;	
-	}
+	
+	
+//	public static Case CreerCase(Carte c, Couleur couleur, ArrayList<Case> mesCases) {
+//		Case cs = new Case() ;
+//		cs.setCarte(c);
+//		cs.setCouleur(couleur);
+//		mesCases.add(cs);
+//		return cs ;	
+//	}
+//	
+	
+	
+	
+	
+	
 	
 }

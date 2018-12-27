@@ -85,7 +85,7 @@ public class PrincipaleCodeNames {
 //					System.out.println();	
 //				}
 
-		// Création de cartes et suppression
+		// Crï¿½ation de cartes et suppression
 //				DAOCarteJPA daoCartes = new DAOCarteJPA(emf);
 //				Carte carte = new Carte() ;
 //				carte.setLibelle("funiculaire");
@@ -104,7 +104,7 @@ public class PrincipaleCodeNames {
 //		System.out.println("Entrez votre nom:");
 //		System.out.println();
 //		String nom = lireChaine();
-//		System.out.println("Entrez votre prénom:");
+//		System.out.println("Entrez votre prï¿½nom:");
 //		System.out.println();
 //		String prenom = lireChaine();
 //
@@ -134,7 +134,7 @@ public class PrincipaleCodeNames {
 //						u.setPassword(mdp);
 //
 //						daoUtilisateur2.save(u);
-//						System.out.println("Vous etes désormais inscrit!");
+//						System.out.println("Vous etes dï¿½sormais inscrit!");
 //						h = 3;
 //
 //					}
@@ -194,15 +194,15 @@ public class PrincipaleCodeNames {
 //			
 //			if (i == 3) {
 //				System.out.println();
-//				System.out.println("Nombre de tentatives dépassé !");
+//				System.out.println("Nombre de tentatives dï¿½passï¿½ !");
 //			}
 //			
 //		}
 		
 		
-		// Création de 25 cases
+		// Crï¿½ation de 25 cases
 		
-			//Récupération de 25 cartes qui ne peuvent pas être vides
+			//Rï¿½cupï¿½ration de 25 cartes qui ne peuvent pas ï¿½tre vides
 		DAOCarteJPA daoCartes = new DAOCarteJPA(emf);
 		List<Carte> mesCartes = daoCartes.findAll();
 		for (Carte c : mesCartes) {
@@ -217,16 +217,16 @@ public class PrincipaleCodeNames {
 		DAOCaseJPA daoCases = new DAOCaseJPA(emf);
 		List<Case> mesCases = new ArrayList<Case>();
 		
-			//Définition du niveau de difficulté
+			//Dï¿½finition du niveau de difficultï¿½
 		System.out.println();
-		System.out.println("Entrez le niveau de difficulté");
+		System.out.println("Entrez le niveau de difficultï¿½");
 		System.out.println("Entrez 1 pour FACILE");
 		System.out.println("Entrez 2 pour MOYEN");
 		System.out.println("Entrez 3 pour DIFFICILE");
 		System.out.println();
 		int diff = lireEntier();
 
-			// Création des cases avec couleur et carte
+			// Crï¿½ation des cases avec couleur et carte
 		for (int i = 0 ; i < 9; i++) {
 			Couleur couleur = Couleur.ROUGE ;
 			Case newCase = new Case() ;
@@ -263,7 +263,7 @@ public class PrincipaleCodeNames {
 			mesCases.add(newCase);
 		}
 		
-			// Mélanger et retourner les cartes
+			// Mï¿½langer et retourner les cartes
 		java.util.Collections.shuffle(mesCases);
 		
 		Grille nouvelleGrille = new Grille() ;
@@ -303,19 +303,19 @@ public class PrincipaleCodeNames {
 //		public static ArrayList<Carte> mesCartes = new ArrayList<Carte>();
 //		public static ArrayList<Case> mesCases = new ArrayList<Case>();
 
-//		// Création de 10 cartes	
+//		// Crï¿½ation de 10 cartes	
 //		Carte table = Carte.creerCarte(0, "table", mesCartes);
 //		Carte conseil = Carte.creerCarte(1, "conseil", mesCartes);
 //		Carte grange = Carte.creerCarte(2, "grange", mesCartes);
-//		Carte cuillère = Carte.creerCarte(3, "cuillère", mesCartes);
+//		Carte cuillï¿½re = Carte.creerCarte(3, "cuillï¿½re", mesCartes);
 //		Carte fil = Carte.creerCarte(4, "fil", mesCartes);
 //		Carte aveugle = Carte.creerCarte(5, "aveugle", mesCartes);
 //		Carte payer = Carte.creerCarte(6, "payer", mesCartes);
-//		Carte rouillé = Carte.creerCarte(7, "rouillé", mesCartes);
+//		Carte rouillï¿½ = Carte.creerCarte(7, "rouillï¿½", mesCartes);
 //		Carte score = Carte.creerCarte(8, "score", mesCartes);
 //		Carte ananas = Carte.creerCarte(9, "ananas", mesCartes);
 //		
-		// Création de 4 utilisateurs et association au profil "Joueur"
+		// Crï¿½ation de 4 utilisateurs et association au profil "Joueur"
 //		Utilisateur u1 = Utilisateur.creerUtilisateur(0, "durand", "pierre", "pierre00", "0123");
 //		Utilisateur u2 = Utilisateur.creerUtilisateur(1, "dupont", "marie", "marie00", "1234");
 //		Utilisateur u3 = Utilisateur.creerUtilisateur(2, "faure", "felix", "felix00", "2345");
@@ -349,7 +349,7 @@ public class PrincipaleCodeNames {
 //		for (Utilisateur u : Groupe) {
 //			for (int i = 0 ; i < 3; i++) {	
 //				if (login.equals(u.getUsername()) && mdp.equals(u.getPassword())) {
-//					ecrire("Vous êtes connecté");
+//					ecrire("Vous ï¿½tes connectï¿½");
 //					i = 3 ;
 //					j = 1 ;
 //					isconnected = true ;
@@ -368,9 +368,9 @@ public class PrincipaleCodeNames {
 //			System.out.println();
 //			ecrire ("1 - Voir les cartes");
 //			System.out.println();
-//			ecrire ("2 - Démarrer partie");
+//			ecrire ("2 - Dï¿½marrer partie");
 //			System.out.println();
-//			ecrire ("3 - Déconnexion") ;
+//			ecrire ("3 - Dï¿½connexion") ;
 //			System.out.println();
 //		
 //			int a = lireEntier() ;{
@@ -390,7 +390,7 @@ public class PrincipaleCodeNames {
 //		}
 //		if (isconnected == false) {
 //			System.out.println();
-//			ecrire ("Vous êtes déconnecté");
+//			ecrire ("Vous ï¿½tes dï¿½connectï¿½");
 //		}
 //		
 //		
@@ -398,7 +398,7 @@ public class PrincipaleCodeNames {
 //		
 //		
 //		
-//			// Création partie
+//			// Crï¿½ation partie
 //		java.util.Collections.shuffle(mesCartes);
 //		
 //		for (int i =  0 ; i < 25 ; i ++) {
@@ -524,7 +524,7 @@ public class PrincipaleCodeNames {
 //			
 //			if (i == 3) {
 //				System.out.println();
-//				System.out.println("Nombre de tentatives dépassé !");
+//				System.out.println("Nombre de tentatives dï¿½passï¿½ !");
 //				
 //			}
 //			
@@ -539,21 +539,21 @@ public class PrincipaleCodeNames {
 //      IDAOCarte daoCartes2 = new DAOCarteSQL() ;
 //      List<Carte> listeCartes = daoCartes2.findAll();
 //      
-//      System.out.println("Entrez votre libellé de carte :");
+//      System.out.println("Entrez votre libellï¿½ de carte :");
 //      System.out.println();
 //      String libelle = lireChaine();
 //      System.out.println();
 //      
 //      int carteExistante = 0 ;
 //      
-//      for (Carte c : listeCartes) {  // Permet de vérifier si le libellé de carte est déjà présent
+//      for (Carte c : listeCartes) {  // Permet de vï¿½rifier si le libellï¿½ de carte est dï¿½jï¿½ prï¿½sent
 //          if (c.getLibelle().equals(libelle)) {
 //              carteExistante = 1 ;
 //          }
 //      }
 //      
 //      if (carteExistante == 1 ){
-//    	  System.out.println("Erreur! Ce libellé de carte existe déjà");
+//    	  System.out.println("Erreur! Ce libellï¿½ de carte existe dï¿½jï¿½");
 //          System.out.println();
 //      }
 //      else {
@@ -563,13 +563,13 @@ public class PrincipaleCodeNames {
 //      
 ////           SUPPRESSION DE CARTE
 //      
-//      System.out.println("Entrez l'ID de la carte à supprimer");
+//      System.out.println("Entrez l'ID de la carte ï¿½ supprimer");
 //          System.out.println();
 //          int id = lireEntier();
 //          System.out.println();
 //          DAOCarteSQL daoCartes3 = new DAOCarteSQL() ;
 //          daoCartes3.deleteById(id);
-//          System.out.println("La carte ID no:" + id + " a été supprimée...");
+//          System.out.println("La carte ID no:" + id + " a ï¿½tï¿½ supprimï¿½e...");
 
 ///////////////////////    INSCRIPTION
 
@@ -583,7 +583,7 @@ public class PrincipaleCodeNames {
 //		System.out.println("Entrez votre nom:");
 //		System.out.println();
 //		String nom = lireChaine();
-//		System.out.println("Entrez votre prénom:");
+//		System.out.println("Entrez votre prï¿½nom:");
 //		System.out.println();
 //		String prenom = lireChaine();
 //
@@ -613,7 +613,7 @@ public class PrincipaleCodeNames {
 //						u.setPassword(mdp);
 //
 //						daoUtilisateur2.save(u);
-//						System.out.println("Vous etes désormais inscrit!");
+//						System.out.println("Vous etes dï¿½sormais inscrit!");
 //						h = 3;
 //
 //					}
@@ -637,7 +637,7 @@ public class PrincipaleCodeNames {
 //		Joueur capitaine = new Joueur();
 //		Grille grilledeJeu = new Grille();
 //
-//		ecrire("Entrez le numéro de grille :");
+//		ecrire("Entrez le numï¿½ro de grille :");
 //		System.out.println();
 //		grilledeJeu.setId(lireEntier());
 //		System.out.println();
@@ -660,14 +660,14 @@ public class PrincipaleCodeNames {
 //
 //		if (isCapitaine == 0) {
 //			System.out.println();
-//			ecrire("Le joueur n'existe pas, veuillez réessayer");
+//			ecrire("Le joueur n'existe pas, veuillez rï¿½essayer");
 //			System.out.println();
 //		}
 //
 //		else {
 //			nouvellePartie.setGrille(grilledeJeu);
 //			daoNouvellePartie.save(nouvellePartie);
-//			ecrire("La nouvelle partie est créée");
+//			ecrire("La nouvelle partie est crï¿½ï¿½e");
 //			System.out.println();
 //		}
 

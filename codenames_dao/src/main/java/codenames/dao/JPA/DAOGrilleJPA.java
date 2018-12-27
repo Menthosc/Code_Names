@@ -6,11 +6,13 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
+import codenames.model.Case;
 import codenames.model.Grille;
 import codenames_dao.IDAOGrille;
 
 public class DAOGrilleJPA implements IDAOGrille{
 	EntityManager em ;
+
 		
 		public DAOGrilleJPA(EntityManagerFactory emf) {
 			em = emf.createEntityManager();
@@ -45,9 +47,23 @@ public class DAOGrilleJPA implements IDAOGrille{
 			tx.commit(); 
 		}
 	
+		
+		
 		public void deleteById(int id) {
 			Grille maGrille = new Grille();
 			maGrille.setId(id);
 			this.delete(maGrille);
 		}
+		
+		
+		
+		
+		
+	
+		
+		
+		
+		
+		
+		
 }
