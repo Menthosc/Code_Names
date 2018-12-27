@@ -203,6 +203,7 @@ public class PrincipaleCodeNames {
 		// Création de 25 cases
 		
 			//Récupération de 25 cartes qui ne peuvent pas être vides
+		
 		DAOCarteJPA daoCartes = new DAOCarteJPA(emf);
 		List<Carte> mesCartes = daoCartes.findAll();
 		for (Carte c : mesCartes) {
