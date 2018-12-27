@@ -20,10 +20,8 @@ import java.util.Scanner;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-
-
 public class PrincipaleCodeNames {
-	
+
 	static String lireChaine() {
 
 		Scanner myScanner = new Scanner(System.in);
@@ -55,16 +53,13 @@ public class PrincipaleCodeNames {
 		}
 	}
 
-	
-
-	
 	public static void main(String[] args) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Utilisation des DAO JPA
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("CodeNames");
-		
-		
+
 		// Afficher toutes les cartes
+
 //		DAOCarteJPA daoCarte = new DAOCarteJPA(emf);
 //		List<Carte> mesCartesJPA = new ArrayList<Carte>();
 //		mesCartesJPA = daoCarte.findAll();
@@ -74,8 +69,8 @@ public class PrincipaleCodeNames {
 //			System.out.println(c.getLibelle());
 //			System.out.println();	
 //		}
-		
-//		// Afficher tous les utilisateurs
+
+//	   // Afficher tous les utilisateurs
 //				DAOUtilisateurJPA daoUtilisateur = new DAOUtilisateurJPA(emf);
 //				List<Utilisateur> mesUtilisateursJPA = new ArrayList<Utilisateur>();
 //				mesUtilisateursJPA = daoUtilisateur.findAll();
@@ -87,24 +82,146 @@ public class PrincipaleCodeNames {
 //					System.out.println(u.getPrenom());
 //					System.out.println();	
 //				}
-		
-		//Création de cartes et suppression
+
+		// Création de cartes et suppression
 //				DAOCarteJPA daoCartes = new DAOCarteJPA(emf);
 //				Carte carte = new Carte() ;
 //				carte.setLibelle("gros");
 //				daoCartes.save(carte);
 //				daoCartes.deleteById(24);
+
+		// Inscription d'un utilisateur
+
+//		DAOUtilisateurJPA daoUtilisateur2 = new DAOUtilisateurJPA(emf);
+//		Utilisateur u = null;
+//		int verifUsername = -1;
+//
+//		System.out.println("---------------------------------");
+//		System.out.println("INSCRIPTION AU SERVEUR DE JEU");
+//		System.out.println();
+//		System.out.println("Entrez votre nom:");
+//		System.out.println();
+//		String nom = lireChaine();
+//		System.out.println("Entrez votre prénom:");
+//		System.out.println();
+//		String prenom = lireChaine();
+//
+//		for (int i = 0; i < 3; i++) {
+//
+//			System.out.println("Entrez un Login:");
+//			System.out.println();
+//			String username = lireChaine();
+//
+//			verifUsername = daoUtilisateur2.inscription(username);
+//
+//			for (int h = 0; h < 3; h++) {
+//				if (verifUsername == 0 && !username.equals("")) {
+//					i = 3;
+//					System.out.println("Entrez un mot de passe:");
+//					System.out.println();
+//					String mdp = lireChaine();
+//					System.out.println("Entrez de nouveau votre mot de passe:");
+//					System.out.println();
+//					String mdp2 = lireChaine();
+//
+//					if (mdp2.equals(mdp) && !mdp2.equals("") && !mdp2.equals("")) {
+//						u = new Utilisateur();
+//						u.setNom(nom);
+//						u.setPrenom(prenom);
+//						u.setUsername(username);
+//						u.setPassword(mdp);
+//
+//						daoUtilisateur2.save(u);
+//						System.out.println("Vous etes désormais inscrit!");
+//						h = 3;
+//
+//					}
+//
+//				}
+//
+//			}
+//		}
+//
+//		if (u == null) {
+//
+//			System.out.println("Nombre de tentatives maxi atteint...");
+//			System.out.println();
+//
+//		}
+//		
+		 // Suppression d'un utilisateur
+		
+//		daoUtilisateur2.deleteById(28);
+
+		
+		
+		
+		
+		
+		//Connexion d'un utilisateur 
+		
+		System.out.println("Connexion");
+		System.out.println();
+		
+		int i = 0;
+		boolean isConnected = false;
+
+		while (isConnected == false && i < 3) {
+			
+			System.out.println();
+			System.out.println("Entrez votre login");
+			System.out.println();
+			String login = lireChaine();
+			System.out.println();
+			System.out.println("Entrez votre mot de passe");
+			System.out.println();
+			String mdp = lireChaine();
+
+			DAOUtilisateurJPA daoUtilisateur2 = new DAOUtilisateurJPA(emf);
+
+			Utilisateur verifConnexion = daoUtilisateur2.connexion(login, mdp);
+			System.out.println();
+
+			if (verifConnexion != null) {
+				isConnected = true;
+			
+	
+			}
+			
+			i++;
+			
+			if (i == 3) {
+				System.out.println();
+				System.out.println("Nombre de tentatives dépassé !");
+				
+			}
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
 		
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		// Utilisation des DAO SQL
-		
+
 //		public static ArrayList<Carte> mesCartes = new ArrayList<Carte>();
 //		public static ArrayList<Case> mesCases = new ArrayList<Case>();
-		
-		
+
 //		// Création de 10 cartes	
 //		Carte table = Carte.creerCarte(0, "table", mesCartes);
 //		Carte conseil = Carte.creerCarte(1, "conseil", mesCartes);
