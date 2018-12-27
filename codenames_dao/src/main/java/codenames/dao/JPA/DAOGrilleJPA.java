@@ -39,7 +39,10 @@ public class DAOGrilleJPA implements IDAOGrille{
 		}
 		
 		public void delete(Grille g) {
+			EntityTransaction tx = em.getTransaction(); 
+			tx.begin();
 			em.remove(em.merge(g));
+			tx.commit(); 
 		}
 	
 		public void deleteById(int id) {

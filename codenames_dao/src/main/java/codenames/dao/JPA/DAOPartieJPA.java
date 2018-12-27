@@ -42,7 +42,10 @@ EntityManager em ;
 	
 	
 	public void delete(Partie p) {
+		EntityTransaction tx = em.getTransaction(); 
+		tx.begin();
 		em.remove(em.merge(p));
+		tx.commit(); 
 	}
 
 	public void deleteById(int id) {
