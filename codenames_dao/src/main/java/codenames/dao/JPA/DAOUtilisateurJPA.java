@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
-
+import codenames.model.Partie;
 import codenames.model.Utilisateur;
 import codenames_dao.IDAOUtilisateur;
 
@@ -39,11 +39,19 @@ EntityManager em ;
 		return u ;
 	}
 	
-	public void delete (Utilisateur u) {
-		
-	}
 	
-	public void deleteById (int id) {
-		
+	
+	
+	public void delete(Utilisateur u) {
+		em.remove(em.merge(u));
 	}
+
+	public void deleteById(int id) {
+		Utilisateur utilisateur = new Utilisateur();
+		utilisateur.setId(id);
+		this.delete(utilisateur);
+	}
+
+	
+	
 }

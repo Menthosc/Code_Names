@@ -38,11 +38,17 @@ public class DAOCarteJPA implements IDAOCarte{
 		return c ;
 	}
 	
-	public void delete (Carte c) {
-		
+	public void delete(Carte c) {
+		em.remove(em.merge(c));
+	}
+
+	public void deleteById(int id) {
+		Carte maCarte = new Carte();
+		maCarte.setId(id);
+		this.delete(maCarte);
 	}
 	
-	public void deleteById (int id) {
-		
-	}
+	
+	
+	
 }

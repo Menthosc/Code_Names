@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
+import codenames.model.Carte;
 import codenames.model.Partie;
 import codenames_dao.IDAOPartie;
 
@@ -38,11 +39,20 @@ EntityManager em ;
 		return p;
 	}
 	
-	public void delete (Partie p) {
-		
+	
+	
+	public void delete(Partie p) {
+		em.remove(em.merge(p));
+	}
+
+	public void deleteById(int id) {
+		Partie laPartie = new Partie();
+		laPartie.setId(id);
+		this.delete(laPartie);
 	}
 	
-	public void deleteById (int id) {
-		
-	}
+	
+	
+	
+	
 }
