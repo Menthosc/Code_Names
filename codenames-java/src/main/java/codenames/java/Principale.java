@@ -198,9 +198,9 @@ public class Principale {
 		// LISTER LES UTILISATEURS
 		// /////////////////////////////////////////////////////////////////////
 
-		IDAOUtilisateur daoUtilisateur = new DAOUtilisateurSQL();
-
-		List<Utilisateur> lesUtilisateurs = daoUtilisateur.findAll();
+//		IDAOUtilisateur daoUtilisateur = new DAOUtilisateurSQL();
+//
+//		List<Utilisateur> lesUtilisateurs = daoUtilisateur.findAll();
 //		
 //				for (Utilisateur u : lesUtilisateurs) {
 //		

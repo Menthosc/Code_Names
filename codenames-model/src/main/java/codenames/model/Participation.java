@@ -29,6 +29,12 @@ public class Participation {
 	@JoinColumn(name="PTCP_PARTIES_ID")
 	private Partie partie ;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public Joueur getJoueur() {
 		return joueur;
 	}

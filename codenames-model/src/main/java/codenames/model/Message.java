@@ -25,6 +25,22 @@ public class Message {
 		return id;
 	}
 
+	public Partie getLaPartie() {
+		return laPartie;
+	}
+
+	public void setLaPartie(Partie laPartie) {
+		this.laPartie = laPartie;
+	}
+
+	public Partie getLeJoueur() {
+		return leJoueur;
+	}
+
+	public void setLeJoueur(Partie leJoueur) {
+		this.leJoueur = leJoueur;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}

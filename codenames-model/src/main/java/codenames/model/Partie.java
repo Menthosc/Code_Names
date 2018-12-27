@@ -39,14 +39,14 @@ public class Partie {
 	
 	@OneToMany(mappedBy="laPartie")
 	private ArrayList<Message> Messages = new ArrayList<Message>();
+
 	
-	
-	
-	@OneToMany(mappedBy="laPartie")
-	private ArrayList<Joueur> lesJoueurs= new ArrayList<Joueur>();
-	
-	
-	
+	public List<Participation> getLesParticipations() {
+		return lesParticipations;
+	}
+	public void setLesParticipations(List<Participation> lesParticipations) {
+		this.lesParticipations = lesParticipations;
+	}
 	public int getId() {
 		return id;
 	}

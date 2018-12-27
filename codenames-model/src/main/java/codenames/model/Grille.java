@@ -17,6 +17,12 @@ public class Grille {
 	@OneToMany(mappedBy="grilles")
 	private List<Case> casesGrille;
 	
+	public Grille getLaGrille() {
+		return laGrille;
+	}
+	public void setLaGrille(Grille laGrille) {
+		this.laGrille = laGrille;
+	}
 	@Column(name="GRI_DIFFICULTE")
 	private Difficulte difficulte;
 	

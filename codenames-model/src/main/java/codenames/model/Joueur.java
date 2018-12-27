@@ -44,14 +44,9 @@ public class Joueur extends Utilisateur {
 		this.banni = banni;
 	}
 	
-	
-	
 	@OneToMany(mappedBy="leJoueur")
 	private List<Message> Messages;
 	
-	@ManyToOne
-	@JoinColumn(name="JOU_PARTIES_ID")
-	private Partie laPartie;
 	
 	@OneToMany(mappedBy="leJoueur")
 	private List<Joueur> lesJoueurs;
@@ -59,6 +54,32 @@ public class Joueur extends Utilisateur {
 	
 	@OneToMany(mappedBy="capitaine")
 	private List<Partie> lesParties;
+
+
+	public List<Participation> getParticipations() {
+		return participations;
+	}
+	public void setParticipations(List<Participation> participations) {
+		this.participations = participations;
+	}
+	public List<Message> getMessages() {
+		return Messages;
+	}
+	public void setMessages(List<Message> messages) {
+		Messages = messages;
+	}
+	public List<Joueur> getLesJoueurs() {
+		return lesJoueurs;
+	}
+	public void setLesJoueurs(List<Joueur> lesJoueurs) {
+		this.lesJoueurs = lesJoueurs;
+	}
+	public List<Partie> getLesParties() {
+		return lesParties;
+	}
+	public void setLesParties(List<Partie> lesParties) {
+		this.lesParties = lesParties;
+	}
 	
 	
 	
