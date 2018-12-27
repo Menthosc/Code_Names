@@ -11,37 +11,34 @@ import codenames.model.Utilisateur;
 import codenames_dao.IDAOUtilisateur;
 
 public class DAOUtilisateurJPA implements IDAOUtilisateur {
-EntityManager em ;
-	
+	EntityManager em;
+
 	public DAOUtilisateurJPA(EntityManagerFactory emf) {
 		em = emf.createEntityManager();
 	}
-	
+
 	public List<Utilisateur> findAll() {
-		List<Utilisateur> mesUtilisateurs = em.createQuery("select u from Utilisateur u", Utilisateur.class).getResultList();
+		List<Utilisateur> mesUtilisateurs = em.createQuery("select u from Utilisateur u", Utilisateur.class)
+				.getResultList();
 		return mesUtilisateurs;
 	}
-	
+
 	public Utilisateur findById(int id) {
 		return em.find(Utilisateur.class, id);
 	}
-	
+
 	public Utilisateur save(Utilisateur u) {
-		EntityTransaction tx = em.getTransaction(); 
+		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		if (u.getId() == 0) {
 			em.persist(u);
-		}
-		else {
+		} else {
 			return em.merge(u);
 		}
-		tx.commit(); 
-		return u ;
+		tx.commit();
+		return u;
 	}
-	
-	
-	
-	
+
 	public void delete(Utilisateur u) {
 		em.remove(em.merge(u));
 	}
@@ -52,6 +49,4 @@ EntityManager em ;
 		this.delete(utilisateur);
 	}
 
-	
-	
 }
