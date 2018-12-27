@@ -85,7 +85,7 @@ public class PrincipaleCodeNames {
 //					System.out.println();	
 //				}
 
-		// Cr�ation de cartes et suppression
+		// Creation de cartes et suppression
 //				DAOCarteJPA daoCartes = new DAOCarteJPA(emf);
 //				Carte carte = new Carte() ;
 //				carte.setLibelle("funiculaire");
@@ -104,7 +104,7 @@ public class PrincipaleCodeNames {
 //		System.out.println("Entrez votre nom:");
 //		System.out.println();
 //		String nom = lireChaine();
-//		System.out.println("Entrez votre pr�nom:");
+//		System.out.println("Entrez votre prenom:");
 //		System.out.println();
 //		String prenom = lireChaine();
 //
@@ -134,7 +134,7 @@ public class PrincipaleCodeNames {
 //						u.setPassword(mdp);
 //
 //						daoUtilisateur2.save(u);
-//						System.out.println("Vous etes d�sormais inscrit!");
+//						System.out.println("Vous etes desormais inscrit!");
 //						h = 3;
 //
 //					}
@@ -194,15 +194,16 @@ public class PrincipaleCodeNames {
 //			
 //			if (i == 3) {
 //				System.out.println();
-//				System.out.println("Nombre de tentatives d�pass� !");
+//				System.out.println("Nombre de tentatives depasse !");
 //			}
 //			
 //		}
 		
 		
-		// Cr�ation de 25 cases
+		// Creation de 25 cases
 		
 			//R�cup�ration de 25 cartes qui ne peuvent pas �tre vides
+		
 		DAOCarteJPA daoCartes = new DAOCarteJPA(emf);
 		List<Carte> mesCartes = daoCartes.findAll();
 		for (Carte c : mesCartes) {
@@ -217,16 +218,16 @@ public class PrincipaleCodeNames {
 		DAOCaseJPA daoCases = new DAOCaseJPA(emf);
 		List<Case> mesCases = new ArrayList<Case>();
 		
-			//D�finition du niveau de difficult�
+			//Definition du niveau de difficulte
 		System.out.println();
-		System.out.println("Entrez le niveau de difficult�");
+		System.out.println("Entrez le niveau de difficulte");
 		System.out.println("Entrez 1 pour FACILE");
 		System.out.println("Entrez 2 pour MOYEN");
 		System.out.println("Entrez 3 pour DIFFICILE");
 		System.out.println();
 		int diff = lireEntier();
 
-			// Cr�ation des cases avec couleur et carte
+			// Creation des cases avec couleur et carte
 		for (int i = 0 ; i < 9; i++) {
 			Couleur couleur = Couleur.ROUGE ;
 			Case newCase = new Case() ;
@@ -263,7 +264,7 @@ public class PrincipaleCodeNames {
 			mesCases.add(newCase);
 		}
 		
-			// M�langer et retourner les cartes
+			// Melanger et retourner les cartes
 		java.util.Collections.shuffle(mesCases);
 		
 		Grille nouvelleGrille = new Grille() ;
@@ -303,19 +304,19 @@ public class PrincipaleCodeNames {
 //		public static ArrayList<Carte> mesCartes = new ArrayList<Carte>();
 //		public static ArrayList<Case> mesCases = new ArrayList<Case>();
 
-//		// Cr�ation de 10 cartes	
+//		// Creation de 10 cartes	
 //		Carte table = Carte.creerCarte(0, "table", mesCartes);
 //		Carte conseil = Carte.creerCarte(1, "conseil", mesCartes);
 //		Carte grange = Carte.creerCarte(2, "grange", mesCartes);
-//		Carte cuill�re = Carte.creerCarte(3, "cuill�re", mesCartes);
+//		Carte cuillere = Carte.creerCarte(3, "cuillere", mesCartes);
 //		Carte fil = Carte.creerCarte(4, "fil", mesCartes);
 //		Carte aveugle = Carte.creerCarte(5, "aveugle", mesCartes);
 //		Carte payer = Carte.creerCarte(6, "payer", mesCartes);
-//		Carte rouill� = Carte.creerCarte(7, "rouill�", mesCartes);
+//		Carte rouille = Carte.creerCarte(7, "rouille", mesCartes);
 //		Carte score = Carte.creerCarte(8, "score", mesCartes);
 //		Carte ananas = Carte.creerCarte(9, "ananas", mesCartes);
 //		
-		// Cr�ation de 4 utilisateurs et association au profil "Joueur"
+		// Creation de 4 utilisateurs et association au profil "Joueur"
 //		Utilisateur u1 = Utilisateur.creerUtilisateur(0, "durand", "pierre", "pierre00", "0123");
 //		Utilisateur u2 = Utilisateur.creerUtilisateur(1, "dupont", "marie", "marie00", "1234");
 //		Utilisateur u3 = Utilisateur.creerUtilisateur(2, "faure", "felix", "felix00", "2345");
@@ -349,7 +350,7 @@ public class PrincipaleCodeNames {
 //		for (Utilisateur u : Groupe) {
 //			for (int i = 0 ; i < 3; i++) {	
 //				if (login.equals(u.getUsername()) && mdp.equals(u.getPassword())) {
-//					ecrire("Vous �tes connect�");
+//					ecrire("Vous etes connecte");
 //					i = 3 ;
 //					j = 1 ;
 //					isconnected = true ;
@@ -368,9 +369,9 @@ public class PrincipaleCodeNames {
 //			System.out.println();
 //			ecrire ("1 - Voir les cartes");
 //			System.out.println();
-//			ecrire ("2 - D�marrer partie");
+//			ecrire ("2 - Demarrer partie");
 //			System.out.println();
-//			ecrire ("3 - D�connexion") ;
+//			ecrire ("3 - Deconnexion") ;
 //			System.out.println();
 //		
 //			int a = lireEntier() ;{
@@ -390,7 +391,7 @@ public class PrincipaleCodeNames {
 //		}
 //		if (isconnected == false) {
 //			System.out.println();
-//			ecrire ("Vous �tes d�connect�");
+//			ecrire ("Vous etes deconnecte");
 //		}
 //		
 //		
@@ -398,7 +399,7 @@ public class PrincipaleCodeNames {
 //		
 //		
 //		
-//			// Cr�ation partie
+//			// Creation partie
 //		java.util.Collections.shuffle(mesCartes);
 //		
 //		for (int i =  0 ; i < 25 ; i ++) {
@@ -524,7 +525,7 @@ public class PrincipaleCodeNames {
 //			
 //			if (i == 3) {
 //				System.out.println();
-//				System.out.println("Nombre de tentatives d�pass� !");
+//				System.out.println("Nombre de tentatives depasse !");
 //				
 //			}
 //			
@@ -539,21 +540,21 @@ public class PrincipaleCodeNames {
 //      IDAOCarte daoCartes2 = new DAOCarteSQL() ;
 //      List<Carte> listeCartes = daoCartes2.findAll();
 //      
-//      System.out.println("Entrez votre libell� de carte :");
+//      System.out.println("Entrez votre libelle de carte :");
 //      System.out.println();
 //      String libelle = lireChaine();
 //      System.out.println();
 //      
 //      int carteExistante = 0 ;
 //      
-//      for (Carte c : listeCartes) {  // Permet de v�rifier si le libell� de carte est d�j� pr�sent
+//      for (Carte c : listeCartes) {  // Permet de verifier si le libelle de carte est dej� present
 //          if (c.getLibelle().equals(libelle)) {
 //              carteExistante = 1 ;
 //          }
 //      }
 //      
 //      if (carteExistante == 1 ){
-//    	  System.out.println("Erreur! Ce libell� de carte existe d�j�");
+//    	  System.out.println("Erreur! Ce libelle de carte existe dej�");
 //          System.out.println();
 //      }
 //      else {
@@ -569,7 +570,7 @@ public class PrincipaleCodeNames {
 //          System.out.println();
 //          DAOCarteSQL daoCartes3 = new DAOCarteSQL() ;
 //          daoCartes3.deleteById(id);
-//          System.out.println("La carte ID no:" + id + " a �t� supprim�e...");
+//          System.out.println("La carte ID no:" + id + " a ete supprimee...");
 
 ///////////////////////    INSCRIPTION
 
@@ -583,7 +584,7 @@ public class PrincipaleCodeNames {
 //		System.out.println("Entrez votre nom:");
 //		System.out.println();
 //		String nom = lireChaine();
-//		System.out.println("Entrez votre pr�nom:");
+//		System.out.println("Entrez votre prenom:");
 //		System.out.println();
 //		String prenom = lireChaine();
 //
@@ -613,7 +614,7 @@ public class PrincipaleCodeNames {
 //						u.setPassword(mdp);
 //
 //						daoUtilisateur2.save(u);
-//						System.out.println("Vous etes d�sormais inscrit!");
+//						System.out.println("Vous etes desormais inscrit!");
 //						h = 3;
 //
 //					}
@@ -637,7 +638,7 @@ public class PrincipaleCodeNames {
 //		Joueur capitaine = new Joueur();
 //		Grille grilledeJeu = new Grille();
 //
-//		ecrire("Entrez le num�ro de grille :");
+//		ecrire("Entrez le numero de grille :");
 //		System.out.println();
 //		grilledeJeu.setId(lireEntier());
 //		System.out.println();
@@ -660,17 +661,20 @@ public class PrincipaleCodeNames {
 //
 //		if (isCapitaine == 0) {
 //			System.out.println();
-//			ecrire("Le joueur n'existe pas, veuillez r�essayer");
+//			ecrire("Le joueur n'existe pas, veuillez reessayer");
 //			System.out.println();
 //		}
 //
 //		else {
 //			nouvellePartie.setGrille(grilledeJeu);
 //			daoNouvellePartie.save(nouvellePartie);
-//			ecrire("La nouvelle partie est cr��e");
+//			ecrire("La nouvelle partie est creee");
 //			System.out.println();
 //		}
 
 	}
 
 }
+
+			//Recuperation de 25 cartes qui ne peuvent pas etre vides
+		
