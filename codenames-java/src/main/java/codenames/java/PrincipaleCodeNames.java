@@ -1,6 +1,7 @@
 package codenames.java;
 
 import codenames.dao.JPA.DAOCarteJPA;
+import codenames.dao.JPA.DAOUtilisateurJPA;
 import codenames.dao.SQL.DAOUtilisateurSQL;
 import codenames.model.Carte;
 import codenames.model.Case;
@@ -64,17 +65,28 @@ public class PrincipaleCodeNames {
 		
 		
 		// Afficher toutes les cartes
-		DAOCarteJPA daoCarte = new DAOCarteJPA(emf);
-		List<Carte> mesCartesJPA = new ArrayList<Carte>();
-		mesCartesJPA = daoCarte.findAll();
-		for (Carte c : mesCartesJPA) {
-			System.out.println(c.getId());
-			System.out.println();
-			System.out.println(c.getLibelle());
-			System.out.println();	
-		}
+//		DAOCarteJPA daoCarte = new DAOCarteJPA(emf);
+//		List<Carte> mesCartesJPA = new ArrayList<Carte>();
+//		mesCartesJPA = daoCarte.findAll();
+//		for (Carte c : mesCartesJPA) {
+//			System.out.println(c.getId());
+//			System.out.println();
+//			System.out.println(c.getLibelle());
+//			System.out.println();	
+//		}
 		
-		
+		// Afficher tous les utilisateurs
+				DAOUtilisateurJPA daoUtilisateur = new DAOUtilisateurJPA(emf);
+				List<Utilisateur> mesUtilisateursJPA = new ArrayList<Utilisateur>();
+				mesUtilisateursJPA = daoUtilisateur.findAll();
+				for (Utilisateur u : mesUtilisateursJPA) {
+					System.out.println(u.getId());
+					System.out.println();
+					System.out.println(u.getNom());
+					System.out.println();	
+					System.out.println(u.getPrenom());
+					System.out.println();	
+				}
 		
 		
 		
