@@ -31,6 +31,15 @@ public class Joueur extends Utilisateur {
 	private List<Participation> participations ;
 	
 	
+	@OneToMany(mappedBy="leJoueur")
+	private List<Message> Messages;
+	
+	
+	@OneToMany(mappedBy="capitaine")
+	private List<Partie> lesParties;
+	
+	
+	
 	public String getPseudo() {
 		return pseudo;
 	}
@@ -44,16 +53,7 @@ public class Joueur extends Utilisateur {
 		this.banni = banni;
 	}
 	
-	@OneToMany(mappedBy="leJoueur")
-	private List<Message> Messages;
-	
-	
-	@OneToMany(mappedBy="leJoueur")
-	private List<Joueur> lesJoueurs;
-	
-	
-	@OneToMany(mappedBy="capitaine")
-	private List<Partie> lesParties;
+
 
 
 	public List<Participation> getParticipations() {
@@ -68,12 +68,7 @@ public class Joueur extends Utilisateur {
 	public void setMessages(List<Message> messages) {
 		Messages = messages;
 	}
-	public List<Joueur> getLesJoueurs() {
-		return lesJoueurs;
-	}
-	public void setLesJoueurs(List<Joueur> lesJoueurs) {
-		this.lesJoueurs = lesJoueurs;
-	}
+
 	public List<Partie> getLesParties() {
 		return lesParties;
 	}

@@ -23,14 +23,15 @@ public class Case {
 	
 	@ManyToOne
 	@JoinColumn(name="CAS_GRILLES_ID")
-	private List<Grille> grilles;
+	private Grille grilleCase;
 	
 	
-	public List<Grille> getGrilles() {
-		return grilles;
+
+	public Grille getGrilleCase() {
+		return grilleCase;
 	}
-	public void setGrilles(List<Grille> grilles) {
-		this.grilles = grilles;
+	public void setGrilleCase(Grille grilleCase) {
+		this.grilleCase = grilleCase;
 	}
 	public int getId() {
 		return id;

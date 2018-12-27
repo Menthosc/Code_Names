@@ -26,6 +26,8 @@ public class Carte {
 	@OneToMany(mappedBy="carte")
 	private List<Case> casesCarte ;
 	
+	
+	
 	public List<Case> getCasesCarte() {
 		return casesCarte;
 	}
@@ -47,15 +49,15 @@ public class Carte {
 	
 	
 	
-	public static Carte creerCarte(int id, String libelle, ArrayList<Carte> mesCartes) {
-		
-				Carte c = new Carte() ;
-				c.setId(id) ;
-				c.setLibelle(libelle) ;
-				mesCartes.add(c);
-				return c ;
-
-	}
+//	public static Carte creerCarte(int id, String libelle, ArrayList<Carte> mesCartes) {
+//		
+//				Carte c = new Carte() ;
+//				c.setId(id) ;
+//				c.setLibelle(libelle) ;
+//				mesCartes.add(c);
+//				return c ;
+//
+//	}
 
 	
 	

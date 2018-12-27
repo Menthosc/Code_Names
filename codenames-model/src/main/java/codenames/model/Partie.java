@@ -35,11 +35,12 @@ public class Partie {
 	@OneToMany(mappedBy="partie")
 	private List<Participation> lesParticipations;
 
-	
-	
-	@OneToMany(mappedBy="laPartie")
-	private ArrayList<Message> Messages = new ArrayList<Message>();
 
+	@OneToMany(mappedBy="laPartie")
+	private List<Message> Messages ;
+
+	
+	
 	
 	public List<Participation> getLesParticipations() {
 		return lesParticipations;
@@ -65,10 +66,10 @@ public class Partie {
 	public void setCapitaine(Joueur capitaine) {
 		this.capitaine = capitaine;
 	}
-	public ArrayList<Message> getMessages() {
+	public List<Message> getMessages() {
 		return Messages;
 	}
-	public void setMessages(ArrayList<Message> messages) {
+	public void setMessages(List<Message> messages) {
 		Messages = messages;
 	}
 	

@@ -14,25 +14,26 @@ public class Grille {
 	@Column(name="GRI_ID")
 	private int id;
 	
-	@OneToMany(mappedBy="grilles")
+	@OneToMany(mappedBy="grilleCase")
 	private List<Case> casesGrille;
 	
-	public Grille getLaGrille() {
-		return laGrille;
-	}
-	public void setLaGrille(Grille laGrille) {
-		this.laGrille = laGrille;
-	}
 	@Column(name="GRI_DIFFICULTE")
 	private Difficulte difficulte;
 	
 	
 	@OneToMany(mappedBy="grille")
-	private Grille laGrille;
+	private List<Partie> lesParties;
 	
 	
 	
 	
+
+	public List<Partie> getLesParties() {
+		return lesParties;
+	}
+	public void setLesParties(List<Partie> lesParties) {
+		this.lesParties = lesParties;
+	}
 	public int getId() {
 		return id;
 	}
