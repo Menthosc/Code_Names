@@ -202,7 +202,7 @@ public class PrincipaleCodeNames {
 		
 		// Creation de 25 cases
 		
-			//Recuperation de 25 cartes qui ne peuvent pas être vides
+			//Recuperation de 25 cartes qui ne peuvent pas etre vides
 		
 		DAOCarteJPA daoCartes = new DAOCarteJPA(emf);
 		List<Carte> mesCartes = daoCartes.findAll();
@@ -309,7 +309,7 @@ public class PrincipaleCodeNames {
 //		Carte table = Carte.creerCarte(0, "table", mesCartes);
 //		Carte conseil = Carte.creerCarte(1, "conseil", mesCartes);
 //		Carte grange = Carte.creerCarte(2, "grange", mesCartes);
-//		Carte cuillère = Carte.creerCarte(3, "cuillère", mesCartes);
+//		Carte cuillere = Carte.creerCarte(3, "cuillere", mesCartes);
 //		Carte fil = Carte.creerCarte(4, "fil", mesCartes);
 //		Carte aveugle = Carte.creerCarte(5, "aveugle", mesCartes);
 //		Carte payer = Carte.creerCarte(6, "payer", mesCartes);
@@ -351,7 +351,7 @@ public class PrincipaleCodeNames {
 //		for (Utilisateur u : Groupe) {
 //			for (int i = 0 ; i < 3; i++) {	
 //				if (login.equals(u.getUsername()) && mdp.equals(u.getPassword())) {
-//					ecrire("Vous êtes connecte");
+//					ecrire("Vous etes connecte");
 //					i = 3 ;
 //					j = 1 ;
 //					isconnected = true ;
@@ -392,7 +392,7 @@ public class PrincipaleCodeNames {
 //		}
 //		if (isconnected == false) {
 //			System.out.println();
-//			ecrire ("Vous êtes deconnecte");
+//			ecrire ("Vous etes deconnecte");
 //		}
 //		
 //		
