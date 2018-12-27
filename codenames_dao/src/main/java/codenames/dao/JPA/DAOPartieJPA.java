@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
-import codenames.model.Carte;
+
 import codenames.model.Partie;
 import codenames_dao.IDAOPartie;
 
