@@ -101,7 +101,7 @@ public class PrincipaleCodeNames {
 
 		DAOUtilisateurJPA daoUtilisateur2 = new DAOUtilisateurJPA(emf);
 		DAOJoueurJPA daoJoueur = new DAOJoueurJPA(emf);
-		Utilisateur u = null;
+		Joueur u = null;
 		int verifUsername = -1;
 
 		System.out.println("---------------------------------");
@@ -133,17 +133,14 @@ public class PrincipaleCodeNames {
 					String mdp2 = lireChaine();
 
 					if (mdp2.equals(mdp) && !mdp2.equals("") && !mdp2.equals("")) {
-						u = new Utilisateur();
+						u = new Joueur();
 						u.setNom(nom);
 						u.setPrenom(prenom);
 						u.setUsername(username);
 						u.setPassword(mdp);
-
-						daoUtilisateur2.save(u);
-						Joueur j = new Joueur() ;
-						j.setPseudo(u.getUsername());
-						j.setBanni(false);
-						daoJoueur.save(j);
+						u.setPseudo(u.getUsername());
+						u.setBanni(false);
+						daoJoueur.save(u);
 						
 						System.out.println("Vous etes desormais inscrit!");
 						h = 3;
