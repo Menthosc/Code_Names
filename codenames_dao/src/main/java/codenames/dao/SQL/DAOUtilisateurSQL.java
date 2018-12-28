@@ -148,36 +148,15 @@ public class DAOUtilisateurSQL extends DAOSQL implements IDAOUtilisateur {
 			myStatement2.setBoolean(3, false);
 			myStatement2.execute();
 
-			
-			
-			
-			
-			
-			
-			
 			if (u instanceof Administrateur) {
 
 				myQuery = "INSERT INTO  administrateurs ADM_ID values (" + id + ")";
 				PreparedStatement myStatement3 = this.connection.prepareStatement(myQuery);
 				myStatement3.setInt(1, user2.getId());
 			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-
+		
 		}
 		
-
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
