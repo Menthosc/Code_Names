@@ -82,6 +82,7 @@ public class DAOUtilisateurJPA implements IDAOUtilisateur {
 		for (Utilisateur u : mesUtilisateurs2) {
 
 			if (login.equals(u.getUsername()) && mdp.equals(u.getPassword())) {
+				System.out.println("--------------");
 				System.out.print("Vous êtes connecté");
 				j = 1;
 				user = u;
@@ -89,6 +90,7 @@ public class DAOUtilisateurJPA implements IDAOUtilisateur {
 		}
 
 		if (j == 0) {
+			System.out.println("--------------");
 			System.out.print("Identifiant ou mot de passe incorrect");
 		}
 
