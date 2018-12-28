@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 
+import codenames.model.Joueur;
 import codenames.model.Partie;
 import codenames.model.Utilisateur;
 import codenames_dao.IDAOUtilisateur;
@@ -32,6 +33,7 @@ public class DAOUtilisateurJPA implements IDAOUtilisateur {
 		tx.begin();
 		if (u.getId() == 0) {
 			em.persist(u);
+
 		} else {
 			return em.merge(u);
 		}

@@ -2,6 +2,7 @@ package codenames.java;
 
 import codenames.dao.JPA.DAOCarteJPA;
 import codenames.dao.JPA.DAOCaseJPA;
+import codenames.dao.JPA.DAOJoueurJPA;
 import codenames.dao.JPA.DAOParticipationJPA;
 import codenames.dao.JPA.DAOPartieJPA;
 import codenames.dao.JPA.DAOUtilisateurJPA;
@@ -98,63 +99,69 @@ public class PrincipaleCodeNames {
 
 		// Inscription d'un utilisateur
 
-//		DAOUtilisateurJPA daoUtilisateur2 = new DAOUtilisateurJPA(emf);
-//		Utilisateur u = null;
-//		int verifUsername = -1;
-//
-//		System.out.println("---------------------------------");
-//		System.out.println("INSCRIPTION AU SERVEUR DE JEU");
-//		System.out.println();
-//		System.out.println("Entrez votre nom:");
-//		System.out.println();
-//		String nom = lireChaine();
-//		System.out.println("Entrez votre prenom:");
-//		System.out.println();
-//		String prenom = lireChaine();
-//
-//		for (int i = 0; i < 3; i++) {
-//
-//			System.out.println("Entrez un Login:");
-//			System.out.println();
-//			String username = lireChaine();
-//
-//			verifUsername = daoUtilisateur2.inscription(username);
-//
-//			for (int h = 0; h < 3; h++) {
-//				if (verifUsername == 0 && !username.equals("")) {
-//					i = 3;
-//					System.out.println("Entrez un mot de passe:");
-//					System.out.println();
-//					String mdp = lireChaine();
-//					System.out.println("Entrez de nouveau votre mot de passe:");
-//					System.out.println();
-//					String mdp2 = lireChaine();
-//
-//					if (mdp2.equals(mdp) && !mdp2.equals("") && !mdp2.equals("")) {
-//						u = new Utilisateur();
-//						u.setNom(nom);
-//						u.setPrenom(prenom);
-//						u.setUsername(username);
-//						u.setPassword(mdp);
-//
-//						daoUtilisateur2.save(u);
-//						System.out.println("Vous etes desormais inscrit!");
-//						h = 3;
-//
-//					}
-//
-//				}
-//
-//			}
-//		}
-//
-//		if (u == null) {
-//
-//			System.out.println("Nombre de tentatives maxi atteint...");
-//			System.out.println();
-//
-//		}
-//		
+		DAOUtilisateurJPA daoUtilisateur2 = new DAOUtilisateurJPA(emf);
+		DAOJoueurJPA daoJoueur = new DAOJoueurJPA(emf);
+		Utilisateur u = null;
+		int verifUsername = -1;
+
+		System.out.println("---------------------------------");
+		System.out.println("INSCRIPTION AU SERVEUR DE JEU");
+		System.out.println();
+		System.out.println("Entrez votre nom:");
+		System.out.println();
+		String nom = lireChaine();
+		System.out.println("Entrez votre prenom:");
+		System.out.println();
+		String prenom = lireChaine();
+
+		for (int i = 0; i < 3; i++) {
+
+			System.out.println("Entrez un Login:");
+			System.out.println();
+			String username = lireChaine();
+
+			verifUsername = daoUtilisateur2.inscription(username);
+
+			for (int h = 0; h < 3; h++) {
+				if (verifUsername == 0 && !username.equals("")) {
+					i = 3;
+					System.out.println("Entrez un mot de passe:");
+					System.out.println();
+					String mdp = lireChaine();
+					System.out.println("Entrez de nouveau votre mot de passe:");
+					System.out.println();
+					String mdp2 = lireChaine();
+
+					if (mdp2.equals(mdp) && !mdp2.equals("") && !mdp2.equals("")) {
+						u = new Utilisateur();
+						u.setNom(nom);
+						u.setPrenom(prenom);
+						u.setUsername(username);
+						u.setPassword(mdp);
+
+						daoUtilisateur2.save(u);
+						Joueur j = new Joueur() ;
+						j.setPseudo(u.getUsername());
+						j.setBanni(false);
+						daoJoueur.save(j);
+						
+						System.out.println("Vous etes desormais inscrit!");
+						h = 3;
+
+					}
+
+				}
+
+			}
+		}
+
+		if (u == null) {
+
+			System.out.println("Nombre de tentatives maxi atteint...");
+			System.out.println();
+
+		}
+		
 		 // Suppression d'un utilisateur
 		
 //		daoUtilisateur2.deleteById(28);
@@ -166,150 +173,150 @@ public class PrincipaleCodeNames {
 		
 		//Connexion d'un utilisateur 
 		
-		Joueur newJoueur = new Joueur() ;
-		System.out.println("Connexion");
-		System.out.println();
-		
-		int i = 0;
-		boolean isConnected = false;
-
-		while (isConnected == false && i < 3) {
-			
-			System.out.println();
-			System.out.println("Entrez votre login");
-			System.out.println();
-			String login = lireChaine();
-			System.out.println();
-			System.out.println("Entrez votre mot de passe");
-			System.out.println();
-			String mdp = lireChaine();
-
-			DAOUtilisateurJPA daoUtilisateur2 = new DAOUtilisateurJPA(emf);
-
-			Utilisateur verifConnexion = daoUtilisateur2.connexion(login, mdp);
-			System.out.println();
-
-			if (verifConnexion != null) {
-				isConnected = true;
-				newJoueur = (Joueur) verifConnexion ;
-	
-			}
-			
-			i++;
-			
-			if (i == 3) {
-				System.out.println();
-				System.out.println("Nombre de tentatives depasse !");
-			}
-			
-		}
-		
-		
-		// Creation de 25 cases
-		
-			//Recuperation de 25 cartes qui ne peuvent pas etre vides
-		
-		DAOCarteJPA daoCartes = new DAOCarteJPA(emf);
-		List<Carte> mesCartes = daoCartes.findAll();
-		for (Carte c : mesCartes) {
-			if (c.getLibelle()=="") {
-				mesCartes.remove(c);	
-			}
-		}
-		
-		java.util.Collections.shuffle(mesCartes);
-		
-		
-		DAOCaseJPA daoCases = new DAOCaseJPA(emf);
-		List<Case> mesCases = new ArrayList<Case>();
-		
-			//Definition du niveau de difficulte
-		System.out.println();
-		System.out.println("Entrez le niveau de difficulte");
-		System.out.println("Entrez 1 pour FACILE");
-		System.out.println("Entrez 2 pour MOYEN");
-		System.out.println("Entrez 3 pour DIFFICILE");
-		System.out.println();
-		int diff = lireEntier();
-
-			// Creation des cases avec couleur et carte
-		for (int k = 0 ; k < 9; k++) {
-			Couleur couleur = Couleur.ROUGE ;
-			Case newCase = new Case() ;
-			Carte newCarte = mesCartes.remove(0) ;
-			newCase.setCarte(newCarte);
-			newCase.setCouleur(couleur);
-			mesCases.add(newCase);
-		}
-		
-		for (int k = 0 ; k < 8; k++) {
-			Couleur couleur = Couleur.BLEUE;
-			Case newCase = new Case() ;
-			Carte newCarte = mesCartes.remove(0) ;
-			newCase.setCarte(newCarte);
-			newCase.setCouleur(couleur);
-			mesCases.add(newCase);
-		}
-		
-		for (int k = 0 ; k < 8 - diff ; k++) {
-			Couleur couleur = Couleur.NEUTRE ;
-			Case newCase = new Case() ;
-			Carte newCarte = mesCartes.remove(0) ;
-			newCase.setCarte(newCarte);
-			newCase.setCouleur(couleur);
-			mesCases.add(newCase);
-		}
-		
-		for (int k = 0 ; k < diff; k++) {
-			Couleur couleur = Couleur.NOIRE ;
-			Case newCase = new Case() ;
-			Carte newCarte = mesCartes.remove(0) ;
-			newCase.setCarte(newCarte);
-			newCase.setCouleur(couleur);
-			mesCases.add(newCase);
-		}
-		
-			// Melanger les cartes et creer la grille
-		java.util.Collections.shuffle(mesCases);
-		
-		Grille nouvelleGrille = new Grille() ;
-		nouvelleGrille.setCasesGrille(mesCases);
-		Difficulte difficulte = null ;
-		
-		if (diff == 1) {
-			difficulte = Difficulte.FACILE ;
-		}
-		if (diff == 2) {
-			difficulte = Difficulte.MOYEN ;
-		}
-		if (diff == 3) {
-			difficulte = Difficulte.DIFFICILE ;
-		}
-		
-		nouvelleGrille.setDifficulte(difficulte);
-		
-		for (Case c : nouvelleGrille.getCasesGrille()) {
-			System.out.println(c.getCarte().getLibelle());
-			System.out.println(c.getCouleur());
-			System.out.println("--------------");
-		}
-		
-		
-		// Création de la partie et de la participation
-		Partie newPartie = new Partie() ;
-		newPartie.setGrille(nouvelleGrille);
-		newPartie.setCapitaine(newJoueur);
-		DAOPartieJPA daoPartie = new DAOPartieJPA(emf) ;
-		daoPartie.save(newPartie);
-		
-		Participation participation = new Participation () ;
-		participation.setJoueur(newJoueur);
-		participation.setPartie(newPartie);
-		participation.setRole(Role.ESPION);
-		DAOParticipationJPA daoParticipation = new DAOParticipationJPA(emf) ;
-		daoParticipation.save(participation);
-		
-		
+//		Joueur newJoueur = new Joueur() ;
+//		System.out.println("Connexion");
+//		System.out.println();
+//		
+//		int i = 0;
+//		boolean isConnected = false;
+//
+//		while (isConnected == false && i < 3) {
+//			
+//			System.out.println();
+//			System.out.println("Entrez votre login");
+//			System.out.println();
+//			String login = lireChaine();
+//			System.out.println();
+//			System.out.println("Entrez votre mot de passe");
+//			System.out.println();
+//			String mdp = lireChaine();
+//
+//			DAOUtilisateurJPA daoUtilisateur3 = new DAOUtilisateurJPA(emf);
+//
+//			Utilisateur verifConnexion = daoUtilisateur3.connexion(login, mdp);
+//			System.out.println();
+//
+//			if (verifConnexion != null) {
+//				isConnected = true;
+//				newJoueur = (Joueur) verifConnexion ;
+//	
+//			}
+//			
+//			i++;
+//			
+//			if (i == 3) {
+//				System.out.println();
+//				System.out.println("Nombre de tentatives depasse !");
+//			}
+//			
+//		}
+//		
+//		
+//		// Creation de 25 cases
+//		
+//			//Recuperation de 25 cartes qui ne peuvent pas etre vides
+//		
+//		DAOCarteJPA daoCartes = new DAOCarteJPA(emf);
+//		List<Carte> mesCartes = daoCartes.findAll();
+//		for (Carte c : mesCartes) {
+//			if (c.getLibelle()=="") {
+//				mesCartes.remove(c);	
+//			}
+//		}
+//		
+//		java.util.Collections.shuffle(mesCartes);
+//		
+//		
+//		DAOCaseJPA daoCases = new DAOCaseJPA(emf);
+//		List<Case> mesCases = new ArrayList<Case>();
+//		
+//			//Definition du niveau de difficulte
+//		System.out.println();
+//		System.out.println("Entrez le niveau de difficulte");
+//		System.out.println("Entrez 1 pour FACILE");
+//		System.out.println("Entrez 2 pour MOYEN");
+//		System.out.println("Entrez 3 pour DIFFICILE");
+//		System.out.println();
+//		int diff = lireEntier();
+//
+//			// Creation des cases avec couleur et carte
+//		for (int k = 0 ; k < 9; k++) {
+//			Couleur couleur = Couleur.ROUGE ;
+//			Case newCase = new Case() ;
+//			Carte newCarte = mesCartes.remove(0) ;
+//			newCase.setCarte(newCarte);
+//			newCase.setCouleur(couleur);
+//			mesCases.add(newCase);
+//		}
+//		
+//		for (int k = 0 ; k < 8; k++) {
+//			Couleur couleur = Couleur.BLEUE;
+//			Case newCase = new Case() ;
+//			Carte newCarte = mesCartes.remove(0) ;
+//			newCase.setCarte(newCarte);
+//			newCase.setCouleur(couleur);
+//			mesCases.add(newCase);
+//		}
+//		
+//		for (int k = 0 ; k < 8 - diff ; k++) {
+//			Couleur couleur = Couleur.NEUTRE ;
+//			Case newCase = new Case() ;
+//			Carte newCarte = mesCartes.remove(0) ;
+//			newCase.setCarte(newCarte);
+//			newCase.setCouleur(couleur);
+//			mesCases.add(newCase);
+//		}
+//		
+//		for (int k = 0 ; k < diff; k++) {
+//			Couleur couleur = Couleur.NOIRE ;
+//			Case newCase = new Case() ;
+//			Carte newCarte = mesCartes.remove(0) ;
+//			newCase.setCarte(newCarte);
+//			newCase.setCouleur(couleur);
+//			mesCases.add(newCase);
+//		}
+//		
+//			// Melanger les cartes et creer la grille
+//		java.util.Collections.shuffle(mesCases);
+//		
+//		Grille nouvelleGrille = new Grille() ;
+//		nouvelleGrille.setCasesGrille(mesCases);
+//		Difficulte difficulte = null ;
+//		
+//		if (diff == 1) {
+//			difficulte = Difficulte.FACILE ;
+//		}
+//		if (diff == 2) {
+//			difficulte = Difficulte.MOYEN ;
+//		}
+//		if (diff == 3) {
+//			difficulte = Difficulte.DIFFICILE ;
+//		}
+//		
+//		nouvelleGrille.setDifficulte(difficulte);
+//		
+//		for (Case c : nouvelleGrille.getCasesGrille()) {
+//			System.out.println(c.getCarte().getLibelle());
+//			System.out.println(c.getCouleur());
+//			System.out.println("--------------");
+//		}
+//		
+//		
+//		// Création de la partie et de la participation
+//		Partie newPartie = new Partie() ;
+//		newPartie.setGrille(nouvelleGrille);
+//		newPartie.setCapitaine(newJoueur);
+//		DAOPartieJPA daoPartie = new DAOPartieJPA(emf) ;
+//		daoPartie.save(newPartie);
+//		
+//		Participation participation = new Participation () ;
+//		participation.setJoueur(newJoueur);
+//		participation.setPartie(newPartie);
+//		participation.setRole(Role.ESPION);
+//		DAOParticipationJPA daoParticipation = new DAOParticipationJPA(emf) ;
+//		daoParticipation.save(participation);
+//		
+//		
 		
 		
 		

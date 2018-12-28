@@ -78,10 +78,11 @@ public class Joueur extends Utilisateur {
 	
 	
 	
-//	public static Joueur creerJoueur(String pseudo, boolean banni) {
+//	public static Joueur creerJoueur(Utilisateur u) {
 //		Joueur j = new Joueur() ;
-//		j.setBanni(banni) ;
-//		j.setPseudo(pseudo) ;
+//		j.setId(u.getId());
+//		j.setBanni(false) ;
+//		j.setPseudo(u.getUsername()) ;
 //		return j ;
 //	}
 	
