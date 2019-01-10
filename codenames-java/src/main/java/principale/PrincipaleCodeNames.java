@@ -301,7 +301,7 @@ public class PrincipaleCodeNames {
 //		daoGrilles.save(nouvelleGrille);
 //		
 //		
-//		// Cr�ation de la partie et de la participation
+//		// Creation de la partie et de la participation
 //		Partie newPartie = new Partie() ;
 //		newPartie.setGrille(nouvelleGrille);
 //		newPartie.setCapitaine(newJoueur);
