@@ -22,7 +22,7 @@ public class Partie {
 	@NotEmpty
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "PAR_GRILLE_ID")
+	@JoinColumn(name = "PAR_GRILLES_ID")
 	private Grille grille ;
 	
 	@NotEmpty

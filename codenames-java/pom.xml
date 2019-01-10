@@ -4,10 +4,19 @@
   <artifactId>codenames-java</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
+  
+  
+  
   	<dependency>
   		<groupId>fr.codenames</groupId>
-  		<artifactId>codenames_dao</artifactId>
+  		<artifactId>codenames-data-jpa</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   </dependencies>
+  
+  
+  
+  
+  
+  
 </project>
