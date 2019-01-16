@@ -138,6 +138,14 @@ body#jeu {
 	background: #000000;
 }
 
+nav#jeu {
+	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+}
+
+footer#jeu{
+	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+	}
+
 /*--------------------------------------------------------------------------------------  */
 /* Pour animer la page d'accueil */
 
@@ -193,10 +201,10 @@ body#jeu {
 }
 
 nav#accueil {
-	opacity:0;animation: transition 1s ease-in-out 2s forwards;
+	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
 }
 
 footer#accueil{
-	opacity:0;animation: transition 1s ease-in-out 2s forwards;
+	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
 	}
 	
