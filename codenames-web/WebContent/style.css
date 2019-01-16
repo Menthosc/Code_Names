@@ -1,4 +1,5 @@
-
+/*--------------------------------------------------------------------------------------  */
+/*Navigation */
 
 
 .bg-light {
@@ -7,7 +8,7 @@
 
 
 nav  a {
-	font-family: 'PT Sans', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	color:  #009dee !important;
 	transition-property: color;
 	transition-duration: 1s; /
@@ -19,35 +20,50 @@ nav a#CodeNames {
 
 nav  a:hover { color: #f06e3d !important;  }
 
+/*--------------------------------------------------------------------------------------  */
+/*Général */
 
 h1{
 	font-family: 'Indie Flower', cursive;	
 }
 
 h2{	
-	font-family: 'PT Sans', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 h3{	
-	font-family: 'PT Sans', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 h4{	
-	font-family: 'Indie Flower', cursive;
+	font-family: 'Montserrat', sans-serif;
 }
 label{
-	font-family: 'PT Sans', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 a{
-	font-family: 'PT Sans', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 input value{
-	font-family: 'PT Sans', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 input placeholder {
-	font-family: 'PT Sans', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
+
+html, body {
+	height: 100%;
+	margin: 0; padding: 0;
+}
+body {
+	display : table;
+	width: 100%;
+}
+
+
+/*--------------------------------------------------------------------------------------  */
+/*Gestion des tailles d'écran */
 
 @media screen and (max-width: 990px) {
 	h1{
@@ -85,21 +101,15 @@ input placeholder {
 	}
 }
 
+/*--------------------------------------------------------------------------------------  */
+/*Footer  */
 footer {
 	display: inline-block;
 	display : table-row;
 	height: 100px; /* à titre d'exemple */
-
+	font-family: 'Montserrat', sans-serif;
 }
 
-html, body {
-	height: 100%;
-	margin: 0; padding: 0;
-}
-body {
-	display : table;
-	width: 100%;
-}
 
 
 
