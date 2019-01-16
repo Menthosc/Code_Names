@@ -149,11 +149,22 @@ footer#jeu{
 /*--------------------------------------------------------------------------------------  */
 /* Pour animer la page d'accueil */
 
+P.blocktext {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100vh;
+    text-align: center;
+}
+
+img#logo {
+	display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
 .ml5 {
-	height: calc(100vh - 160px);
 	display: flex;
 	justify-content: center;
-	align-items: center;
   	position: relative;
  	font-weight: 300;
  	font-size: 4.5em;
