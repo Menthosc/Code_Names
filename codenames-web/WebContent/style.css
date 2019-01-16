@@ -9,9 +9,9 @@
 
 nav  a {
 	font-family: 'Montserrat', sans-serif;
-	color:  #009dee !important;
+	color:  #402d2d !important;
 	transition-property: color;
-	transition-duration: 1s; /
+	transition-duration: 1s; 
 }
 
 nav a#CodeNames {
@@ -108,9 +108,9 @@ footer {
 	display : table-row;
 	height: 100px; /* à titre d'exemple */
 	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	justify-content: center;
 }
-
-
 
 
 /*--------------------------------------------------------------------------------------  */
