@@ -85,11 +85,108 @@ input placeholder {
 	}
 }
 
-
-
 footer {
-	
 	display: inline-block;
-	
+	display : table-row;
+	height: 100px; /* à titre d'exemple */
 
 }
+
+html, body {
+	height: 100%;
+	margin: 0; padding: 0;
+}
+body {
+	display : table;
+	width: 100%;
+}
+
+
+
+/*--------------------------------------------------------------------------------------  */
+/* Pour animer le démarrage de jeu */
+.ml4 {
+	height: calc(100vh - 160px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 900;
+	font-size: 4.5em;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+.ml4 .letters {
+  position: absolute;
+}
+
+body#jeu h1{
+	color: #FFFFFF  !important;
+}
+body#jeu {
+	
+	background: #000000;
+}
+
+/*--------------------------------------------------------------------------------------  */
+/* Pour animer la page d'accueil */
+
+.ml5 {
+	height: calc(100vh - 160px);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  	position: relative;
+ 	font-weight: 300;
+ 	font-size: 4.5em;
+  	color: #402d2d;
+}
+
+.ml5 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+  line-height: 1em;
+}
+
+.ml5 .line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 3px;
+  width: 100%;
+  background-color: #402d2d;
+  transform-origin: 0.5 0;
+}
+
+.ml5 .ampersand {
+  font-family: Baskerville, "EB Garamond", serif;
+  font-style: italic;
+  font-weight: 400;
+  width: 1em;
+  margin-right: -0.1em;
+  margin-left: -0.1em;
+}
+
+.ml5 .letters {
+  display: inline-block;
+  opacity: 0;
+}
+
+@keyframes transition {
+0%   { opacity:0; }
+100% { opacity:1; }
+}
+
+nav#accueil {
+	opacity:0;animation: transition 1s ease-in-out 2s forwards;
+}
+
+footer#accueil{
+	opacity:0;animation: transition 1s ease-in-out 2s forwards;
+	}
+	
