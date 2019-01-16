@@ -18,20 +18,27 @@ function listerCarte(toto) {
 
 // Recupérer la liste de carte du serveur
 
-$.ajax({
-	method : 'GET',
-	url : 'http://192.168.1.110/codenames-ajax/carte',
-	success : function(tableauDeCarte) {
-		
-		// console.log(tableauDeCarte)
+function rafraichir() {
 
-		tableauDeCarte.forEach(function(el) {
+	$.ajax({
+		method : 'GET',
+		url : 'http://192.168.1.110/codenames-ajax/carte',
+		success : function(tableauDeCarte) {
 
-			listerCarte(el);
-		});
+			// console.log(tableauDeCarte)
 
-	}
-});
+			tableauDeCarte.forEach(function(el) {
+
+				$('tr.table tbody').remove();
+				listerCarte(el);
+				listerCarteMenu(el);
+
+			});
+
+		}
+	});
+
+}
 
 // Ajouter une carte
 var maCarte;
@@ -47,56 +54,69 @@ function ajouterProduit() {
 		method : 'POST',
 		url : 'http://192.168.1.110/codenames-ajax/carte',
 		data : JSON.stringify(maCarte),
-		success : function(carte) { // Permet de vérifier que le produit a bien été
+		success : function(carte) { // Permet de vérifier que le produit a bien
+			// été
 			// envoyé en le récupérant dans le tableau
-			listerCarte(carte);
+			rafraichir();
 		}
 	});
 }
 
+// Lister carte dans les menus déroulants
 
-//Supprimer une carte
+function listerCarteMenu(toto) {
+	var monOption1 = $("<option />");
+	var monOption2 = $("<option />");
+	monOption1.html(toto.libelle);
+	monOption1.val(toto.id);
+	monOption2.html(toto.libelle);
+	monOption2.val(toto.id);
 
+	$('select[id = "carteASupprimer"]').append(monOption1);
+	$('select[id = "carteExistante"]').append(monOption2);
+}
 
-var maCarteASupprimer;
+// Supprimer une carte
 
 function supprimerCarte() {
-
 	maCarte = {
-		libelle : $('input[name="mot"]').val(),
+		id : $('select[id = "carteASupprimer"]').val(),
 	}
 
 	$.ajax({
 		contentType : "application/json",
-		method : 'POST',
-		url : 'http://192.168.1.110/codenames-ajax/carte',
-		data : JSON.stringify(maCarte),
-		success : function(carte) { // Permet de vérifier que le produit a bien été
+		method : 'DELETE',
+		url : 'http://192.168.1.110/codenames-ajax/carte/' + maCarte.id,
+		success : function(carte) { // Permet de vérifier que le produit a bien
+			// été
 			// envoyé en le récupérant dans le tableau
-			listerCarte(carte);
+			rafraichir();
+
 		}
 	});
 }
 
+// Modifier une carte
 
+function modifierCarte() {
 
+	maCarte = {
+		id : $('select[id = "carteExistante"]').val(),
+		libelle : $('input[id = "nouveauMot"]').val(),
+	}
 
+	$.ajax({
+		contentType : "application/json",
+		method : 'PUT',
+		url : 'http://192.168.1.110/codenames-ajax/carte/' + maCarte.id,
+		data : JSON.stringify(maCarte),
+		success : function(carte) { // Permet de vérifier que le produit a bien
+			// été
+			// envoyé en le récupérant dans le tableau
+			rafraichir();
+		}
+	});
 
-		var monOption = $("<option />");
-		
-		
-		
-			monOption.appendselect[id="carteASupprimer"];  
+}
 
-			tableauDeCarte.forEach(function(el) {
-
-				listerCarte(el);
-			});
-
-
-			
-			
-			
-
-
-
+rafraichir();

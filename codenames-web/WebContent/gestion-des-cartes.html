@@ -11,6 +11,7 @@
 
 <link rel="stylesheet" type="text/css" href="style.css" />
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 <title>Gestion des cartes</title>
 
 </head>
@@ -22,7 +23,7 @@
 <!-- Barre de navigation -------------------------------------------------------------------------------- -->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="accueil.html">CodeNames Game</a>
+			<a id="CodeNames" class="navbar-brand" href="accueil.html">CodeNames Game</a>
 			
 			<!-- Bouton "hamburger" qui s'active si l'écran est trop petit -->
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -34,7 +35,10 @@
 			<!-- Menu à proprement parler -->
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="accueil.html">Accueil</a></li>
+					<li class="nav-item active"><a class="nav-link" href="inscription.html">Inscription</a>
+					</li>
+					<li class="nav-item active"><a class="nav-link" href="connexion.html">Connexion</a>
+					</li>
 					<li class="nav-item active"><a class="nav-link" href="gestion-des-cartes.html">Gestion des cartes</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="jeu.html">Jeu</a></li>
@@ -79,7 +83,7 @@
 
 
 <header class="container mb-5 mt-5">
-			<h1>Modifier une carte une carte</h1>
+			<h1>Modifier une carte</h1>
 		</header>
 		
 	
@@ -88,11 +92,9 @@
 		
 		<!-- Selection de la carte à modifier -->
 		<div class="form-group row">
-					<label for="fournisseur" class="col-sm-2 col-form-label">Carte existante</label>
+					<label for="fournisseur" class="col-sm-2 col-form-label">Carte existante:</label>
 					<div class="col-sm-10">
 						<select class="form-control" id="carteExistante" name="carteExistante">
-							<option value="1" selected>ESSAI 1</option>
-							<option value="2">ESSAI 2</option>
 						</select>
 					</div>
 				</div>
@@ -121,7 +123,7 @@
 				<div class="form-group row">
 					<div class="col-sm-2"></div>
 					<div class="col-sm-10">
-						<input class="btn btn-success" type="submit" value="Modifier la carte" />
+						<input class="btn btn-success" type="submit" value="Modifier la carte" onclick="modifierCarte(); return false;" />
 					</div>
 				</div>	
 </section>
@@ -146,10 +148,9 @@
 
 <!-- Selection de la carte à modifier -->
 		<div class="form-group row">
-					<label for="fournisseur" class="col-sm-2 col-form-label">Carte à supprimer</label>
+					<label for="fournisseur" class="col-sm-2 col-form-label">Carte à supprimer:</label>
 					<div class="col-sm-10">
 						<select class="form-control" id="carteASupprimer" name="carteASupprimer">
-							<option value="1" selected>ESSAI 1</option>
 						</select>
 					</div>
 				</div>
