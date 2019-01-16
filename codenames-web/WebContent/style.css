@@ -152,7 +152,7 @@ footer#jeu{
 P.blocktext {
     margin-left: auto;
     margin-right: auto;
-    width: 100vh;
+    width: auto;
     text-align: center;
 }
 

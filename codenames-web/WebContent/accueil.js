@@ -4,7 +4,8 @@ anime.timeline({loop: false})
     opacity: [0.5,1],
     scaleX: [0, 1],
     easing: "easeInOutExpo",
-    duration: 700
+    duration: 700,
+    delay: 500
   }).add({
     targets: '.ml5 .line',
     duration: 600,
