@@ -1,8 +1,14 @@
 /**
  * Gère la connexion de l'utilisateur
  */
-// Initialise un booléen de connexion
-var isConnected = new Boolean(false) ;
+if (isConnected == true){
+	$('section').hide();
+	$('section #connecte').show();
+}
+
+else {
+	$('section').hide();
+	$('section #pasConnecte').show();
 
 // Récupère les données du serveur concernant les comptes des utilisateurs
 	$.ajax({
@@ -36,3 +42,4 @@ var isConnected = new Boolean(false) ;
 		}
 	};
 	}	
+}
