@@ -59,9 +59,33 @@ public class MainCodeNames {
 //			System.out.println(c.getLibelle());
 //			System.out.println();	
 //		}
+
+		
+		
+		
+		
+		
+		
+//		 Creation de cartes et suppression
+//	
+//		Carte carte = new Carte() ;
+//		carte.setLibelle("Cognac");
+//		daoCarte.save(carte);
+//		
+		
+//		Carte carte2 = new Carte() ;
+//		carte2.setLibelle("Voiture");
+//		daoCarte.save(carte2);
+//		
+		
+	
+		
+		
+		
 		
 		//-------------------------------------------------------------------------------------------------------------------------
 		
+	
 		// Inscription d'un utilisateur
 
 //		Joueur u = null;
