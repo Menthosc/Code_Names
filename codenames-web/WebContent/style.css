@@ -1,6 +1,4 @@
-body {
-	font-family: 'Montserrat', sans-serif;
-}
+
 
 
 .bg-light {
@@ -8,21 +6,81 @@ body {
 }
 
 
-
-
 nav  a {
-color:  #009dee !important;
-transition-property: color;
-transition-duration: 1s; /
+	font-family: 'PT Sans', sans-serif;
+	color:  #009dee !important;
+	transition-property: color;
+	transition-duration: 1s; /
+}
+
+nav a#CodeNames {
+	font-family: 'Indie Flower', cursive;	
 }
 
 nav  a:hover { color: #f06e3d !important;  }
 
 
 h1{
-	
-	
+	font-family: 'Indie Flower', cursive;	
+}
+
+h2{	
+	font-family: 'PT Sans', sans-serif;
+}
+h3{	
+	font-family: 'PT Sans', sans-serif;
+}
+h4{	
 	font-family: 'Indie Flower', cursive;
-	
-	
+}
+label{
+	font-family: 'PT Sans', sans-serif;
+}
+
+a{
+	font-family: 'PT Sans', sans-serif;
+}
+
+input value{
+	font-family: 'PT Sans', sans-serif;
+}
+
+input placeholder {
+	font-family: 'PT Sans', sans-serif;
+}
+
+@media screen and (max-width: 990px) {
+	h1{
+		font-size: 35px;
+	}
+	h2{
+		font-size: 28px;
+	}
+	h3{
+		font-size: 24px;
+	}
+	h4{
+		font-size: 22px;
+	}
+	nav{
+		display: none;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	h1{
+		font-size: 30px;
+	}
+	h2{
+		font-size: 22px;
+	}
+	h3{
+		font-size: 18px;
+	}
+	h4{
+		font-size: 16px;
+	}
+	nav{
+		display: none;
+	}
 }
