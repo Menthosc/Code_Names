@@ -205,6 +205,13 @@ div#grille > div#mot25{
 	border-bottom-right-radius: 5px ;
 }
 
+section#infos
+
+section#infos span{
+	font-family: 'Montserrat', sans-serif;
+	color: white ;
+}
+
 /*--------------------------------------------------------------------------------------  */
 /* Pour animer la page d'accueil */
 
