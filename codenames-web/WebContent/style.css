@@ -123,8 +123,13 @@ footer {
 
 /*--------------------------------------------------------------------------------------  */
 /* Pour animer le démarrage de jeu */
+div#demarrageJeu{
+	position:absolute;
+}
+
 .ml4 {
 	height: calc(100vh - 160px);
+	width: calc(100vw);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -157,11 +162,30 @@ footer#jeu{
 /*--------------------------------------------------------------------------------------  */
 /* Pour animer le jeu */
 
-section#cartes{
-	height: 100%;
+div#grille{
+	position: fixed;
+	width: 800px;
+	height: calc(100vh - 160px);
+ 	top: 70px;
+ 	left: 20px;
 }
 
+div#grille > div {
+	float: left;
+	width: 20%;
+	height: 100px;
+	background-image: url(images/carteCodeNames.jpg);
+	background-size: cover;
+}
 
+div#grille > div span{
+	position: relative;
+	top: 60px;
+	display: flex;
+	justify-content: center;
+	font-family: 'Indie Flower', cursive;
+	font-weight: bold;
+}
 
 
 /*--------------------------------------------------------------------------------------  */
