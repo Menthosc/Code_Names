@@ -217,6 +217,14 @@ div#grille > div span{
 	font-weight: bold;
 }
 
+
+div#grille > div.reveal span {
+	display: none;
+}
+
+
+
+
 div#grille > div#mot1{
 	border-top-left-radius: 5px ;
 }

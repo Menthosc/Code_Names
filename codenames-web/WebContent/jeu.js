@@ -77,7 +77,6 @@ $.ajax({
 
 			$('div#mot'+ num).append(monSpan);
 
-		
 			num ++;
 
 		});
@@ -113,7 +112,7 @@ var mesCouleurs = ["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue
 
 	$('#grille > div').bind('click', function() {
 		$(this).addClass('reveal');
-		$('span').hide();
+
 	});
 
 
