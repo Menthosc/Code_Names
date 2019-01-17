@@ -112,6 +112,8 @@ body {
 /*--------------------------------------------------------------------------------------  */
 /*Footer  */
 footer {
+	position: fixed;
+	bottom: 20px;
 	display: inline-block;
 	display : table-row;
 	height: 100px; /* à titre d'exemple */
@@ -187,6 +189,21 @@ div#grille > div span{
 	font-weight: bold;
 }
 
+div#grille > div#mot1{
+	border-top-left-radius: 5px ;
+}
+
+div#grille > div#mot5{
+	border-top-right-radius: 5px ;
+}
+
+div#grille > div#mot21{
+	border-bottom-left-radius: 5px ;
+}
+
+div#grille > div#mot25{
+	border-bottom-right-radius: 5px ;
+}
 
 /*--------------------------------------------------------------------------------------  */
 /* Pour animer la page d'accueil */
