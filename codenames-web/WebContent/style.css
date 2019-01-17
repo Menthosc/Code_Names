@@ -123,7 +123,6 @@ footer {
 	position: fixed;
 	bottom: 20px;
 	display: inline-block;
-	display : table-row;
 	height: 100px; /* à titre d'exemple */
 	font-family: 'Montserrat', sans-serif;
 	display: flex;
@@ -173,6 +172,8 @@ footer#jeu{
 /*--------------------------------------------------------------------------------------  */
 /* Pour animer le jeu */
 
+
+/* Pour afficher les cartes  */
 div#grille{
 	position: fixed;
 	width: 800px;
@@ -188,6 +189,30 @@ div#grille > div {
 	height: 85px;
 	background-image: url(images/carteCodeNames.jpg);
 	background-size: cover;
+}
+
+div#grille > div.blue:active{
+	background-image: url(images/bleu.jpg);
+}
+
+div#grille > div.red:active{
+	background-image: url(images/rouge.jpg);
+}
+
+div#grille > div.blue.reveal {
+	background-image: url(images/bleu.jpg);
+}
+
+div#grille > div.red.reveal {
+	background-image: url(images/rouge.jpg);
+}
+
+div#grille > div.black.reveal {
+	background-image: url(images/noir.jpg);
+}
+
+div#grille > div.white.reveal {
+	background-image: url(images/blanc.jpg);
 }
 
 div#grille > div span{
@@ -215,19 +240,22 @@ div#grille > div#mot25{
 	border-bottom-right-radius: 5px ;
 }
 
+/* Pour afficher la barre d'info  */
 section#infos{
 	position: fixed;
 	top: 500px;
  	left: 20px;
+ 	width: 650px;
  	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
 }
 
 section#infos span{
 	font-family: 'Montserrat', sans-serif;
-	color: white ;
+	color: #e0e0e0 ;
 
 }
 
+/* Pour afficher la grille */
 section#grilleJeu{
 	height: 250px;
 	width: 250px;

@@ -110,6 +110,8 @@ function shuffle(array) {
 }
 
 
+// Pour révéler les cartes
+
 
 
 
