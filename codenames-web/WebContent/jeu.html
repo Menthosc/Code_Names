@@ -166,11 +166,9 @@
 			
 			<div class="chat-history">
 				
-				<div class="chat-message clearfix">
-					
-					<img src="http://lorempixum.com/32/32/people" alt="" width="32" height="32">
+				<div id="chatHeure" class="chat-message clearfix">
 
-					<div class="chat-message-content clearfix">
+					<div id="chatHist" class="chat-message-content clearfix">
 						
 						<span class="chat-time">13:35</span>
 
@@ -219,14 +217,10 @@
 				<hr>
 
 			</div> <!-- end chat-history -->
-
-			<p class="chat-feedback">Un joueur écrit…</p>
-
 			
-
-				<fieldset>
+			<fieldset>
 					
-					<input type="text" placeholder="Type your message…" autofocus>
+					<input id="texte" type="text" onKeyUp="envoi()" placeholder="Type your message…" autofocus>
 					<input type="hidden">
 
 				</fieldset>
