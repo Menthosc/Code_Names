@@ -71,7 +71,6 @@ $.ajax({
 			// $('span.div#grille').remove();
 			// afficherCarteDansCase(el);
 			
-	
 			
 			var monSpan = $("<span />");
 			monSpan.html(el.libelle);
@@ -88,6 +87,42 @@ $.ajax({
 
 
 
+
+
+
+
+
+
+
+// Attribuer une couleur aux cartes
+
+var mesCouleurs = ["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", 
+	"red", "red", "red", "red", "red", "red", "red", "red", 
+	"black", 
+	"white", "white", "white", "white", "white", "white", "white"];
+
+	shuffle(mesCouleurs);
+
+	mesCouleurs.forEach(function(el, i){
+
+		$('#mot' + (i + 1)).addClass(el);
+
+	});
+
+
+
+	$('#grille > div').bind('click', function() {
+		$(this).addClass('reveal');
+		$('span').hide();
+	});
+
+
+	
+	
+	
+	
+	
+	// Fonction mélange
 
 function shuffle(array) {
     let counter = array.length;
@@ -107,7 +142,8 @@ function shuffle(array) {
     }
 
     return array;
-}
+ 
+	}
 
 
 // Pour le chat
