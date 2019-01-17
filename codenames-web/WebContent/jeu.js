@@ -156,13 +156,36 @@ function shuffle(array) {
 
 }) ();
 
+$('#texte').bind('keyup', envoi);
 
-function envoi(){
-	var monTexte = $('<span>');
-	monTexte.html('input#texte').val();
-	$('div#chatHeure').append(str);
-	$('div#chatHist').append(monTexte);
-}
+function envoi(event){
+	var x = event.keyCode;
+		if (x == 13){
+			var date = new Date();
+			var str = date.getHours();
+			str += ':'+(date.getMinutes()<10?'0':'')+date.getMinutes();
+			str += ':'+(date.getSeconds()<10?'0':'')+date.getSeconds();
+
+			var monTexte = $('<p>');
+			var monSpan = $('<span>');
+			var maDiv = $('<div>');
+			var maDivHeure = $('<div>');
+			var maDivVide = $('<div container class="mt-2"></div>');
+			var monHeure= str ;
+			var monJoueur= $('<h5>JOUEUR</h5>');
+			
+			monTexte.html($(this).val());
+			
+			monSpan.append(monTexte);
+	
+			maDiv.append(monJoueur);
+			maDiv.append(monSpan);
+			maDivHeure.append(monHeure);
+			$('div#chatHist').append(maDivVide);
+			$('div#chatHeure').append(maDivHeure );
+			$('div#chatHist').append(maDiv);
+	  }
+
 
 window.onload=function() {
 	  horloge('div_horloge');
@@ -180,3 +203,4 @@ window.onload=function() {
 	  actualiser();
 	  setInterval(actualiser,1000);
 	}
+}
