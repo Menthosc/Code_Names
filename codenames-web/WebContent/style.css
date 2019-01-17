@@ -191,13 +191,6 @@ div#grille > div {
 	background-size: cover;
 }
 
-div#grille > div.blue:active{
-	background-image: url(images/bleu.jpg);
-}
-
-div#grille > div.red:active{
-	background-image: url(images/rouge.jpg);
-}
 
 div#grille > div.blue.reveal {
 	background-image: url(images/bleu.jpg);
