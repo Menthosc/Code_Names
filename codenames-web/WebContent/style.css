@@ -148,9 +148,11 @@ div#demarrageJeu{
 body#jeu h1{
 	color: #FFFFFF  !important;
 }
+
+
 body#jeu {
-	
 	background: #000000;
+	
 }
 
 nav#jeu {
@@ -170,19 +172,20 @@ div#grille{
 	height: calc(100vh - 160px);
  	top: 70px;
  	left: 20px;
+ 	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
 }
 
 div#grille > div {
 	float: left;
-	width: 20%;
-	height: 100px;
+	width: calc(20% - 15px);
+	height: 85px;
 	background-image: url(images/carteCodeNames.jpg);
 	background-size: cover;
 }
 
 div#grille > div span{
 	position: relative;
-	top: 60px;
+	top: 55px;
 	display: flex;
 	justify-content: center;
 	font-family: 'Indie Flower', cursive;
@@ -205,11 +208,34 @@ div#grille > div#mot25{
 	border-bottom-right-radius: 5px ;
 }
 
-section#infos
+section#infos{
+	position: fixed;
+	top: 500px;
+ 	left: 20px;
+ 	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+}
 
 section#infos span{
 	font-family: 'Montserrat', sans-serif;
 	color: white ;
+
+}
+
+section#grilleJeu{
+	height: 250px;
+	width: 250px;
+	position: fixed;
+	top: 525px;
+ 	left: 20px;
+ 	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+}
+
+section#grilleJeu > div{
+	float: left;
+	height: 240px;
+	width: 240px;
+	background-image: url(images/grille.jpg);
+ 	background-size: cover;
 }
 
 /*--------------------------------------------------------------------------------------  */
