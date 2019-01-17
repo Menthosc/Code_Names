@@ -154,8 +154,8 @@ function envoi(event){
 
 			var monTexte = $('<p>');
 			var monSpan = $('<span>');
+			var monSpanHeure = $('<span class="chat-time">');
 			var maDiv = $('<div>');
-			var maDivHeure = $('<div>');
 			var maDivVide = $('<div container class="mt-2"></div>');
 			var monHeure= str ;
 			var monJoueur= $('<h5>JOUEUR</h5>');
@@ -163,12 +163,11 @@ function envoi(event){
 			monTexte.html($(this).val());
 			
 			monSpan.append(monTexte);
-	
+			monSpanHeure.append(monHeure);
 			maDiv.append(monJoueur);
 			maDiv.append(monSpan);
-			maDivHeure.append(monHeure);
 			$('div#chatHist').append(maDivVide);
-			$('div#chatHeure').append(maDivHeure );
+			$('span').append(monSpanHeure);
 			$('div#chatHist').append(maDiv);
 	  }
 
