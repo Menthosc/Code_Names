@@ -27,14 +27,9 @@ h1{
 	font-family: 'Indie Flower', cursive;	
 }
 
-
-
 h1#titrePageCarte{
-	
-	
 	diplay: flex;
 	justify-content: center;
-	
 }
 
 h2{	
@@ -162,7 +157,9 @@ footer#jeu{
 /*--------------------------------------------------------------------------------------  */
 /* Pour animer le jeu */
 
-
+section#cartes{
+	height: 100%;
+}
 
 
 
