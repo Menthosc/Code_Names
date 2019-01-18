@@ -29,7 +29,7 @@ nav a#CodeNames {
 nav  a:hover { color: #f06e3d !important;  }
 
 /*--------------------------------------------------------------------------------------  */
-/*Général */
+/*Gï¿½nï¿½ral */
 
 h1{
 	font-family: 'Indie Flower', cursive;	
@@ -79,7 +79,7 @@ body {
 
 
 /*--------------------------------------------------------------------------------------  */
-/*Gestion des tailles d'écran */
+/*Gestion des tailles d'ï¿½cran */
 
 @media screen and (max-width: 990px) {
 	h1{
@@ -123,7 +123,7 @@ footer {
 	position: fixed;
 	bottom: 20px;
 	display: inline-block;
-	height: 100px; /* à titre d'exemple */
+	height: 100px; /* ï¿½ titre d'exemple */
 	font-family: 'Montserrat', sans-serif;
 	display: flex;
 	justify-content: center;
@@ -131,7 +131,7 @@ footer {
 
 
 /*--------------------------------------------------------------------------------------  */
-/* Pour animer le démarrage de jeu */
+/* Pour animer le dï¿½marrage de jeu */
 div#demarrageJeu{
 	position:absolute;
 }
@@ -191,26 +191,31 @@ div#grille > div {
 	background-size: cover;
 }
 
+
+
+/*--------------------------------------------------------------------------------------  */
+/* Gestion des cartes couleurs*/
+
 div#grille > div.blue.reveal {
-    background-image: url(images/bleu.jpg);
-    opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
-    
-    
+	background-image: url(images/bleu.jpg);
+	opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
+	
+	
 }
 
 div#grille > div.red.reveal {
-    background-image: url(images/rouge.jpg);
-        opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
+	background-image: url(images/rouge.jpg);
+		opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
 }
 
 div#grille > div.black.reveal {
-    background-image: url(images/noir.jpg);
-        opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
+	background-image: url(images/noir.jpg);
+		opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
 }
 
 div#grille > div.white.reveal {
-    background-image: url(images/blanc.jpg);
-    opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
+	background-image: url(images/blanc.jpg);
+	opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
 }
 
 
@@ -227,6 +232,22 @@ div#grille > div span{
 div#grille > div.reveal span {
 	display: none;
 }
+
+
+	
+
+/*--------------------------------------------------------------------------------------  */
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -280,7 +301,7 @@ section#grilleJeu > div{
  	background-size: cover;
 }
 
-/* Chat général */
+/* Chat gï¿½nï¿½ral */
 section#chatGlobal{
 	position: fixed;
  	top: 70px;

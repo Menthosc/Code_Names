@@ -51,9 +51,6 @@ anime.timeline({
 	delay : 500
 });
 
-
-
-
 // Récupérer les cartes et les afficher dans les span des cartes
 
 $.ajax({
@@ -65,76 +62,64 @@ $.ajax({
 		shuffle(tableauDeCarte);
 
 		var num = 1;
-		
+
 		tableauDeCarte.forEach(function(el) {
 
 			// $('span.div#grille').remove();
 			// afficherCarteDansCase(el);
-			
-			
+
 			var monSpan = $("<span />");
 			monSpan.html(el.libelle);
 
-			$('div#mot'+ num).append(monSpan);
+			$('div#mot' + num).append(monSpan);
 
-			num ++;
+			num++;
 
 		});
 	}
 });
 
-
 // Attribuer une couleur aux cartes
 
-var mesCouleurs = ["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", 
-	"red", "red", "red", "red", "red", "red", "red", "red", 
-	"black", 
-	"white", "white", "white", "white", "white", "white", "white"];
+var mesCouleurs = [ "blue", "blue", "blue", "blue", "blue", "blue", "blue",
+		"blue", "blue", "red", "red", "red", "red", "red", "red", "red", "red",
+		"black", "white", "white", "white", "white", "white", "white", "white" ];
 
-	shuffle(mesCouleurs);
+shuffle(mesCouleurs);
 
-	mesCouleurs.forEach(function(el, i){
+mesCouleurs.forEach(function(el, i) {
 
-		$('#mot' + (i + 1)).addClass(el);
+	$('#mot' + (i + 1)).addClass(el);
 
-	});
+});
 
+$('#grille > div').bind('click', function() {
+	$(this).addClass('reveal');
 
+});
 
-	$('#grille > div').bind('click', function() {
-		$(this).addClass('reveal');
-
-	});
-
-
-	
-	
-	
-	
-	
-	// Fonction mélange
+// Fonction mélange
 
 function shuffle(array) {
-    let counter = array.length;
+	let counter = array.length;
 
-    // While there are elements in the array
-    while (counter > 0) {
-        // Pick a random index
-        let index = Math.floor(Math.random() * counter);
+	// While there are elements in the array
+	while (counter > 0) {
+		// Pick a random index
+		let index = Math.floor(Math.random() * counter);
 
-        // Decrease counter by 1
-        counter--;
+		// Decrease counter by 1
+		counter--;
 
-        // And swap the last element with it
-        let temp = array[counter];
-        array[counter] = array[index];
-        array[index] = temp;
-    }
-
-    return array;
- 
+		// And swap the last element with it
+		let temp = array[counter];
+		array[counter] = array[index];
+		array[index] = temp;
 	}
 
+	return array;
+
+}
 
 // Pour le chat
 
@@ -154,6 +139,7 @@ function shuffle(array) {
 
 	});
 
+<<<<<<< Updated upstream
 }) ();
 
 $('#texte').bind('keyup', envoi);
