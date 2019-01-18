@@ -191,22 +191,28 @@ div#grille > div {
 	background-size: cover;
 }
 
-
 div#grille > div.blue.reveal {
-	background-image: url(images/bleu.jpg);
+    background-image: url(images/bleu.jpg);
+    opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
+    
+    
 }
 
 div#grille > div.red.reveal {
-	background-image: url(images/rouge.jpg);
+    background-image: url(images/rouge.jpg);
+        opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
 }
 
 div#grille > div.black.reveal {
-	background-image: url(images/noir.jpg);
+    background-image: url(images/noir.jpg);
+        opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
 }
 
 div#grille > div.white.reveal {
-	background-image: url(images/blanc.jpg);
+    background-image: url(images/blanc.jpg);
+    opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
 }
+
 
 div#grille > div span{
 	position: relative;
@@ -503,5 +509,18 @@ footer#accueil{
 	}
 	
 	
-
+@keyframes transitionCouleur {
+0%   { opacity:0; }
+10% { opacity:0.10; }
+20% { opacity:0.20; }
+30% { opacity:0.30; }
+40% { opacity:0.40; }
+50% { opacity:0.50}
+60% { opacity:0.60; }
+70% { opacity:0.70; }
+80% { opacity:0.80; }
+90% { opacity:0.90; }
+100% { opacity:1; }
+}
+}
 	
