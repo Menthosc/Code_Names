@@ -131,6 +131,7 @@ footer {
 	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
 	position: relative;
 	
+	color:  #e0e0e0 !important;
 }
 
 
@@ -297,7 +298,7 @@ section#infos{
 
 section#infos span{
 	font-family: 'Montserrat', sans-serif;
-	color: #e0e0e0 ;
+	color: #788e97 ;
 
 }
 
@@ -390,7 +391,7 @@ section#chatGlobal p {
 }
 
 #live-chat header {
-	background: #293239;
+	background: #143642;
 	border-radius: 5px 5px 0 0;
 	color: #fff;
 	cursor: pointer;
