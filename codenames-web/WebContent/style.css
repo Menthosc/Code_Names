@@ -240,18 +240,6 @@ div#grille > div.reveal span {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 div#grille > div#mot1{
 	border-top-left-radius: 5px ;
 }
@@ -307,6 +295,7 @@ section#chatGlobal{
  	top: 70px;
  	left: 830px;
  	width: 400px;
+ 	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
 }
 
 fieldset {
@@ -430,7 +419,7 @@ section#chatGlobal p { margin: 0; }
 }
 
 .chat-history {
-	height: 150px;
+	height: 220px;
 	padding: 8px 24px;
 	overflow-y: scroll;
 }
@@ -439,13 +428,9 @@ section#chatGlobal p { margin: 0; }
 	margin: 16px 0;
 }
 
-.chat-message img {
-	border-radius: 50%;
-	float: left;
-}
 
 .chat-message-content {
-	margin-left: 56px;
+	margin-left: 10px;
 }
 
 .chat-time {
