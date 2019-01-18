@@ -121,7 +121,7 @@ body {
 /*--------------------------------------------------------------------------------------  */
 /*Footer  */
 footer {
-	position: fixed;
+	/* position: fixed; */
 	bottom: 20px;
 	display: inline-block;
 	height: 100px; /* � titre d'exemple */
@@ -179,6 +179,32 @@ footer.gestionCartes {
 	position: relative;
 	
 }
+
+
+
+
+
+footer.accueil {
+	position: relative;
+	bottom: 20px;
+	display: inline-block;
+	height: 100px; 
+	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	justify-content: center;
+	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
+	position: relative;
+	
+}
+
+
+
+
+
+
+
+
+
 
 
 /*--------------------------------------------------------------------------------------  */
@@ -621,6 +647,7 @@ span.bienvenue{
 footer#jeu{
     opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
     color:  #e0e0e0 !important;
+    position: fixed;
     
     }	
 	
