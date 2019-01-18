@@ -139,7 +139,7 @@ function shuffle(array) {
 
 	});
 
-<<<<<<< Updated upstream
+
 }) ();
 
 $('#texte').bind('keyup', envoi);

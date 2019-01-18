@@ -127,7 +127,36 @@ footer {
 	font-family: 'Montserrat', sans-serif;
 	display: flex;
 	justify-content: center;
+	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
+	position: relative;
+	
 }
+
+
+
+
+footer.inscription {
+	position: fixed;
+	bottom: 20px;
+	display: inline-block;
+	height: 100px; 
+	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	justify-content: center;
+	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
+	position: relative;
+	
+}
+
+
+
+
+
+
+
+
+
+
 
 
 /*--------------------------------------------------------------------------------------  */
@@ -525,9 +554,38 @@ img#logo {
 
 
 
-footer#accueil{
+	
+section.bienvenue {
 	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
+
+}
+	
+	section.inscription{
+
+	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
+	
 	}
+	
+	
+	
+	section.connexion{
+
+	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
+	
+	}
+	
+	
+span.bienvenue{
+	
+	
+	font-family: 'Indie Flower';
+
+}	
+
+
+	
+	
+	
 	
 	
 @keyframes transitionCouleur {
