@@ -128,6 +128,7 @@ footer {
 	font-family: 'Montserrat', sans-serif;
 	display: flex;
 	justify-content: center;
+	color:  #e0e0e0 !important;
 }
 
 
@@ -268,7 +269,7 @@ section#infos{
 
 section#infos span{
 	font-family: 'Montserrat', sans-serif;
-	color: #e0e0e0 ;
+	color: #788e97 ;
 
 }
 
@@ -361,7 +362,7 @@ section#chatGlobal p {
 }
 
 #live-chat header {
-	background: #293239;
+	background: #143642;
 	border-radius: 5px 5px 0 0;
 	color: #fff;
 	cursor: pointer;
