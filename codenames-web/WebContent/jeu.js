@@ -139,14 +139,15 @@ function shuffle(array) {
 
 	});
 
-
 }) ();
 
 $('#texte').bind('keyup', envoi);
 
+
 function envoi(event){
 	var x = event.keyCode;
 		if (x == 13){
+			
 			var date = new Date();
 			var str = date.getHours();
 			str += ':'+(date.getMinutes()<10?'0':'')+date.getMinutes();
@@ -159,16 +160,19 @@ function envoi(event){
 			var maDivVide = $('<div container class="mt-2"></div>');
 			var monHeure= str ;
 			var monJoueur= $('<h5>JOUEUR</h5>');
+
 			
 			monTexte.html($(this).val());
 			
 			monSpan.append(monTexte);
 			monSpanHeure.append(monHeure);
+			maDiv.append(monSpanHeure);
 			maDiv.append(monJoueur);
 			maDiv.append(monSpan);
 			$('div#chatHist').append(maDivVide);
 			$('div#chatHist').append(maDiv);
-			$('div#chatHist').append(monSpanHeure);
+			$(this).val("");
+			
 	  }
 
 }

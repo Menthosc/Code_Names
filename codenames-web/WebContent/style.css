@@ -52,6 +52,7 @@ h4{
 h5{	
 	font-family: 'Montserrat', sans-serif;
 }
+
 label{
 	font-family: 'Montserrat', sans-serif;
 }
@@ -269,18 +270,6 @@ div#grille > div.reveal span {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 div#grille > div#mot1{
 	border-top-left-radius: 5px ;
 }
@@ -330,12 +319,24 @@ section#grilleJeu > div{
  	background-size: cover;
 }
 
-/* Chat g�n�ral */
+
+
+
+
+
+
+
+
+
+
+
+/* Chat GENERAL */
 section#chatGlobal{
 	position: fixed;
  	top: 70px;
  	left: 830px;
  	width: 400px;
+ 	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
 }
 
 fieldset {
@@ -368,7 +369,10 @@ section#chatGlobal input {
     margin: 0;
 }
 
-section#chatGlobal p { margin: 0; }
+section#chatGlobal p { 
+	margin: 0;
+	font-family: 'Montserrat', sans-serif; 
+	}
 
 .clearfix { *zoom: 1; } /* For IE 6/7 */
 .clearfix:before, .clearfix:after {
@@ -405,10 +409,12 @@ section#chatGlobal p { margin: 0; }
 
 #live-chat h4 {
 	font-size: 12px;
+	
 }
 
 #live-chat h5 {
-	font-size: 10px;
+	font-size: 12px;
+	font-family: 'Indie Flower', cursive;
 }
 
 #live-chat form {
@@ -421,6 +427,7 @@ section#chatGlobal p { margin: 0; }
 	padding: 8px;
 	outline: none;
 	width: 234px;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .chat-message-counter {
@@ -459,7 +466,7 @@ section#chatGlobal p { margin: 0; }
 }
 
 .chat-history {
-	height: 150px;
+	height: 340px;
 	padding: 8px 24px;
 	overflow-y: scroll;
 }
@@ -468,13 +475,9 @@ section#chatGlobal p { margin: 0; }
 	margin: 16px 0;
 }
 
-.chat-message img {
-	border-radius: 50%;
-	float: left;
-}
 
 .chat-message-content {
-	margin-left: 56px;
+	margin-left: 10px;
 }
 
 .chat-time {
@@ -486,6 +489,15 @@ section#chatGlobal p { margin: 0; }
 	font-style: italic;	
 	margin: 0 0 0 80px;
 }
+
+
+
+
+
+
+
+
+
 
 /*--------------------------------------------------------------------------------------  */
 /* Pour animer la page d'accueil */
