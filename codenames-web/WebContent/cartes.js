@@ -26,10 +26,10 @@ function rafraichir() {
 		success : function(tableauDeCarte) {
 
 			// console.log(tableauDeCarte)
-
+$('table tbody tr').remove();
 			tableauDeCarte.forEach(function(el) {
 
-				$('tr.table tbody').remove();
+				
 				listerCarte(el);
 				listerCarteMenu(el);
 
@@ -39,6 +39,8 @@ function rafraichir() {
 	});
 
 }
+
+
 
 // Ajouter une carte
 var maCarte;
@@ -61,6 +63,8 @@ function ajouterProduit() {
 		}
 	});
 }
+
+
 
 // Lister carte dans les menus déroulants
 
@@ -118,5 +122,6 @@ function modifierCarte() {
 	});
 
 }
+
 
 rafraichir();
