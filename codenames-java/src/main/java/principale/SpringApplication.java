@@ -14,6 +14,7 @@ public class SpringApplication {
 		myContext.getBeanFactory().createBean(MainCodeNames.class).run(args);
 		myContext.close();
 
+		
 	}
 
 }
