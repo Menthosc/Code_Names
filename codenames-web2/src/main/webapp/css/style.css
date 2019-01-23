@@ -1,0 +1,670 @@
+/*--------------------------------------------------------------------------------------  */
+/*Navigation */
+
+
+.bg-light {
+	background: #e0e0e0  !important;
+	opacity:0;animation: transition 0.5s ease-in-out 0.5s forwards;
+	
+}
+
+
+.accueil{
+	
+	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+	
+}
+
+nav  a {
+	font-family: 'Montserrat', sans-serif;
+	color:  #402d2d !important;
+	transition-property: color;
+	transition-duration: 1s; 
+}
+
+nav a#CodeNames {
+	font-family: 'Indie Flower', cursive;	
+}
+
+nav  a:hover { color: #f06e3d !important;  }
+
+/*--------------------------------------------------------------------------------------  */
+/*G�n�ral */
+
+h1{
+	font-family: 'Indie Flower', cursive;	
+}
+
+h1#titrePageCarte{
+	diplay: flex;
+	justify-content: center;
+}
+
+h2{	
+	font-family: 'Montserrat', sans-serif;
+}
+h3{	
+	font-family: 'Montserrat', sans-serif;
+}
+h4{	
+	font-family: 'Montserrat', sans-serif;
+}
+h5{	
+	font-family: 'Montserrat', sans-serif;
+}
+
+label{
+	font-family: 'Montserrat', sans-serif;
+}
+
+a{
+	font-family: 'Montserrat', sans-serif;
+}
+
+input value{
+	font-family: 'Montserrat', sans-serif;
+}
+
+input placeholder {
+	font-family: 'Montserrat', sans-serif;
+}
+
+html, body {
+	height: 100%;
+	margin: 0; padding: 0;
+}
+body {
+	display : table;
+	width: 100%;
+}
+
+
+/*--------------------------------------------------------------------------------------  */
+/*Gestion des tailles d'�cran */
+
+@media screen and (max-width: 990px) {
+	h1{
+		font-size: 35px;
+	}
+	h2{
+		font-size: 28px;
+	}
+	h3{
+		font-size: 24px;
+	}
+	h4{
+		font-size: 22px;
+	}
+	nav{
+		display: none;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	h1{
+		font-size: 30px;
+	}
+	h2{
+		font-size: 22px;
+	}
+	h3{
+		font-size: 18px;
+	}
+	h4{
+		font-size: 16px;
+	}
+	nav{
+		display: none;
+	}
+}
+
+/*--------------------------------------------------------------------------------------  */
+/*Footer  */
+footer {
+	/* position: fixed; */
+	bottom: 20px;
+	display: inline-block;
+	height: 100px; /* � titre d'exemple */
+	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	justify-content: center;
+	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
+	
+	
+}
+
+
+
+
+footer.inscription {
+	position: relative;
+	bottom: 20px;
+	display: inline-block;
+	height: 100px; 
+	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	justify-content: center;
+	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
+	position: relative;
+	
+}
+
+
+
+
+footer.connexion {
+	position: relative;
+	bottom: 20px;
+	display: inline-block;
+	height: 100px; 
+	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	justify-content: center;
+	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
+	position: relative;
+	
+}
+
+
+
+footer.gestionCartes {
+	position: fixed;
+	bottom: 20px;
+	display: inline-block;
+	height: 100px; 
+	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	justify-content: center;
+	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
+	position: relative;
+	
+}
+
+
+
+
+
+footer.accueil {
+	position: relative;
+	bottom: 20px;
+	display: inline-block;
+	height: 100px; 
+	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	justify-content: center;
+	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
+	position: relative;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------------------------------------  */
+/* Pour animer le d�marrage de jeu */
+div#demarrageJeu{
+	position:absolute;
+}
+
+.ml4 {
+	height: calc(100vh - 160px);
+	width: calc(100vw);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 900;
+	font-size: 4.5em;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+.ml4 .letters {
+  position: absolute;
+}
+
+body#jeu h1{
+	color: #FFFFFF  !important;
+}
+
+body#jeu {
+	background: #000000;
+	
+}
+
+nav#jeu {
+	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+}
+
+footer#jeu{
+	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+		color:  #e0e0e0 !important;
+	}
+
+/*--------------------------------------------------------------------------------------  */
+/* Pour animer le jeu */
+
+
+/* Pour afficher les cartes  */
+div#grille{
+	position: fixed;
+	width: 800px;
+	height: calc(100vh - 160px);
+ 	top: 70px;
+ 	left: 20px;
+ 	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+}
+
+div#grille > div {
+	float: left;
+	width: calc(20% - 15px);
+	height: 85px;
+	background-image: url(images/carteCodeNames.jpg);
+	background-size: cover;
+}
+
+
+
+/*--------------------------------------------------------------------------------------  */
+/* Gestion des cartes couleurs*/
+
+div#grille > div.blue.reveal {
+	background-image: url(images/bleu.jpg);
+	opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
+	
+	
+}
+
+div#grille > div.red.reveal {
+	background-image: url(images/rouge.jpg);
+		opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
+}
+
+div#grille > div.black.reveal {
+	background-image: url(images/noir.jpg);
+		opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
+}
+
+div#grille > div.white.reveal {
+	background-image: url(images/blanc.jpg);
+	opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
+}
+
+
+div#grille > div span{
+	position: relative;
+	top: 55px;
+	display: flex;
+	justify-content: center;
+	font-family: 'Indie Flower', cursive;
+	font-weight: bold;
+}
+
+
+div#grille > div.reveal span {
+	display: none;
+}
+
+
+	
+
+/*--------------------------------------------------------------------------------------  */
+
+
+
+div#grille > div#mot1{
+	border-top-left-radius: 5px ;
+}
+
+div#grille > div#mot5{
+	border-top-right-radius: 5px ;
+}
+
+div#grille > div#mot21{
+	border-bottom-left-radius: 5px ;
+}
+
+div#grille > div#mot25{
+	border-bottom-right-radius: 5px ;
+}
+
+/* Pour afficher la barre d'info  */
+section#infos{
+	position: fixed;
+	top: 500px;
+ 	left: 20px;
+ 	width: 650px;
+ 	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+}
+
+section#infos span{
+	font-family: 'Montserrat', sans-serif;
+	color: #e0e0e0 ;
+
+}
+
+/* Pour afficher la grille */
+section#grilleJeu{
+	height: 250px;
+	width: 250px;
+	position: fixed;
+	top: 525px;
+ 	left: 20px;
+ 	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+}
+
+section#grilleJeu > div{
+	float: left;
+	height: 240px;
+	width: 240px;
+	background-image: url(images/grille.jpg);
+ 	background-size: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Chat GENERAL */
+section#chatGlobal{
+	position: fixed;
+ 	top: 70px;
+ 	left: 830px;
+ 	width: 400px;
+ 	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+}
+
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+section#chatGlobal h4, h5 {
+	line-height: 1.5em;
+	margin: 0;
+}
+
+hr {
+	background: #e9e9e9;
+    border: 0;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 1px;
+    margin: 0;
+    min-height: 1px;
+}
+
+section#chatGlobal input {
+	border: 0;
+	color: inherit;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: normal;
+    margin: 0;
+}
+
+section#chatGlobal p { 
+	margin: 0;
+	font-family: 'Montserrat', sans-serif; 
+	}
+
+.clearfix { *zoom: 1; } /* For IE 6/7 */
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after { clear: both; }
+
+/* ---------- LIVE-CHAT ---------- */
+
+#live-chat {
+	font-size: 12px;
+	position: relative;
+	width: 300px;
+}
+
+#live-chat header {
+	background: #143642;
+	border-radius: 5px 5px 0 0;
+	color: #fff;
+	cursor: pointer;
+	padding: 16px 24px;
+}
+
+#live-chat h4:before {
+	background: #1a8a34;
+	border-radius: 50%;
+	content: "";
+	display: inline-block;
+	height: 8px;
+	margin: 0 8px 0 0;
+	width: 8px;
+}
+
+#live-chat h4 {
+	font-size: 12px;
+	
+}
+
+#live-chat h5 {
+	font-size: 12px;
+	font-family: 'Indie Flower', cursive;
+}
+
+#live-chat form {
+	padding: 24px;
+}
+
+#live-chat input[type="text"] {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	padding: 8px;
+	outline: none;
+	width: 234px;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.chat-message-counter {
+	background: #e62727;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	display: none;
+	font-size: 12px;
+	font-weight: bold;
+	height: 28px;
+	left: 0;
+	line-height: 28px;
+	margin: -15px 0 0 -15px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 28px;
+}
+
+.chat-close {
+	background: #1b2126;
+	border-radius: 50%;
+	color: #fff;
+	display: block;
+	float: right;
+	font-size: 10px;
+	height: 16px;
+	line-height: 16px;
+	margin: 2px 0 0 0;
+	text-align: center;
+	width: 16px;
+}
+
+.chat {
+	background: #fff;
+}
+
+.chat-history {
+	height: 340px;
+	padding: 8px 24px;
+	overflow-y: scroll;
+}
+
+.chat-message {
+	margin: 16px 0;
+}
+
+
+.chat-message-content {
+	margin-left: 10px;
+}
+
+.chat-time {
+	float: right;
+	font-size: 10px;
+}
+
+.chat-feedback {
+	font-style: italic;	
+	margin: 0 0 0 80px;
+}
+
+
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------------------------------------  */
+/* Pour animer la page d'accueil */
+
+P.blocktext {
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    text-align: center;
+}
+
+img#logo {
+	display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+.ml5 {
+	display: flex;
+	justify-content: center;
+  	position: relative;
+ 	font-weight: 300;
+ 	font-size: 4.5em;
+  	color: #402d2d;
+}
+
+.ml5 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+  line-height: 1em;
+}
+
+.ml5 .line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 3px;
+  width: 100%;
+  background-color: #402d2d;
+  transform-origin: 0.5 0;
+}
+
+.ml5 .ampersand {
+  font-family: Baskerville, "EB Garamond", serif;
+  font-style: italic;
+  font-weight: 400;
+  width: 1em;
+  margin-right: -0.1em;
+  margin-left: -0.1em;
+}
+
+.ml5 .letters {
+  display: inline-block;
+  opacity: 0;
+}
+
+@keyframes transition {
+0%   { opacity:0; }
+100% { opacity:1; }
+}
+
+
+
+	
+section.bienvenue {
+	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
+
+}
+	
+	section.inscription{
+
+	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
+	
+	}
+	
+	
+	
+	section.connexion{
+
+	opacity:0;animation: transition 1.5s ease-in-out 2s forwards;
+	
+	}
+	
+	
+span.bienvenue{
+	
+	
+	font-family: 'Indie Flower';
+
+}	
+
+
+	
+footer#jeu{
+    opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+    color:  #e0e0e0 !important;
+    position: fixed;
+    
+    }	
+	
+	
+	
+@keyframes transitionCouleur {
+0%   { opacity:0; }
+10% { opacity:0.10; }
+20% { opacity:0.20; }
+30% { opacity:0.30; }
+40% { opacity:0.40; }
+50% { opacity:0.50}
+60% { opacity:0.60; }
+70% { opacity:0.70; }
+80% { opacity:0.80; }
+90% { opacity:0.90; }
+100% { opacity:1; }
+}
+}
+	
