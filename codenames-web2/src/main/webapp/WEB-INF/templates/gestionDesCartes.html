@@ -7,7 +7,7 @@
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -45,15 +45,18 @@
 			</div>
 		</nav>
 
+
+
 	<!-- Ajouter une carte-------------------------------------------------------------------------------- -->
 
 
-
+<section class="container mb-5 mt-5">
 <header class="container mb-6 mt-6 center">
 <h1 class="display-3">Gestion des cartes</h1>
 </header>
+</section>
 
-
+	<form method="POST" action="ajouterCarte">
 		
 		<section class="container mb-5 mt-5">
 		
@@ -67,21 +70,22 @@
 				<div class="form-group row">
 					<label for="mot" class="col-sm-2 col-form-label">Votre mot:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="mot" name="mot" placeholder="Indiquer le mot à associer à la nouvelle carte" />
+						<input type="text" class="form-control" th:value="${carte?.libelle}" name="libelle" placeholder="Indiquer le mot à associer à la nouvelle carte" required/> 
+				
 					</div>
 				</div>
 				
-			
-				
+
 				<!-- Bouton "valider" -->
 				<div class="form-group row">
 					<div class="col-sm-2"></div>
 					<div class="col-sm-10">
-						<input class="btn btn-success" type="submit" value="Ajouter la carte" onclick="ajouterProduit(); return false;" />
+						<input class="btn btn-success" type="submit" value="Ajouter la carte"  />	
 					</div>
 				</div>
-</section>
+		</section>
 
+		</form>
 	<!-- Modifier une carte-------------------------------------------------------------------------------- -->
 
 
@@ -89,7 +93,7 @@
 			
 		
 		
-	
+	<form method="POST" action="modifierCarte">
 		
 		<section class="container mb-5 mt-5">
 		<h2>Modifier une carte</h2>
@@ -98,14 +102,20 @@
 		<div class="form-group row">
 					<label for="fournisseur" class="col-sm-2 col-form-label">Carte existante:</label>
 					<div class="col-sm-10">
-						<select class="form-control" id="carteExistante" name="carteExistante">
+						<select class="form-control" id="carteExistante" name="id">
+						 <option th:each="carte: ${ mesCartes}"
+ 								th:value="${carte.id}"
+ 								th:text="${carte.libelle}"
+ 								th:selected="${carte?.id == carte.id}"/>
+						
 						</select>
 					</div>
 				</div>
 				
 		
 		
-		
+
+	
 			<!-- Formulaire d'ajout de la carte -->
 			
 				<!-- Chaque zone est composï¿½ de 2 colonnes : type d'info + saisie -->
@@ -115,22 +125,25 @@
 				<div class="form-group row">
 					<label for="mot" class="col-sm-2 col-form-label">Le nouveau mot:</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="nouveauMot" name="nouveauMot" placeholder="Indiquer le mot à associer à la carte selectionnée" />
+						<input type="text" class="form-control" th:value="${carte?.libelle}" name="libelle" placeholder="Indiquer le mot à associer à la carte selectionnée"  required /> 
 					</div>
 				</div>
 				
-			
-				
+		
 				
 			
 				<!-- Bouton "valider" -->
 				<div class="form-group row">
 					<div class="col-sm-2"></div>
 					<div class="col-sm-10">
-						<input class="btn btn-success" type="submit" value="Modifier la carte" onclick="modifierCarte(); return false;" />
+						<input class="btn btn-success" type="submit" value="Modifier la carte" />
 					</div>
 				</div>	
 </section>
+
+
+</form>
+
 
 
 
@@ -140,7 +153,7 @@
 
 
 
-
+<form method="GET" th:action="supprimerCarte">
 
 
 <section class="container mb-5 mt-5">
@@ -152,7 +165,12 @@
 		<div class="form-group row">
 					<label for="fournisseur" class="col-sm-2 col-form-label">Carte à supprimer:</label>
 					<div class="col-sm-10">
-						<select class="form-control" id="carteASupprimer" name="carteASupprimer">
+						<select class="form-control" id="carteASupprimer" name="id">
+						
+						 <option th:each="carte: ${ mesCartes}"
+ 								th:value="${carte.id}"
+ 								th:text="${carte.libelle}"
+ 								th:selected="${carte?.id == carte.id}"/>
 						</select>
 					</div>
 				</div>
@@ -164,11 +182,13 @@
 				<div class="form-group row">
 					<div class="col-sm-2"></div>
 					<div class="col-sm-10">
-						<input class="btn btn-success" type="submit" value="Supprimer la carte" onclick="supprimerCarte(); return false;" />
+						<input class="btn btn-success" type="submit" value="Supprimer la carte" />
 					</div>
 				</div>
 			
 		</section>
+
+</form>
 
 
 
@@ -180,8 +200,8 @@
 		<header class="container">
 			<h2 class="display-6">Liste des cartes</h2>
 		</header>
-
-		<table class="table table-striped">
+		<div class="tableauhauteur">
+		<table class="table table-striped" id="tableauCartes">
 			<thead>
 				<tr>
 					<th scope="col">#</th>
@@ -189,12 +209,23 @@
 				</tr>
 			</thead>
 			<tbody>
+			
+		<tr th:each="carte : ${mesCartes}">
 		
+		<td> [[${ carte.id }]] </td>
+		<td> [[${ carte.libelle }]] </td>
+	
+		</tr>
 			</tbody>
 		</table>
-		
+		</div>
 
 	</section>
+
+
+
+
+
 
 
 
@@ -227,7 +258,7 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 		<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="cartes.js"></script>
+<script src="js/cartes.js"></script>
 
 <script type="text/javascript">
 window.onload=function() {
