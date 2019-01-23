@@ -4,11 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import codenames.model.Carte;
 import codenames.model.Case;
@@ -36,7 +42,6 @@ public class JeuController {
 	public String jeuAfficher(Model model) {
 	
 		List <Carte> mesCartes = daoCarte.findAll();
-		
 
 		for (Carte c : mesCartes) {
 			if (c.getLibelle()=="") {
@@ -119,5 +124,16 @@ public class JeuController {
 		return "jeu";
 	
 	}
+	
+	
+
+		@PostMapping(value="/jeu")
+		public  @ResponseBody String  recupCarte(@RequestParam Case cCase) {
+	       System.out.println(cCase.getCarte().getLibelle());
+		
+	       return "redirect:/jeu";
+		}
+	
+	
 
 }
