@@ -265,7 +265,7 @@ div#grille > div {
 	float: left;
 	width: calc(20% - 15px);
 	height: 85px;
-	background-image: url(images/carteCodeNames.jpg);
+	background-image: url(../images/carteCodeNames.jpg);
 	background-size: cover;
 }
 
@@ -274,25 +274,25 @@ div#grille > div {
 /*--------------------------------------------------------------------------------------  */
 /* Gestion des cartes couleurs*/
 
-div#grille > div.blue.reveal {
-	background-image: url(images/bleu.jpg);
+div#grille > div.BLEUE.reveal {
+	background-image: url(../images/bleu.jpg);
 	opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
 	
 	
 }
 
-div#grille > div.red.reveal {
-	background-image: url(images/rouge.jpg);
+div#grille > div.ROUGE.reveal {
+	background-image: url(../images/rouge.jpg);
 		opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
 }
 
-div#grille > div.black.reveal {
-	background-image: url(images/noir.jpg);
+div#grille > div.NOIRE.reveal {
+	background-image: url(../images/noir.jpg);
 		opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
 }
 
-div#grille > div.white.reveal {
-	background-image: url(images/blanc.jpg);
+div#grille > div.NEUTRE.reveal {
+	background-image: url(../images/blanc.jpg);
 	opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
 }
 
@@ -363,7 +363,7 @@ section#grilleJeu > div{
 	float: left;
 	height: 240px;
 	width: 240px;
-	background-image: url(images/grille.jpg);
+	background-image: url(../images/grille.jpg);
  	background-size: cover;
 }
 

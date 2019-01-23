@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
 	<title>CodeNames - Partie</title>
 	<meta name="description"content="Best game ever">
@@ -7,7 +8,7 @@
 	<base href="connexion.html" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
@@ -57,83 +58,9 @@
 	
 	<section id="cartes">
 		<div id="grille">
-			<div id="mot1">
-	 			
-	 		</div>
-			<div id="mot2">
-	 			
-	 		</div>
-			<div id="mot3" >
-	 			
-	 		</div>
-			<div id="mot4">
-	 			
-	 		</div>
-			<div id="mot5" 
->
-	 			
-	 		</div>
-			<div id="mot6">
-	 			
-	 		</div>
-			<div id="mot7">
-	 			
-	 		</div>
-			<div id="mot8">
-	 			
-	 		</div>
+			<div th:each="case : ${maGrille.casesGrille}" th:class="${case.couleur}">
+			<span>[[${ case.carte.libelle }]]</span>
 			
-			<div id="mot9">
-	 			
-	 		</div>
-			<div id="mot10">
-	 			
-	 		</div>
-			<div id="mot11">
-	 			
-	 		</div>
-			<div id="mot12">
-	 			
-	 		</div>
-			<div id="mot13">
-	 			
-	 		</div>
-			<div id="mot14">
-	 			
-	 		</div>
-			<div id="mot15">
-	 			
-	 		</div>
-			<div id="mot16">
-	 			
-	 		</div>
-			<div id="mot17">
-	 			
-	 		</div>
-			<div id="mot18">
-	 			
-	 		</div>
-			<div id="mot19">
-	 			
-	 		</div>
-	 		<div id="mot20">
-	 			
-	 		</div>
-			<div id="mot21">
-	 			
-	 		</div>
-			<div id="mot22">
-	 			
-	 		</div>
-			<div id="mot23">
-	 			
-	 		</div>
-			<div id="mot24">
-	 			
-	 		</div>
-			<div id="mot25">
-	 			
-	 		</div>
  		</div>
 
 	</section>
@@ -214,23 +141,11 @@
 		<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-	<script src="jeu.js"></script>
-
-
-
+	<script src="js/jeu.js"></script>
 
 
 	<footer id="jeu" class="container mt-5 "> Copyright codenames.fr &copy; 2019 &nbsp;&nbsp; <i id="div_horloge"></i> </footer>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 </body>
 
