@@ -244,6 +244,7 @@ nav#jeu {
 
 footer#jeu{
 	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+		color:  #e0e0e0 !important;
 	}
 
 /*--------------------------------------------------------------------------------------  */
@@ -344,7 +345,7 @@ section#infos{
 
 section#infos span{
 	font-family: 'Montserrat', sans-serif;
-	color: #788e97 ;
+	color: #e0e0e0 ;
 
 }
 
