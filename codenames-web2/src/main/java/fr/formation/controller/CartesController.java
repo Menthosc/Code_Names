@@ -85,8 +85,6 @@ public class CartesController {
 		
 		
 		
-		
-		
 		/// MODIFICATION D'UNE CARTE
 		
 	

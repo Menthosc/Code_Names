@@ -749,3 +749,18 @@ label.col-form-label{
 	text-align: center;
 }
 
+
+
+
+div.messageErreur{
+	
+		text-align: center;
+	
+}
+
+label.messageErreur{
+	
+	color: red;
+	
+}
+
