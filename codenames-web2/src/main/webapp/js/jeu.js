@@ -121,17 +121,16 @@ anime.timeline({
 // Transition pour révéler les cartes et récupérer le mot côté Controller
 $('#grille > div').bind('click', function() {
 	$(this).addClass('reveal');
-	var cCase = $(this).val("");
-	console.log($(this).val(""));
-	console.log($(this).val());
-	console.log(cCase);
+	var cCase=$(this).find('span').text();
 
-	$.ajax({
+	$.ajax({ // pour renvoyer le nom de la carte dans la case
 		   type: "POST",
 		   dataType : 'json',
 		   url: "/codenames-web2/jeu",
-		   data: cCase 
+		   data: { "nomCase": cCase }
 		});
+	
+	
 });
 
 

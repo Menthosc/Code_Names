@@ -37,6 +37,8 @@ public class JeuController {
 	@Autowired
 	private IDAOGrille daoGrille ;
 	
+	Grille maGrille = new Grille() ;
+	
 	
 	@GetMapping(value="/jeu")
 	public String jeuAfficher(Model model) {
@@ -97,7 +99,7 @@ public class JeuController {
 			// Melanger les cartes et creer la grille
 		java.util.Collections.shuffle(mesCases);
 		
-		Grille maGrille = new Grille() ;
+	
 		maGrille.setCasesGrille(mesCases);
 		Difficulte difficulte = null ;
 		
@@ -125,13 +127,14 @@ public class JeuController {
 	
 	}
 	
-	
 
 		@PostMapping(value="/jeu")
-		public  @ResponseBody String  recupCarte(@RequestParam Case cCase) {
-	       System.out.println(cCase.getCarte().getLibelle());
-		
-	       return "redirect:/jeu";
+		public  @ResponseBody String  recupCarte(@RequestParam String nomCase) {
+			System.out.println(nomCase);
+			Case cCase = daoCase.findByCarteLibelle(nomCase, maGrille.getId());
+			System.out.println(cCase.getCarte().getLibelle());
+			System.out.println(cCase.getCouleur());
+			return "redirect:/jeu";
 		}
 	
 	
