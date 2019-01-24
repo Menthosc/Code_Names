@@ -682,3 +682,87 @@ div.tableauhauteur {
     overflow-y: scroll;
 
 }
+
+
+
+
+div.titreColonne th#id{
+height: 10px;
+width: 20px;
+	
+}
+
+
+
+div.titreColonne th#mot{
+
+height: 10px;
+width: 60px;;	
+}
+
+
+
+
+div.tableauhauteur td#libelle{
+
+height: 20px;	
+}
+
+
+div.tableauhauteur td#id2{
+
+height: 20px;
+width: 350px;;	
+}
+
+
+
+
+section.tableau{
+	
+	width: 1000px;
+}
+
+
+div.bordureTableau, div.supprimerCarte, div.modifierCarte, div.ajouterCarte {
+	
+	
+	 overflow: hidden;
+	 border-color : #696969;
+	 border-style: solid;
+	 border-width: 2px;
+	 border-radius: 5px;
+	
+	
+}
+
+
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #696969;
+}
+
+
+
+
+label.col-form-label{
+	
+	text-align: center;
+}
+
+
+
+
+div.messageErreur{
+	
+		text-align: center;
+	
+}
+
+label.messageErreur{
+	
+	color: red;
+	
+}
+

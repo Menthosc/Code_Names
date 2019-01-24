@@ -38,7 +38,7 @@
 					</li>
 					<li class="nav-item active"><a class="nav-link" href="connexion.html">Connexion</a>
 					</li>
-					<li class="nav-item active"><a class="nav-link" href="gestion-des-cartes.html">Gestion des cartes</a>
+					<li class="nav-item active"><a class="nav-link" href="gestionDesCartes.html">Gestion des cartes</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="jeu.html">Jeu</a></li>
 				</ul>
@@ -58,18 +58,26 @@
 
 	<form method="POST" action="ajouterCarte">
 		
+		
+		
+	
+		
 		<section class="container mb-5 mt-5">
 		
 		<h2>Ajouter une carte</h2>
+		
+		
+			<div class="ajouterCarte container mt-2">
+		
 			<!-- Formulaire d'ajout de la carte -->
 			
 				<!-- Chaque zone est composï¿½ de 2 colonnes : type d'info + saisie -->
 				<!-- > label sur 2 colonnes, input et select sur 10 colonnes < -->
 				
 				<!-- Le mot -->
-				<div class="form-group row">
-					<label for="mot" class="col-sm-2 col-form-label">Votre mot:</label>
-					<div class="col-sm-10">
+				<div class="form-group row container mt-2">
+					<label for="mot" class="col-sm-3 col-form-label">Votre mot:</label>
+					<div class="col-sm-9">
 						<input type="text" class="form-control" th:value="${carte?.libelle}" name="libelle" placeholder="Indiquer le mot à associer à la nouvelle carte" required/> 
 				
 					</div>
@@ -78,30 +86,37 @@
 
 				<!-- Bouton "valider" -->
 				<div class="form-group row">
-					<div class="col-sm-2"></div>
-					<div class="col-sm-10">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-9">
 						<input class="btn btn-success" type="submit" value="Ajouter la carte"  />	
 					</div>
 				</div>
+				
+				</div>
 		</section>
+
+
+
 
 		</form>
 	<!-- Modifier une carte-------------------------------------------------------------------------------- -->
 
-
-
-			
-		
 		
 	<form method="POST" action="modifierCarte">
+	
+	
+	
 		
 		<section class="container mb-5 mt-5">
 		<h2>Modifier une carte</h2>
 		
+		
+		<div class="modifierCarte container mt-2">
+		
 		<!-- Selection de la carte ï¿½ modifier -->
-		<div class="form-group row">
-					<label for="fournisseur" class="col-sm-2 col-form-label">Carte existante:</label>
-					<div class="col-sm-10">
+		<div class="form-group row container mt-2">
+					<label for="fournisseur" class="col-sm-3 col-form-label">Carte existante:</label>
+					<div class="col-sm-9">
 						<select class="form-control" id="carteExistante" name="id">
 						 <option th:each="carte: ${ mesCartes}"
  								th:value="${carte.id}"
@@ -122,9 +137,9 @@
 				<!-- > label sur 2 colonnes, input et select sur 10 colonnes < -->
 				
 				<!-- Le mot -->
-				<div class="form-group row">
-					<label for="mot" class="col-sm-2 col-form-label">Le nouveau mot:</label>
-					<div class="col-sm-10">
+				<div class="form-group row container mt-2">
+					<label for="mot" class="col-sm-3 col-form-label">Le nouveau mot:</label>
+					<div class="col-sm-9">
 						<input type="text" class="form-control" th:value="${carte?.libelle}" name="libelle" placeholder="Indiquer le mot à associer à la carte selectionnée"  required /> 
 					</div>
 				</div>
@@ -134,12 +149,15 @@
 			
 				<!-- Bouton "valider" -->
 				<div class="form-group row">
-					<div class="col-sm-2"></div>
-					<div class="col-sm-10">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-9">
 						<input class="btn btn-success" type="submit" value="Modifier la carte" />
 					</div>
 				</div>	
+				</div>
 </section>
+
+
 
 
 </form>
@@ -161,10 +179,14 @@
 	<h2>Supprimer une carte</h2>
 
 
+
+<div class="supprimerCarte container mt-2">
+
+
 <!-- Selection de la carte ï¿½ modifier -->
-		<div class="form-group row">
-					<label for="fournisseur" class="col-sm-2 col-form-label">Carte à supprimer:</label>
-					<div class="col-sm-10">
+		<div class="form-group row container mt-2">
+					<label for="fournisseur" class="col-sm-3 col-form-label">Carte à supprimer:</label>
+					<div class="col-sm-9">
 						<select class="form-control" id="carteASupprimer" name="id">
 						
 						 <option th:each="carte: ${ mesCartes}"
@@ -180,45 +202,83 @@
 
 <!-- Bouton "valider" -->
 				<div class="form-group row">
-					<div class="col-sm-2"></div>
-					<div class="col-sm-10">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-9">
 						<input class="btn btn-success" type="submit" value="Supprimer la carte" />
 					</div>
 				</div>
-			
+			</div>
 		</section>
 
 </form>
 
-
+			
 
 	<!-- Liste des cartes-------------------------------------------------------------------------------- -->
 	
-<section class="container mb-5 mt-5">
+<section class="container mb-5 mt-5 tableau">
+
+
+
 
 
 		<header class="container">
 			<h2 class="display-6">Liste des cartes</h2>
 		</header>
+		
+		
+		<div class="bordureTableau">
+		
+		
+		<div class="titreColonne">
+		
+		
+			<table class="table table-striped titreColonne" >
+		
+			<thead>
+				<tr>
+					<th id="id" scope="col">#</th>
+					<th id="mot"scope="col">Mot</th>
+				</tr>
+			</thead>
+		
+
+			</table>
+	
+		</div>
+		
+		
+		
+		
+		
+		
+		
 		<div class="tableauhauteur">
+		
+
 		<table class="table table-striped" id="tableauCartes">
 			<thead>
 				<tr>
-					<th scope="col">#</th>
-					<th scope="col">Mot</th>
+					<!-- <th scope="col">#</th>
+					<th scope="col">Mot</th> -->
 				</tr>
 			</thead>
 			<tbody>
 			
 		<tr th:each="carte : ${mesCartes}">
 		
-		<td> [[${ carte.id }]] </td>
-		<td> [[${ carte.libelle }]] </td>
+		<td id="id2"> [[${ carte.id }]] </td>
+		<td id="libelle"> [[${ carte.libelle }]] </td>
 	
 		</tr>
 			</tbody>
 		</table>
 		</div>
+		
+		
+		
+		</div>
+		
 
 	</section>
 
