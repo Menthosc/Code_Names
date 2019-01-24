@@ -58,7 +58,7 @@
 	
 	<section id="cartes">
 		<div id="grille">
-			<div th:each="case : ${maGrille.casesGrille}" th:class="${case.couleur}">
+			<div th:each="case : ${maGrille.casesGrille}">
 			<span>[[${ case.carte.libelle }]]</span>
 			
  		</div>

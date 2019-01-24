@@ -37,13 +37,14 @@ public class JeuController {
 	@Autowired
 	private IDAOGrille daoGrille ;
 	
-	Grille maGrille = new Grille() ;
+	Grille maGrille = null;
 	
 	
 	@GetMapping(value="/jeu")
 	public String jeuAfficher(Model model) {
 	
 		List <Carte> mesCartes = daoCarte.findAll();
+		maGrille = new Grille() ;
 
 		for (Carte c : mesCartes) {
 			if (c.getLibelle()=="") {
@@ -129,12 +130,11 @@ public class JeuController {
 	
 
 		@PostMapping(value="/jeu")
-		public  @ResponseBody String  recupCarte(@RequestParam String nomCase) {
-			System.out.println(nomCase);
+		@ResponseBody
+		public String recupCarte(@RequestParam String nomCase) {
 			Case cCase = daoCase.findByCarteLibelle(nomCase, maGrille.getId());
-			System.out.println(cCase.getCarte().getLibelle());
-			System.out.println(cCase.getCouleur());
-			return "redirect:/jeu";
+			String couleur = String.valueOf(cCase.getCouleur());
+			return couleur ;
 		}
 	
 	

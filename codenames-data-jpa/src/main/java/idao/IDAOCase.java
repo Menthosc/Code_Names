@@ -8,6 +8,6 @@ import codenames.model.Case;
 
 public interface IDAOCase extends JpaRepository<Case, Integer>{
 	
-	@Query("select c from Case c where c.carte.libelle = :lelibelle AND c.grilleCase.id= :grilleId")
+	@Query("select distinct c from Case c where c.carte.libelle = :lelibelle AND c.grilleCase.id= :grilleId")
 	public Case findByCarteLibelle(@Param("lelibelle") String libelle, @Param("grilleId") int grilleId);
 }

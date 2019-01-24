@@ -120,17 +120,19 @@ anime.timeline({
 
 // Transition pour révéler les cartes et récupérer le mot côté Controller
 $('#grille > div').bind('click', function() {
-	$(this).addClass('reveal');
-	var cCase=$(this).find('span').text();
-
-	$.ajax({ // pour renvoyer le nom de la carte dans la case
+	var cCase=$(this).find('span').text(); //récupère le mot de la carte dans la case cliquée
+	var that = $(this);
+	
+	$.ajax({ // pour renvoyer le mot au Controller
 		   type: "POST",
-		   dataType : 'json',
+		   //dataType : 'json',
 		   url: "/codenames-web2/jeu",
-		   data: { "nomCase": cCase }
+		   data: { "nomCase": cCase },
+		   success : function(couleur){ //pour révéler les cartes en récupérant la couleur via la Controller
+			that.addClass(couleur);
+			that.addClass('reveal');
+			}
 		});
-	
-	
 });
 
 
