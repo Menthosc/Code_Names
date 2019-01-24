@@ -122,6 +122,9 @@ anime.timeline({
 $('#grille > div').bind('click', function() {
 	$(this).addClass('reveal');
 	var cCase = $(this).val("");
+	console.log($(this).val(""));
+	console.log($(this).val());
+	console.log(cCase);
 
 	$.ajax({
 		   type: "POST",
