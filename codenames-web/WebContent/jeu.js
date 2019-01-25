@@ -79,6 +79,8 @@ $.ajax({
 	}
 });
 
+
+
 // Attribuer une couleur aux cartes
 
 var mesCouleurs = [ "blue", "blue", "blue", "blue", "blue", "blue", "blue",
