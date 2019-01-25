@@ -30,9 +30,8 @@ public class InscriptionController {
 	}
 	
 	@PostMapping("/inscription")
-	public String ajouterUtilisateur(@ModelAttribute Utilisateur utilisateur, String password, Model model) {
+	public String ajouterUtilisateur(@ModelAttribute Utilisateur utilisateur, String passwordConfirme, Model model) {
 		boolean exist = false ;
-		System.out.println(password);
 		List <Utilisateur> mesUtilisateurs = daoUtilisateur.findAll();
 		for (Utilisateur u : mesUtilisateurs) {
 			if (u.getUsername().equals(utilisateur.getUsername())) {
@@ -40,22 +39,31 @@ public class InscriptionController {
 			}
 		}
 		
-		if (exist == false && utilisateur.getPassword().equals(password)) {
+		if (exist == false && utilisateur.getPassword().equals(passwordConfirme)) {
 			daoUtilisateur.save(utilisateur);
-			return "redirect:./accueil";
+			String monMessage = "Votre inscription est confirmée";
+			System.out.println(monMessage);
+			model.addAttribute("monMessage", monMessage);
+			return "inscription";
 		}
 		
 		else if (exist == true) {
-			System.out.println("Username déjà existant");
-
+			String monMessage = "Username déjà existant. Veuillez réessayer...";
+			System.out.println(monMessage);
+			model.addAttribute("monMessage", monMessage);
+			return "inscription";
 			
 		}
 		
-		else if (utilisateur.getPassword() != password){
-			System.out.println("Les mots de passent ne correspondent pas");
-
+		else if (!utilisateur.getPassword().equals(passwordConfirme)){
+			String monMessage = "Les mots de passent ne correspondent pas. Veuillez réessayer...";
+			System.out.println(monMessage);
+			model.addAttribute("monMessage", monMessage);
+			return "inscription";
 		}
-		return "redirect:./inscription";
+		
+		
+		return "inscription";
 		
 	}
 	

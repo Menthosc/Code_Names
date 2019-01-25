@@ -73,8 +73,10 @@
 	</section>
 	
 	<section id="grilleJeu">
-		<div>
- 		</div>
+	<div th:each="case : ${maGrille.casesGrille}" id="miniCase" th:class="${case.couleur}">
+		
+		
+ 	</div>
 
 	</section>
 	

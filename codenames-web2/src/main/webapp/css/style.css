@@ -202,8 +202,19 @@ footer.accueil {
 }
 
 
+/*--------------------------------------------------------------------------------------  */
+/* Pour la page d'inscirption */
 
 
+h4#message {
+	display: flex;
+	justify-content: center;
+	color: red;
+}
+
+h1#inscirptionCodeNames {
+	font-family: 'Indie Flower', cursive;
+}
 
 
 
@@ -234,11 +245,11 @@ div#demarrageJeu{
 }
 
 body#jeu h1{
-	color: #FFFFFF  !important;
+	color: #000000  !important;
 }
 
 body#jeu {
-	background: #000000;
+	background: #FFFFFF;
 	
 }
 
@@ -344,38 +355,69 @@ div#grille > div#mot25{
 section#infos{
 	position: fixed;
 	top: 500px;
- 	left: 20px;
- 	width: 650px;
+ 	left: 347px;
+ 	width: 400px;
+ 	height: 250px;
  	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+ 	background : #e0e0e0  !important;
+	border-color : #696969;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 5px;	
+	overflow: hidden;
+    overflow-y: scroll;
 }
 
 section#infos span{
 	font-family: 'Montserrat', sans-serif;
-	color: #e0e0e0 ;
-
+	position : relative;
+	top : 2px;
+	left : 4px;
+	color: #000000 ;
 }
 
 /* Pour afficher la grille */
 section#grilleJeu{
 	height: 250px;
-	width: 250px;
+	width: 254px;
 	position: fixed;
-	top: 525px;
+	top: 500px;
  	left: 20px;
  	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+ 	overflow: hidden;
+	border-color : #696969;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 5px;
 }
 
 section#grilleJeu > div{
 	float: left;
-	height: 240px;
-	width: 240px;
-	background-image: url(../images/grille.jpg);
+	height: 50px;
+	width: 50px;
  	background-size: cover;
+ 	overflow: hidden;
+	border-color : #696969;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 5px;
 }
 
+section#grilleJeu > div.NEUTRE {
+	background : white ;
+}
 
+section#grilleJeu > div.ROUGE {
+	background : #fb6a4a ;
+}
 
+section#grilleJeu > div.BLEUE {
+	background : #6baed6 ;
+}
 
+section#grilleJeu > div.NOIRE {
+	background : #262626 ;
+}
 
 
 
@@ -523,6 +565,7 @@ section#chatGlobal p {
 	height: 340px;
 	padding: 8px 24px;
 	overflow-y: scroll;
+	background: #e0e0e0  !important;
 }
 
 .chat-message {
@@ -544,7 +587,9 @@ section#chatGlobal p {
 	margin: 0 0 0 80px;
 }
 
-
+fieldset#chat {
+	background: #e0e0e0  !important;
+}
 
 
 
