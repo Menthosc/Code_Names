@@ -27,12 +27,11 @@ public class ConnexionController {
 	private IDAOUtilisateur DAOUtilisateurs;
 
 	@GetMapping("/connexion")
-	public String ListerCartes(@ModelAttribute Utilisateur utilisateur, Model model) {
+	public String ListerUtilisateurs(@ModelAttribute Utilisateur utilisateur, Model model) {
 
 		List<Utilisateur> lesUtilisateurs = DAOUtilisateurs.findAll();
 
 		model.addAttribute("lesUtilisateurs", lesUtilisateurs);
-
 		return "connexion";
 
 	}
@@ -45,20 +44,18 @@ public class ConnexionController {
 
 		List<Utilisateur> lesUtilisateurs = DAOUtilisateurs.findAll();
 
-		boolean estConnecté = false;
-
+	
 		for (Utilisateur u : lesUtilisateurs) {
 
 			if (utilisateur.getUsername().equals(u.getUsername())&& utilisateur.getPassword().equals(u.getPassword())) {
 				
-				session.setAttribute("monUtilissateur", utilisateur);
-				model.addAttribute("monUtilissateur", utilisateur);
+				session.setAttribute("monUtilisateur", utilisateur);
+				model.addAttribute("monUtilisateur", utilisateur);
 				return "redirect:/gestionDesCartes";
 
 			}
 
 		}
-		
 		
 		
 
@@ -70,4 +67,33 @@ public class ConnexionController {
 	
 
 
+
+
+
+
+
+
+
+
+
+// DECONNEXION
+
+
+	@GetMapping("/deconnexion")
+	public String deconnexion(HttpSession session) {
+
+	
+		session.invalidate();
+		return "redirect:/connexion";
+
+	}
+
+
+
+
+
+
 }
+
+
+//METHODE INVALIDATE POUR HTTP SESSION
