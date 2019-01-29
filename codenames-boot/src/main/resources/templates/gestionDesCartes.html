@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=devide-width, initial-scale=1" />
+<link rel="stylesheet"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<title>Gestion des cartes</title>
+
+</head>
+
+
+
+<body>
+
+<!-- Barre de navigation -------------------------------------------------------------------------------- -->
+
+<nav id="gestionDesCartes" class="navbar navbar-expand-lg navbar-light bg-light">
+			<a id="CodeNames" class="navbar-brand" href="accueil">CodeNames Game</a>
+			
+			<!-- Bouton "hamburger" qui s'active si l'�cran est trop petit -->
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNav" aria-controls="navbarNav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+					<!-- Menu � proprement parler -->
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li th:if= "${ session.monUtilisateur == null}" class="nav-item active"><a class="nav-link" href="inscription">|Inscription| </a>
+					</li>
+					<li th:if= "${ session.monUtilisateur == null}" class="nav-item active"><a class="nav-link" href="connexion">|Connexion| </a>
+					</li>
+					
+					<li th:if= "${ session.monUtilisateur != null}"  class="nav-item active"><a class="nav-link" href="gestionDesCartes">|Gestion des cartes| </a>
+					</li>
+					
+					<li th:if= "${ session.monUtilisateur != null}"  class="nav-item active"><a class="nav-link" href="jeu">|Jeu| </a></li>
+			
+					<li th:if= "${ session.monUtilisateur != null}" class="nav-item active"><a class="nav-link" href="deconnexion">|Deconnexion|</a> </li>
+					
+				</ul>
+			</div>
+		</nav>
+
+
+	<!-- Ajouter une carte-------------------------------------------------------------------------------- -->
+
+
+<section class="container mb-5 mt-5">
+<header class="container mb-6 mt-6 center">
+<h1 class="display-3">Gestion des cartes</h1>
+</header>
+</section>
+
+	<form method="POST" action="ajouterCarte">
+		
+		
+		
+	
+		
+		<section class="container mb-5 mt-5">
+		
+		<h2>Ajouter une carte</h2>
+		
+		
+			<div class="ajouterCarte container mt-2">
+		
+			<!-- Formulaire d'ajout de la carte -->
+			
+				<!-- Chaque zone est compos� de 2 colonnes : type d'info + saisie -->
+				<!-- > label sur 2 colonnes, input et select sur 10 colonnes < -->
+				
+				<!-- Le mot -->
+				<div class="form-group row container mt-2">
+					<label for="mot" class="col-sm-3 col-form-label">Votre mot:</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" th:value="${carte?.libelle}" name="libelle" placeholder="Indiquer le mot à associer à la nouvelle carte" required/> 
+				
+					</div>
+				</div>
+				
+
+				<!-- Bouton "valider" -->
+				<div class="form-group row">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-9">
+						<input class="btn btn-success" type="submit" value="Ajouter la carte"  />	
+					</div>
+				</div>
+				
+				</div>
+		</section>
+
+
+
+
+		</form>
+	<!-- Modifier une carte-------------------------------------------------------------------------------- -->
+
+		
+	<form method="POST" action="modifierCarte">
+	
+	
+	
+		
+		<section class="container mb-5 mt-5">
+		<h2>Modifier une carte</h2>
+		
+		
+		<div class="modifierCarte container mt-2">
+		
+		<!-- Selection de la carte � modifier -->
+		<div class="form-group row container mt-2">
+					<label for="fournisseur" class="col-sm-3 col-form-label">Carte existante:</label>
+					<div class="col-sm-9">
+						<select class="form-control" id="carteExistante" name="id">
+						 <option th:each="carte: ${ mesCartes}"
+ 								th:value="${carte.id}"
+ 								th:text="${carte.libelle}"
+ 								th:selected="${carte?.id == carte.id}"/>
+						
+						</select>
+					</div>
+				</div>
+				
+		
+		
+
+	
+			<!-- Formulaire d'ajout de la carte -->
+			
+				<!-- Chaque zone est compos� de 2 colonnes : type d'info + saisie -->
+				<!-- > label sur 2 colonnes, input et select sur 10 colonnes < -->
+				
+				<!-- Le mot -->
+				<div class="form-group row container mt-2">
+					<label for="mot" class="col-sm-3 col-form-label">Le nouveau mot:</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" th:value="${carte?.libelle}" name="libelle" placeholder="Indiquer le mot à associer à la carte selectionnée"  required /> 
+					</div>
+				</div>
+				
+		
+				
+			
+				<!-- Bouton "valider" -->
+				<div class="form-group row">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-9">
+						<input class="btn btn-success" type="submit" value="Modifier la carte" />
+					</div>
+				</div>	
+				</div>
+</section>
+
+
+
+
+</form>
+
+
+
+
+
+<!-- Supprimer une carte une carte-------------------------------------------------------------------------------- -->
+
+
+
+
+<form method="GET" th:action="supprimerCarte">
+
+
+<section class="container mb-5 mt-5">
+		
+	<h2>Supprimer une carte</h2>
+
+
+
+<div class="supprimerCarte container mt-2">
+
+
+<!-- Selection de la carte � modifier -->
+		<div class="form-group row container mt-2">
+					<label for="fournisseur" class="col-sm-3 col-form-label">Carte à supprimer:</label>
+					<div class="col-sm-9">
+						<select class="form-control" id="carteASupprimer" name="id">
+						
+						 <option th:each="carte: ${ mesCartes}"
+ 								th:value="${carte.id}"
+ 								th:text="${carte.libelle}"
+ 								th:selected="${carte?.id == carte.id}"/>
+						</select>
+					</div>
+				</div>
+
+
+
+
+<!-- Bouton "valider" -->
+				<div class="form-group row">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-9">
+						<input class="btn btn-success" type="submit" value="Supprimer la carte" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+</form>
+
+			
+
+	<!-- Liste des cartes-------------------------------------------------------------------------------- -->
+	
+<section class="container mb-5 mt-5 tableau">
+
+
+
+
+
+		<header class="container">
+			<h2 class="display-6">Liste des cartes</h2>
+		</header>
+		
+		
+		<div class="bordureTableau">
+		
+		
+		<div class="titreColonne">
+		
+		
+			<table class="table table-striped titreColonne" >
+		
+			<thead>
+				<tr>
+					<th id="id" scope="col">#</th>
+					<th id="mot"scope="col">Mot</th>
+				</tr>
+			</thead>
+		
+
+			</table>
+	
+		</div>
+		
+		
+		
+		
+		
+		
+		
+		<div class="tableauhauteur">
+		
+
+		<table class="table table-striped" id="tableauCartes">
+			<thead>
+				<tr>
+					<!-- <th scope="col">#</th>
+					<th scope="col">Mot</th> -->
+				</tr>
+			</thead>
+			<tbody>
+			
+		<tr th:each="carte : ${mesCartes}">
+		
+		<td id="id2"> [[${ carte.id }]] </td>
+		<td id="libelle"> [[${ carte.libelle }]] </td>
+	
+		</tr>
+			</tbody>
+		</table>
+		</div>
+		
+		
+		
+		</div>
+		
+
+	</section>
+
+
+
+
+
+
+
+
+<!-- Liste des cartes-------------------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+<footer class="container mt-5 absolute-bottom gestionCartes"> Copyright codenames.fr &copy; 2019 &nbsp;&nbsp; <i id="div_horloge"></i> </footer>
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+		<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/cartes.js"></script>
+
+<script type="text/javascript">
+window.onload=function() {
+  horloge('div_horloge');
+};
+ 
+function horloge(el) {
+  if(typeof el=="string") { el = document.getElementById(el); }
+  function actualiser() {
+    var date = new Date();
+    var str = date.getHours();
+    str += ':'+(date.getMinutes()<10?'0':'')+date.getMinutes();
+    str += ':'+(date.getSeconds()<10?'0':'')+date.getSeconds();
+    el.innerHTML = str;
+  }
+  actualiser();
+  setInterval(actualiser,1000);
+}
+</script>
+</html>
