@@ -351,6 +351,10 @@ div#grille > div#mot25{
 	border-bottom-right-radius: 5px ;
 }
 
+
+
+
+
 /* Pour afficher la barre d'info  */
 section#infos{
 	position: fixed;
@@ -374,6 +378,15 @@ section#infos span{
 	top : 2px;
 	left : 4px;
 	color: #000000 ;
+}
+
+section#infos h5{
+	font-family: 'Montserrat', sans-serif;
+	position : relative;
+	top : 2px;
+	left : 4px;
+	color: #000000 ;
+	font-size: 14px;
 }
 
 /* Pour afficher la grille */

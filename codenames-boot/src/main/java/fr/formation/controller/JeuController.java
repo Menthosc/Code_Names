@@ -2,6 +2,9 @@ package fr.formation.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,9 +19,11 @@ import codenames.model.Case;
 import codenames.model.Couleur;
 import codenames.model.Difficulte;
 import codenames.model.Grille;
+import codenames.model.Utilisateur;
 import fr.formation.dao.IDAOCarte;
 import fr.formation.dao.IDAOCase;
 import fr.formation.dao.IDAOGrille;
+import fr.formation.restcontroller.JeuRestController;
 
 @Controller
 public class JeuController {
@@ -36,7 +41,7 @@ public class JeuController {
 	
 	
 	@GetMapping(value="/jeu")
-	public String jeuAfficher(Model model) {
+	public String jeuAfficher(Model model, HttpSession session) {
 	
 		List <Carte> mesCartes = daoCarte.findAll();
 		maGrille = new Grille() ;
@@ -118,7 +123,11 @@ public class JeuController {
 			daoCase.save(ca);
 		}
 		
+	
+		
 		model.addAttribute("maGrille", maGrille);
+		Utilisateur user = (Utilisateur) session.getAttribute("monUtilisateur");
+		model.addAttribute("user", user);
 		return "jeu";
 	
 	}
@@ -126,9 +135,13 @@ public class JeuController {
 
 		@PostMapping(value="/jeu")
 		@ResponseBody
-		public String recupCarte(@RequestParam String nomCase) {
+		public String recupCarte(@RequestParam String nomCase, HttpSession session) {
 			Case cCase = daoCase.findByCarteLibelle(nomCase, maGrille.getId());
 			String couleur = String.valueOf(cCase.getCouleur());
+			Utilisateur user = (Utilisateur) session.getAttribute("monUtilisateur");
+			String name = user.getUsername();
+			System.out.println("Le joueur " + name + " a cliqué sur " + cCase.getCarte().getLibelle() + " dont la couleur est " + cCase.getCouleur());
+			
 			return couleur ;
 		}
 	

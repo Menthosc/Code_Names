@@ -129,6 +129,21 @@ $('#grille > div').bind('click', function() {
 		   url: "/jeu",
 		   data: { "nomCase": cCase },
 		   success : function(couleur){ //pour révéler les cartes en récupérant la couleur via la Controller
+			var texte = $(that).find('span').text();
+			var monTexte = $('<h5> Le joueur a cliqué sur </h5>');
+			monTexte.append(texte);
+			$('section#infos').append(monTexte);
+			
+			var monTexte2 = $('<h5> Et la couleur est... : </h5>');
+			monTexte2.append(couleur);
+			$('section#infos').append(monTexte2);
+			
+			var couleurNoire = "NOIRE" ;
+			if (couleur == couleurNoire){
+				var monTexte3 = $('<h5> Dommage... vous avez perdu </h5>');
+				$('section#infos').append(monTexte3);
+			}
+			
 			that.addClass(couleur);
 			that.addClass('reveal');
 			}
