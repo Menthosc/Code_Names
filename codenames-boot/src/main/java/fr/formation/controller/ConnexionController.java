@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import codenames.model.Utilisateur;
 import fr.formation.dao.IDAOUtilisateur;
@@ -19,48 +20,42 @@ import fr.formation.dao.IDAOUtilisateur;
 @Controller
 public class ConnexionController {
 
-	@Autowired
-	private IDAOUtilisateur DAOUtilisateurs;
+
 
 	@GetMapping("/connexion")
-	public String ListerUtilisateurs(@ModelAttribute Utilisateur utilisateur, Model model) {
-
-		List<Utilisateur> lesUtilisateurs = DAOUtilisateurs.findAll();
-
-		model.addAttribute("lesUtilisateurs", lesUtilisateurs);
+	public String home(@RequestParam(required = false) String username, Model model) {
+		model.addAttribute("Utilisateur", username);
 		return "connexion";
 
 	}
 
 	
-	
-	
-	@PostMapping(value = "/testConnexion")
-	public String connexion( @ModelAttribute  Utilisateur utilisateur, HttpSession session, Model model) {
-
-		List<Utilisateur> lesUtilisateurs = DAOUtilisateurs.findAll();
-
-	
-		for (Utilisateur u : lesUtilisateurs) {
-
-			if (utilisateur.getUsername().equals(u.getUsername())&& utilisateur.getPassword().equals(u.getPassword())) {
-				
-				session.setAttribute("monUtilisateur", utilisateur);
-				model.addAttribute("monUtilisateur", utilisateur);
-				return "redirect:/gestionDesCartes";
-
-			}
-
-		}
+//	@PostMapping(value = "/testConnexion")
+//	public String connexion( @ModelAttribute  Utilisateur utilisateur, HttpSession session, Model model) {
+//
+//		List<Utilisateur> lesUtilisateurs = DAOUtilisateurs.findAll();
+//
+//	
+//		for (Utilisateur u : lesUtilisateurs) {
+//
+//			if (utilisateur.getUsername().equals(u.getUsername())&& utilisateur.getPassword().equals(u.getPassword())) {
+//				
+//				session.setAttribute("monUtilisateur", utilisateur);
+//				model.addAttribute("monUtilisateur", utilisateur);
+//				return "redirect:/gestionDesCartes";
+//
+//			}
+//
+//		}
 		
 		
 
-		String monMessage = "Identifiant et/ou MDP incorrect(s). Veuillez r�essayer...";
-		model.addAttribute("monMessage", monMessage);
-		return "connexion";
-
-	}
-	
+//		String monMessage = "Identifiant et/ou MDP incorrect(s). Veuillez r�essayer...";
+//		model.addAttribute("monMessage", monMessage);
+//		return "connexion";
+//
+//	}
+//	
 
 
 
@@ -87,9 +82,24 @@ public class ConnexionController {
 
 
 
+	
+	
+	
+	
+//	@GetMapping({ "/login" })
+//	public String home(@RequestParam(required = false, defaultValue = "Albert") String username, Model model) {
+//		model.addAttribute("Utilisateur", username);
+//		return "login";
+//
+//	}
+//	
+	
+	
+	
+	
+	
 
 
 }
 
 
-//METHODE INVALIDATE POUR HTTP SESSION

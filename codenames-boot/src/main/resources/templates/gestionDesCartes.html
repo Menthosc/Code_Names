@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/security/tags">
 
 <head>
 <meta charset="UTF-8">
@@ -34,18 +34,25 @@
 			
 					<!-- Menu � proprement parler -->
 			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					<li th:if= "${ session.monUtilisateur == null}" class="nav-item active"><a class="nav-link" href="inscription">|Inscription| </a>
+			<ul class="navbar-nav">
+			<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
+					<li class="nav-item active"><a class="nav-link" href="inscription">|Inscription| </a>
 					</li>
-					<li th:if= "${ session.monUtilisateur == null}" class="nav-item active"><a class="nav-link" href="connexion">|Connexion| </a>
+					</sec:authorize>
+					<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
+					<li  class="nav-item active"><a class="nav-link" href="connexion">|Connexion| </a>
 					</li>
-					
-					<li th:if= "${ session.monUtilisateur != null}"  class="nav-item active"><a class="nav-link" href="gestionDesCartes">|Gestion des cartes| </a>
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+					<li class="nav-item active"><a class="nav-link" href="gestionDesCartes">|Gestion des cartes| </a>
 					</li>
-					
-					<li th:if= "${ session.monUtilisateur != null}"  class="nav-item active"><a class="nav-link" href="jeu">|Jeu| </a></li>
-			
-					<li th:if= "${ session.monUtilisateur != null}" class="nav-item active"><a class="nav-link" href="deconnexion">|Deconnexion|</a> </li>
+					</sec:authorize>
+					<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
+					<li  class="nav-item active"><a class="nav-link" href="jeu">|Jeu| </a></li>
+					</sec:authorize>
+					<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
+					<li  class="nav-item active"><a class="nav-link" href="accueil">|Deconnexion|</a> </li>
+					</sec:authorize>
 					
 				</ul>
 			</div>
@@ -61,11 +68,8 @@
 </header>
 </section>
 
-	<form method="POST" action="ajouterCarte">
-		
-		
-		
-	
+	<form sec:authorize="hasRole('ROLE_ADMIN')" method="POST" action="ajouterCarte">
+			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 		
 		<section class="container mb-5 mt-5">
 		
@@ -107,8 +111,8 @@
 	<!-- Modifier une carte-------------------------------------------------------------------------------- -->
 
 		
-	<form method="POST" action="modifierCarte">
-	
+	<form sec:authorize="hasRole('ROLE_ADMIN')" method="POST" action="modifierCarte">
+		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 	
 	
 		
@@ -176,8 +180,8 @@
 
 
 
-<form method="GET" th:action="supprimerCarte">
-
+<form sec:authorize="hasRole('ROLE_ADMIN')" method="GET" th:action="supprimerCarte">
+	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 
 <section class="container mb-5 mt-5">
 		
@@ -221,7 +225,7 @@
 
 	<!-- Liste des cartes-------------------------------------------------------------------------------- -->
 	
-<section class="container mb-5 mt-5 tableau">
+<section sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_USER')"class="container mb-5 mt-5 tableau">
 
 
 

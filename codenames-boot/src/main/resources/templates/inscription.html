@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/security/tags"xmlns:sec="http://www.springframework.org/security/tags">
 
 <head>
 	<title>CodeNames - Inscription</title>
@@ -32,18 +32,25 @@
 			
 					<!-- Menu � proprement parler -->
 			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					<li th:if= "${ session.monUtilisateur == null}" class="nav-item active"><a class="nav-link" href="inscription">|Inscription| </a>
+			<ul class="navbar-nav">
+			<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
+					<li class="nav-item active"><a class="nav-link" href="inscription">|Inscription| </a>
 					</li>
-					<li th:if= "${ session.monUtilisateur == null}" class="nav-item active"><a class="nav-link" href="connexion">|Connexion| </a>
+					</sec:authorize>
+					<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
+					<li  class="nav-item active"><a class="nav-link" href="connexion">|Connexion| </a>
 					</li>
-					
-					<li th:if= "${ session.monUtilisateur != null}"  class="nav-item active"><a class="nav-link" href="gestionDesCartes">|Gestion des cartes| </a>
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+					<li class="nav-item active"><a class="nav-link" href="gestionDesCartes">|Gestion des cartes| </a>
 					</li>
-					
-					<li th:if= "${ session.monUtilisateur != null}"  class="nav-item active"><a class="nav-link" href="jeu">|Jeu| </a></li>
-			
-					<li th:if= "${ session.monUtilisateur != null}" class="nav-item active"><a class="nav-link" href="accueil">|Deconnexion|</a> </li>
+					</sec:authorize>
+					<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
+					<li  class="nav-item active"><a class="nav-link" href="jeu">|Jeu| </a></li>
+					</sec:authorize>
+					<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
+					<li  class="nav-item active"><a class="nav-link" href="accueil">|Deconnexion|</a> </li>
+					</sec:authorize>
 					
 				</ul>
 			</div>

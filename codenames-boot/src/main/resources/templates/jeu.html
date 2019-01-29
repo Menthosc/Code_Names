@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/security/tags">
 
 <head>
 	<title>CodeNames - Partie</title>
 	<meta charset="UTF-8">
 	<meta name="description"content="Best game ever">
 	<meta name="viewport" content="width=devide-width, initial-scale=1" />
-	<base href="connexion.html" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -32,18 +31,25 @@
 			
 				<!-- Menu � proprement parler -->
 			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					<li th:if= "${ session.monUtilisateur == null}" class="nav-item active"><a class="nav-link" href="inscription">|Inscription| </a>
+			<ul class="navbar-nav">
+			<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
+					<li class="nav-item active"><a class="nav-link" href="inscription">|Inscription| </a>
 					</li>
-					<li th:if= "${ session.monUtilisateur == null}" class="nav-item active"><a class="nav-link" href="connexion">|Connexion| </a>
+					</sec:authorize>
+					<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
+					<li  class="nav-item active"><a class="nav-link" href="connexion">|Connexion| </a>
 					</li>
-					
-					<li th:if= "${ session.monUtilisateur != null}"  class="nav-item active"><a class="nav-link" href="gestionDesCartes">|Gestion des cartes| </a>
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+					<li class="nav-item active"><a class="nav-link" href="gestionDesCartes">|Gestion des cartes| </a>
 					</li>
-					
-					<li th:if= "${ session.monUtilisateur != null}"  class="nav-item active"><a class="nav-link" href="jeu">|Jeu| </a></li>
-			
-					<li th:if= "${ session.monUtilisateur != null}" class="nav-item active"><a class="nav-link" href="deconnexion">|Deconnexion|</a> </li>
+					</sec:authorize>
+					<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
+					<li  class="nav-item active"><a class="nav-link" href="jeu">|Jeu| </a></li>
+					</sec:authorize>
+					<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
+					<li  class="nav-item active"><a class="nav-link" href="accueil">|Deconnexion|</a> </li>
+					</sec:authorize>
 					
 				</ul>
 			</div>
