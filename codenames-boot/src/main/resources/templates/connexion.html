@@ -30,27 +30,28 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			
-		<!-- Menu � proprement parler -->
+		<!-- Menu à proprement parler -->
 			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-			<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
-					<li class="nav-item active"><a class="nav-link" href="inscription">|Inscription| </a>
+		<ul class="navbar-nav">
+					
+					<li sec:authorize="isAnonymous()" class="nav-item active"><a class="nav-link" href="inscription">|Inscription| </a>
 					</li>
-					</sec:authorize>
-					<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
-					<li  class="nav-item active"><a class="nav-link" href="connexion">|Connexion| </a>
+				
+					<li sec:authorize="isAnonymous()" class="nav-item active"><a class="nav-link" href="connexion">|Connexion| </a>
 					</li>
-					</sec:authorize>
-					<sec:authorize access="hasRole('ROLE_ADMIN')">
-					<li class="nav-item active"><a class="nav-link" href="gestionDesCartes">|Gestion des cartes| </a>
+					
+					
+					<li sec:authorize="isAuthenticated()" class="nav-item active"><a class="nav-link" href="gestionDesCartes">|Gestion des cartes| </a>
 					</li>
-					</sec:authorize>
-					<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
-					<li  class="nav-item active"><a class="nav-link" href="jeu">|Jeu| </a></li>
-					</sec:authorize>
-					<sec:authorize access="hasanyRole('ROLE_USER', 'ROLE_ADMIN')">
-					<li  class="nav-item active"><a class="nav-link" href="accueil">|Deconnexion|</a> </li>
-					</sec:authorize>
+					
+					
+					<li sec:authorize="isAuthenticated()" class="nav-item active"><a class="nav-link" href="jeu">|Jeu| </a></li>
+					
+					
+					<li sec:authorize="isAuthenticated()" class="nav-item active"><a class="nav-link" href="gestionDesJoueurs">|Gestion des Joueurs| </a></li>
+					
+					<li sec:authorize="isAuthenticated()" class="nav-item active"><a class="nav-link" href="deconnexion">|Deconnexion|</a> </li>
+				
 					
 				</ul>
 			</div>
@@ -101,13 +102,14 @@
 				
 					
 					<input type="submit" class="btn btn-primary" value="Valider" />
+					
 				</div>
 			</div>
 		</div>
 	</section>
 	
 	
-	</form>
+	
 	
 	
 	<!-- 

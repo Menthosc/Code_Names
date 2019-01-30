@@ -28,7 +28,7 @@ public class CartesController {
 	
 	/// LISTAGE DES CARTES DANS LES MENUS DEROULANTS
 	
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER)")
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
 	@GetMapping("/gestionDesCartes")
 	public String ListerCartes(@ModelAttribute Carte cartes, Model model) {
 

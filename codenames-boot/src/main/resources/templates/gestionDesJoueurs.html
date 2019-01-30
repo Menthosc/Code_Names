@@ -12,7 +12,7 @@
 <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-<title>Gestion des cartes</title>
+<title>Gestion des Joueurs</title>
 
 </head>
 
@@ -60,122 +60,13 @@
 		</nav>
 
 
-	<!-- Ajouter une carte-------------------------------------------------------------------------------- -->
-
-
 <section class="container mb-5 mt-5">
 <header class="container mb-6 mt-6 center">
-<h1 class="display-3">Gestion des cartes</h1>
+<h1 class="display-3">Gestion des Joueurs</h1>
 
- <span sec:authorize="hasRole('ROLE_USER')" class="restreint"> Accès utilisateur restreint... Seul l'admin peut modifier les cartes! </span>
+ <span sec:authorize="hasRole('ROLE_USER')" class="restreint"> Accès utilisateur restreint... Seul l'admin peut gérer les joueurs! </span>
 
 </header>
-</section>
-
-	<form sec:authorize="hasRole('ROLE_ADMIN')" method="POST" action="ajouterCarte">
-			<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-		
-		<section class="container mb-5 mt-5">
-		
-		<h2>Ajouter une carte</h2>
-		
-		
-			<div class="ajouterCarte container mt-2">
-		
-			<!-- Formulaire d'ajout de la carte -->
-			
-				<!-- Chaque zone est compos� de 2 colonnes : type d'info + saisie -->
-				<!-- > label sur 2 colonnes, input et select sur 10 colonnes < -->
-				
-				<!-- Le mot -->
-				<div class="form-group row container mt-2">
-					<label for="mot" class="col-sm-3 col-form-label">Votre mot:</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control" th:value="${carte?.libelle}" name="libelle" placeholder="Indiquer le mot à associer à la nouvelle carte" required/> 
-				
-					</div>
-				</div>
-				
-
-				<!-- Bouton "valider" -->
-				<div class="form-group row">
-					<div class="col-sm-3"></div>
-					<div class="col-sm-9">
-						<input class="btn btn-success" type="submit" value="Ajouter la carte"  />	
-					</div>
-				</div>
-				
-				</div>
-		</section>
-
-
-
-
-		</form>
-	<!-- Modifier une carte-------------------------------------------------------------------------------- -->
-
-		
-	<form sec:authorize="hasRole('ROLE_ADMIN')" method="POST" action="modifierCarte">
-		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-	
-	
-		
-		<section class="container mb-5 mt-5">
-		<h2>Modifier une carte</h2>
-		
-		
-		<div class="modifierCarte container mt-2">
-		
-		<!-- Selection de la carte � modifier -->
-		<div class="form-group row container mt-2">
-					<label for="fournisseur" class="col-sm-3 col-form-label">Carte existante:</label>
-					<div class="col-sm-9">
-						<select class="form-control" id="carteExistante" name="id">
-						 <option th:each="carte: ${ mesCartes}"
- 								th:value="${carte.id}"
- 								th:text="${carte.libelle}"
- 								th:selected="${carte?.id == carte.id}"/>
-						
-						</select>
-					</div>
-				</div>
-				
-		
-		
-
-	
-			<!-- Formulaire d'ajout de la carte -->
-			
-				<!-- Chaque zone est compos� de 2 colonnes : type d'info + saisie -->
-				<!-- > label sur 2 colonnes, input et select sur 10 colonnes < -->
-				
-				<!-- Le mot -->
-				<div class="form-group row container mt-2">
-					<label for="mot" class="col-sm-3 col-form-label">Le nouveau mot:</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control" th:value="${carte?.libelle}" name="libelle" placeholder="Indiquer le mot à associer à la carte selectionnée"  required /> 
-					</div>
-				</div>
-				
-		
-				
-			
-				<!-- Bouton "valider" -->
-				<div class="form-group row">
-					<div class="col-sm-3"></div>
-					<div class="col-sm-9">
-						<input class="btn btn-success" type="submit" value="Modifier la carte" />
-					</div>
-				</div>	
-				</div>
-</section>
-
-
-
-
-</form>
-
-
 
 
 
@@ -184,7 +75,7 @@
 
 
 
-<form sec:authorize="hasRole('ROLE_ADMIN')" method="GET" th:action="supprimerCarte">
+<form sec:authorize="hasRole('ROLE_ADMIN')" method="GET" th:action="supprimerJoueur">
 	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 
 <section class="container mb-5 mt-5">
@@ -198,14 +89,14 @@
 
 <!-- Selection de la carte � modifier -->
 		<div class="form-group row container mt-2">
-					<label for="fournisseur" class="col-sm-3 col-form-label">Carte à supprimer:</label>
+					<label for="fournisseur" class="col-sm-3 col-form-label">Joueur à supprimer:</label>
 					<div class="col-sm-9">
-						<select class="form-control" id="carteASupprimer" name="id">
+					<select class="form-control" id="carteASupprimer" name="id">
 						
-						 <option th:each="carte: ${ mesCartes}"
- 								th:value="${carte.id}"
- 								th:text="${carte.libelle}"
- 								th:selected="${carte?.id == carte.id}"/>
+						 <option th:each="utilisateur: ${ mesUtilisateurs}"
+ 								th:value="${utilisateur.id}"
+ 								th:text="${utilisateur.username}"
+ 								th:selected="${utilisateur?.id == utilisateur.id}"/>
 						</select>
 					</div>
 				</div>
@@ -217,7 +108,7 @@
 				<div class="form-group row">
 					<div class="col-sm-3"></div>
 					<div class="col-sm-9">
-						<input class="btn btn-success" type="submit" value="Supprimer la carte" />
+						<input class="btn btn-success" type="submit" value="Supprimer le joueur" />
 					</div>
 				</div>
 			</div>
@@ -227,7 +118,60 @@
 
 			
 
-	<!-- Liste des cartes-------------------------------------------------------------------------------- -->
+
+
+
+
+
+<!-- Bannir un joueur-------------------------------------------------------------------------------- -->
+
+
+
+
+<form sec:authorize="hasRole('ROLE_ADMIN')" method="GET" th:action="bannirJoueur">
+	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+
+<section class="container mb-5 mt-5">
+		
+	<h2>Bannir un joueur</h2>
+
+
+
+<div class="supprimerCarte container mt-2">
+
+
+<!-- Selection de la carte � modifier -->
+		<div class="form-group row container mt-2">
+					<label for="fournisseur" class="col-sm-3 col-form-label">Joueur à bannir</label>
+					<div class="col-sm-9">
+						<select class="form-control" id="carteASupprimer" name="id">
+						
+						 <option th:each="utilisateur: ${ mesUtilisateurs}"
+ 								th:value="${utilisateur.id}"
+ 								th:text="${utilisateur.username}"
+ 								th:selected="${utilisateur?.id == utilisateur.id}"/>
+						</select>
+					</div>
+				</div>
+
+
+
+
+<!-- Bouton "valider" -->
+				<div class="form-group row">
+					<div class="col-sm-3"></div>
+					<div class="col-sm-9">
+						<input class="btn btn-success" type="submit" value="Bannir le joueur" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+</form>
+
+			
+
+	<!-- Liste des joueurs-------------------------------------------------------------------------------- -->
 	
 <section sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_USER')"class="container mb-5 mt-5 tableau">
 
@@ -236,7 +180,7 @@
 
 
 		<header class="container">
-			<h2 class="display-6">Liste des cartes</h2>
+			<h2 class="display-6">Liste des Utilisateurs</h2>
 		</header>
 		
 		
@@ -251,7 +195,7 @@
 			<thead>
 				<tr>
 					<th id="id" scope="col">#</th>
-					<th id="mot"scope="col">Mot</th>
+					<th id="mot"scope="col">Username</th>
 				</tr>
 			</thead>
 		
@@ -278,10 +222,10 @@
 			</thead>
 			<tbody>
 			
-		<tr th:each="carte : ${mesCartes}">
+		<tr th:each="utilisateur : ${mesUtilisateurs}">
 		
-		<td id="id2"> [[${ carte.id }]] </td>
-		<td id="libelle"> [[${ carte.libelle }]] </td>
+		<td id="id2"> [[${ utilisateur.id }]] </td>
+		<td id="libelle"> [[${ utilisateur.username }]] </td>
 	
 		</tr>
 			</tbody>
@@ -331,7 +275,7 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 		<script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="js/cartes.js"></script>
+
 
 <script type="text/javascript">
 window.onload=function() {

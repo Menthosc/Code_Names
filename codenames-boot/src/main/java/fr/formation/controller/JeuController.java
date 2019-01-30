@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +35,7 @@ public class JeuController {
 	
 	Grille maGrille = null;
 	
-	
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
 	@GetMapping(value="/jeu")
 	public String jeuAfficher(Model model) {
 	
@@ -123,7 +124,7 @@ public class JeuController {
 	
 	}
 	
-
+		@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
 		@PostMapping(value="/jeu")
 		@ResponseBody
 		public String recupCarte(@RequestParam String nomCase) {

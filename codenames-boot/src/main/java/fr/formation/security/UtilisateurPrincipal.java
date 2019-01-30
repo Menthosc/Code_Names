@@ -29,7 +29,7 @@ public class UtilisateurPrincipal implements UserDetails {
 		List<GrantedAuthority> myAuthorities = new ArrayList<GrantedAuthority>();
 		
 		
-		if (this.utilisateur.getId() != 1) {
+		if (this.utilisateur.getId() == 1) {
 			
 			myAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 			
