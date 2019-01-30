@@ -645,12 +645,57 @@ section#infosJoueur div h2{
 
 
 
+/* Section Liste des joueurs */
+
+section#listeJoueurs {
+	position: fixed;
+ 	top: 240px;
+ 	left: 1200px;
+ 	width: 250px;
+ 	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+ 	background : #edc499 ;
+ 	border-color : #696969;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 5px;	
+	height: 280px;	
+}
+
+section#listeJoueurs div h4{
+	font-family: 'Montserrat', sans-serif;
+	position : relative;
+	top : 2px;
+	left : 4px;
+	color: #05080d ;
+	font-size: 14px;
+}
+
+section#listeJoueurs div h3{
+	font-family: 'Montserrat', sans-serif;
+	position : relative;
+	top : 2px;
+	left : 4px;
+	color: #05080d ;
+	font-size: 18px;
+}
+
+section#listeJoueurs div h2{
+	font-family: 'Indie Flower', cursive;
+	position : relative;
+	top : 8px;
+	left : 8px;
+	color: #05080d ;
+	font-size: 30px;
+}
+
+
+
 
 /* Section Infos partie */
 
 section#partie {
 	position: fixed;
- 	top: 300px;
+ 	top: 540px;
  	left: 1200px;
  	width: 250px;
  	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
@@ -659,7 +704,7 @@ section#partie {
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 5px;	
-	height: 150px;	
+	height: 200px;	
 }
 
 
@@ -668,6 +713,15 @@ section#partie div#partie{
 	top : 6px;
 	left : 4px;
 
+}
+
+section#partie div h2{
+	font-family: 'Indie Flower', cursive;
+	position : relative;
+	top : 8px;
+	left : 8px;
+	color: #05080d ;
+	font-size: 30px;
 }
 
 section#partie h4{
