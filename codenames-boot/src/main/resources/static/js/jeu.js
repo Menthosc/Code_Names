@@ -120,9 +120,11 @@ anime.timeline({
 
 // Transition pour révéler les cartes et récupérer le mot côté Controller
 $('#grille > div').bind('click', function() {
+	
 	var cCase=$(this).find('span').text(); //récupère le mot de la carte dans la case cliquée
 	var that = $(this);
 	
+		
 	$.ajax({ // pour renvoyer le mot au Controller
 		   type: "POST",
 		   //dataType : 'json',
@@ -130,7 +132,9 @@ $('#grille > div').bind('click', function() {
 		   data: { "nomCase": cCase },
 		   success : function(couleur){ //pour révéler les cartes en récupérant la couleur via la Controller
 			var texte = $(that).find('span').text();
+
 			var monTexte = $('<h5> Le joueur a cliqué sur </h5>');
+
 			monTexte.append(texte);
 			$('section#infos').append(monTexte);
 			

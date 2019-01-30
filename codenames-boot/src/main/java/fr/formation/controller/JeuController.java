@@ -2,7 +2,6 @@ package fr.formation.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 import javax.servlet.http.HttpSession;
 
@@ -19,11 +18,11 @@ import codenames.model.Case;
 import codenames.model.Couleur;
 import codenames.model.Difficulte;
 import codenames.model.Grille;
+import codenames.model.Scores;
 import codenames.model.Utilisateur;
 import fr.formation.dao.IDAOCarte;
 import fr.formation.dao.IDAOCase;
 import fr.formation.dao.IDAOGrille;
-import fr.formation.restcontroller.JeuRestController;
 
 @Controller
 public class JeuController {
@@ -123,8 +122,11 @@ public class JeuController {
 			daoCase.save(ca);
 		}
 		
-	
+		int scoreRouge = 0 ;
+		int scoreBleu = 0 ;
 		
+		model.addAttribute("scoreRouge", scoreRouge);
+		model.addAttribute("scoreBleu", scoreBleu);
 		model.addAttribute("maGrille", maGrille);
 		Utilisateur user = (Utilisateur) session.getAttribute("monUtilisateur");
 		model.addAttribute("user", user);
@@ -135,7 +137,7 @@ public class JeuController {
 
 		@PostMapping(value="/jeu")
 		@ResponseBody
-		public String recupCarte(@RequestParam String nomCase, HttpSession session) {
+		public String recupCarte(@RequestParam String nomCase, HttpSession session, Model model) {
 			Case cCase = daoCase.findByCarteLibelle(nomCase, maGrille.getId());
 			String couleur = String.valueOf(cCase.getCouleur());
 			Utilisateur user = (Utilisateur) session.getAttribute("monUtilisateur");
@@ -145,6 +147,7 @@ public class JeuController {
 			return couleur ;
 		}
 	
+		
 	
 
 }

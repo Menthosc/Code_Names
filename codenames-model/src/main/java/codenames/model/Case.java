@@ -1,8 +1,14 @@
 package codenames.model;
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonView;
 
 
 @Entity
@@ -12,17 +18,21 @@ public class Case {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	@Column(name="CAS_ID")
+	@JsonView(Views.Common.class)
 	private int id;
 	
 	@Column(name="CAS_COULEUR")
+	@JsonView(Views.Case.class)
 	private Couleur couleur;
 	
 	@ManyToOne
 	@JoinColumn(name="CAS_CARTES_ID")
+	@JsonView(Views.Case.class)
 	private Carte carte;
 	
 	@ManyToOne
 	@JoinColumn(name="CAS_GRILLES_ID")
+	@JsonView(Views.Case.class)
 	private Grille grilleCase;
 	
 	

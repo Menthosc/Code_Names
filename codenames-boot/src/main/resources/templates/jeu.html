@@ -76,6 +76,7 @@
 	
 	<section id="infos">
 		<span>Suivi du jeu :</span>
+		
 	</section>
 	
 	<section id="grilleJeu">
@@ -135,11 +136,30 @@
  		</div>
 	</section>
 	
-	<section id="chatTeam">
-	<div>
-
-    
- 	</div>
+		<section id="infosJoueur">
+			<div>
+				<h2>[[${ user.username }]]</h2>
+				<br />
+				<h4>Equipe : </h4>
+				<h4>Role : </h4>
+			</div>
+	</section>
+	
+	
+	
+	
+	<section id="partie">
+		<div id="partie">
+			<div>
+				<h4>Score de l'équipe bleue</h4>
+				<span id="bleu">[[${ scoreBleu }]]</span>
+			</div>
+			<br />
+			<div>
+				<h4>Score de l'équipe rouge</h4>
+				<span id="rouge">[[${ scoreRouge }]]</span>
+    		</div>
+ 		</div>
 	</section>
 	
 	
@@ -155,7 +175,7 @@
 	<script src="js/jeu.js"></script>
 
 
-	<footer id="jeu" class="container mt-5 "> Copyright codenames.fr &copy; 2019 &nbsp;&nbsp; <i id="div_horloge"></i> </footer>
+	<!-- <footer id="jeu" class="container mt-5 "> Copyright codenames.fr &copy; 2019 &nbsp;&nbsp; <i id="div_horloge"></i> </footer> -->
 
 	
 </body>

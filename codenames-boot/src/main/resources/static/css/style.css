@@ -249,7 +249,7 @@ body#jeu h1{
 }
 
 body#jeu {
-	background: #FFFFFF;
+	background: #7a939b;
 	
 }
 
@@ -274,6 +274,7 @@ div#grille{
  	top: 70px;
  	left: 20px;
  	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+
 }
 
 div#grille > div {
@@ -369,7 +370,7 @@ section#infos{
 	border-width: 2px;
 	border-radius: 5px;	
 	overflow: hidden;
-    overflow-y: scroll;
+	overflow-y: scroll;
 }
 
 section#infos span{
@@ -603,6 +604,99 @@ section#chatGlobal p {
 fieldset#chat {
 	background: #e0e0e0  !important;
 }
+
+
+
+
+/* Section Infos joueur */
+
+section#infosJoueur {
+	position: fixed;
+ 	top: 70px;
+ 	left: 1200px;
+ 	width: 250px;
+ 	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+ 	background : #edc499 ;
+ 	border-color : #696969;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 5px;	
+	height: 150px;	
+}
+
+section#infosJoueur div h4{
+	font-family: 'Montserrat', sans-serif;
+	position : relative;
+	top : 2px;
+	left : 4px;
+	color: #05080d ;
+	font-size: 14px;
+}
+
+section#infosJoueur div h2{
+	font-family: 'Indie Flower', cursive;
+	position : relative;
+	top : 8px;
+	left : 8px;
+	color: #05080d ;
+	font-size: 30px;
+}
+
+
+
+
+
+/* Section Infos partie */
+
+section#partie {
+	position: fixed;
+ 	top: 300px;
+ 	left: 1200px;
+ 	width: 250px;
+ 	opacity:0;animation: transition 1.5s ease-in-out 6s forwards;
+ 	background :#edc499 ;
+ 	border-color : #696969;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 5px;	
+	height: 150px;	
+}
+
+
+section#partie div#partie{
+	position : relative;
+	top : 6px;
+	left : 4px;
+
+}
+
+section#partie h4{
+	font-family: 'Montserrat', sans-serif;
+	position : relative;
+	top : 6px;
+	left : 4px;
+	color: #05080d ;
+	font-size: 14px;
+}
+
+section#partie span#rouge {
+	font-family: 'Montserrat', sans-serif;
+	position : relative;
+	top : 2px;
+	left : 4px;
+	color: red ;
+	font-size: 14px;
+}
+
+section#partie span#bleu {
+	font-family: 'Montserrat', sans-serif;
+	position : relative;
+	top : 2px;
+	left : 4px;
+	color: blue ;
+	font-size: 14px;
+}
+
 
 
 
