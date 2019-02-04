@@ -129,21 +129,21 @@ public class JeuController {
 		model.addAttribute("scoreRouge", scoreRouge);
 		model.addAttribute("scoreBleu", scoreBleu);
 		model.addAttribute("maGrille", maGrille);
-		Utilisateur user = (Utilisateur) session.getAttribute("monUtilisateur");
-		model.addAttribute("user", user);
+//		Utilisateur user = (Utilisateur) session.getAttribute("monUtilisateur");
+//		model.addAttribute("user", user);
 		return "jeu";
 	
 	}
 	
-		@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
+//		@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
 		@PostMapping(value="/jeu")
 		@ResponseBody
 		public String recupCarte(@RequestParam String nomCase, HttpSession session, Model model) {
 			Case cCase = daoCase.findByCarteLibelle(nomCase, maGrille.getId());
 			String couleur = String.valueOf(cCase.getCouleur());
-			Utilisateur user = (Utilisateur) session.getAttribute("monUtilisateur");
-			String name = user.getUsername();
-			System.out.println("Le joueur " + name + " a cliqué sur " + cCase.getCarte().getLibelle() + " dont la couleur est " + cCase.getCouleur());
+//			Utilisateur user = (Utilisateur) session.getAttribute("monUtilisateur");
+//			String name = user.getUsername();
+//			System.out.println("Le joueur " + name + " a cliqué sur " + cCase.getCarte().getLibelle() + " dont la couleur est " + cCase.getCouleur());
 			
 			return couleur ;
 		}
