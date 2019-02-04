@@ -8,6 +8,8 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 
 @Entity
 @Table(name = "cartes")
@@ -15,12 +17,14 @@ public class Carte {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)	
 	@Column(name="CAR_ID")
+	@JsonView(Views.Case.class)
 	private int id;
 	
 	@Column(name="CAR_LIBELLE", length=50, nullable=false)
 	@NotEmpty
 	@NotNull
 	@Size(max=50)
+	@JsonView(Views.Case.class)
 	private String libelle ;
 	
 	@OneToMany(mappedBy="carte")

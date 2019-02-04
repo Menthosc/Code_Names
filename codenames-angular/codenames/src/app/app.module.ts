@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { JeuComponent } from './jeu/jeu.component';
 import {HttpClientModule} from '@angular/common/http';
 import { CaseComponent } from './case/case.component';
+import { ActionJoueurComponent } from './action-joueur/action-joueur.component';
 
 
 
@@ -31,6 +32,7 @@ const routes: Routes = [
     AppComponent,
     CaseComponent,
     JeuComponent
+    ActionJoueurComponent
   ],
   imports: [
     BrowserModule,

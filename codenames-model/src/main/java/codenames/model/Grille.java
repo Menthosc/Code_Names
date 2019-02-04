@@ -20,6 +20,7 @@ public class Grille {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "GRI_ID")
+	@JsonView(Views.Case.class)
 	private int id;
 
 	@OneToMany(mappedBy = "grilleCase")
