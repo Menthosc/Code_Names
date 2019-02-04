@@ -6,6 +6,7 @@ import { Component, HostListener } from '@angular/core';
 import { AppComponent } from './app.component';
 import { JeuComponent } from './jeu/jeu.component';
 import {HttpClientModule} from '@angular/common/http';
+import { CaseComponent } from './case/case.component';
 
 
 
@@ -28,7 +29,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    JeuComponent
+    CaseComponent
   ],
   imports: [
     BrowserModule,
