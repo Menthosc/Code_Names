@@ -24,7 +24,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/**").hasAnyRole("ADMIN", "USER")
 				.and().formLogin().loginPage("/connexion").loginProcessingUrl("/perform_login")
 				.defaultSuccessUrl("/accueil", true).failureUrl("/connexion?error=true").permitAll().and().logout()
-				.logoutUrl("/deconnexion").logoutSuccessUrl("/accueil").permitAll();
+				.logoutUrl("/deconnexion").logoutSuccessUrl("/accueil").permitAll()
+
+				.and().csrf().ignoringAntMatchers("/jeu/**");
 	}
 
 	@Autowired

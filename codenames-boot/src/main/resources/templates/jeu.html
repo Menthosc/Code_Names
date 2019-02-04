@@ -60,6 +60,7 @@
 		
 		
 <body id="jeu">
+<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 
 	<div id="demarrageJeu" class="element">
 
@@ -145,7 +146,7 @@
 	
 		<section id="infosJoueur">
 			<div>
-				<h2>[[${ user.username }]]</h2>
+				<h2>Joueur</h2>
 				<br />
 				<h4>Equipe : </h4>
 				<h4>Role : </h4>
