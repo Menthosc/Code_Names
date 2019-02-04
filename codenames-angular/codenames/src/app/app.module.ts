@@ -29,7 +29,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    CaseComponent
+    CaseComponent,
+    JeuComponent
   ],
   imports: [
     BrowserModule,
