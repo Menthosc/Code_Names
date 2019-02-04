@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/security/tags">
 
 
 <head>
@@ -29,28 +29,46 @@
 			
 				<!-- Menu � proprement parler -->
 			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					<li th:if= "${ session.monUtilisateur == null}" class="nav-item active"><a class="nav-link" href="inscription">|Inscription| </a>
+	<ul class="navbar-nav">
+					
+					<li sec:authorize="isAnonymous()" class="nav-item active"><a class="nav-link" href="inscription">|Inscription| </a>
 					</li>
-					<li th:if= "${ session.monUtilisateur == null}" class="nav-item active"><a class="nav-link" href="connexion">|Connexion| </a>
+				
+					<li sec:authorize="isAnonymous()" class="nav-item active"><a class="nav-link" href="connexion">|Connexion| </a>
 					</li>
 					
-					<li th:if= "${ session.monUtilisateur != null}"  class="nav-item active"><a class="nav-link" href="gestionDesCartes">|Gestion des cartes| </a>
+					
+					<li sec:authorize="isAuthenticated()" class="nav-item active"><a class="nav-link" href="gestionDesCartes">|Gestion des cartes| </a>
 					</li>
 					
-					<li th:if= "${ session.monUtilisateur != null}"  class="nav-item active"><a class="nav-link" href="jeu">|Jeu| </a></li>
-			
-					<li th:if= "${ session.monUtilisateur != null}" class="nav-item active"><a class="nav-link" href="accueil">|Deconnexion|</a> </li>
+					
+					<li sec:authorize="isAuthenticated()" class="nav-item active"><a class="nav-link" href="jeu">|Jeu| </a></li>
+					
+					
+					<li sec:authorize="isAuthenticated()" class="nav-item active"><a class="nav-link" href="gestionDesJoueurs">|Gestion des Joueurs| </a></li>
+					
+					<li sec:authorize="isAuthenticated()" class="nav-item active"><a class="nav-link" href="deconnexion">|Deconnexion|</a> </li>
+				
 					
 				</ul>
 			</div>
 		</nav>
 
 
+
+<P class="blocktext centrer">
+ 		<span class="blocktext centrer connect">  [[${ message }]]</span>
+ 	</P>
+
+
+
 <section>
 	<P class="blocktext centrer">
  		<img id="logo" class="centrer" src="images/codenames_logo.jpg" alt="logo">
  	</P>
+ 	
+ 
+ 	
  		<h1 class="ml5 container mt-5">
   <span class="text-wrapper">
     <span class="line line1"></span>

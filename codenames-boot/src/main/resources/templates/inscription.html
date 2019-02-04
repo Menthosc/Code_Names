@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/security/tags">
 
 <head>
 	<title>CodeNames - Inscription</title>
@@ -32,18 +32,26 @@
 			
 					<!-- Menu � proprement parler -->
 			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					<li th:if= "${ session.monUtilisateur == null}" class="nav-item active"><a class="nav-link" href="inscription">|Inscription| </a>
+	<ul class="navbar-nav">
+					
+					<li sec:authorize="isAnonymous()" class="nav-item active"><a class="nav-link" href="inscription">|Inscription| </a>
 					</li>
-					<li th:if= "${ session.monUtilisateur == null}" class="nav-item active"><a class="nav-link" href="connexion">|Connexion| </a>
+				
+					<li sec:authorize="isAnonymous()" class="nav-item active"><a class="nav-link" href="connexion">|Connexion| </a>
 					</li>
 					
-					<li th:if= "${ session.monUtilisateur != null}"  class="nav-item active"><a class="nav-link" href="gestionDesCartes">|Gestion des cartes| </a>
+					
+					<li sec:authorize="isAuthenticated()" class="nav-item active"><a class="nav-link" href="gestionDesCartes">|Gestion des cartes| </a>
 					</li>
 					
-					<li th:if= "${ session.monUtilisateur != null}"  class="nav-item active"><a class="nav-link" href="jeu">|Jeu| </a></li>
-			
-					<li th:if= "${ session.monUtilisateur != null}" class="nav-item active"><a class="nav-link" href="accueil">|Deconnexion|</a> </li>
+					
+					<li sec:authorize="isAuthenticated()" class="nav-item active"><a class="nav-link" href="jeu">|Jeu| </a></li>
+					
+					
+					<li sec:authorize="isAuthenticated()" class="nav-item active"><a class="nav-link" href="gestionDesJoueurs">|Gestion des Joueurs| </a></li>
+					
+					<li sec:authorize="isAuthenticated()" class="nav-item active"><a class="nav-link" href="deconnexion">|Deconnexion|</a> </li>
+				
 					
 				</ul>
 			</div>
@@ -65,6 +73,7 @@
 					</div>
  		
  		<form method="POST"> 
+ 		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
  		<section class="container mb-5 mt-5">
  		
   			<div class="form-group row">
@@ -76,9 +85,9 @@
 			</section>
 			<section class="container mb-5 mt-5">
 			<div class="form-group row">
-				<label for="prenom">Pr�nom</label>
+				<label for="prenom">Prénom</label>
 				
-					<input type="text" class="form-control" th:value="${utilisateur?.prenom}" name="prenom" placeholder="Entrez votre pr�nom" required/> 
+					<input type="text" class="form-control" th:value="${utilisateur?.prenom}" name="prenom" placeholder="Entrez votre prénom" required/> 
 				
 			</div>
 			</section>
@@ -86,7 +95,7 @@
 			<div class="form-group row">
 				<label for="username">Username</label>
 				
-					<input type="text" class="form-control" th:value="${utilisateur?.username}" name="username" placeholder="Entrez votre username" required/> 
+					<input type="password" class="form-control" th:value="${utilisateur?.username}" name="username" placeholder="Entrez votre username" required/> 
 				
 			</div>
 			</section>

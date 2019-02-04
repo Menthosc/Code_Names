@@ -3,6 +3,7 @@ package fr.formation.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,7 @@ public class CartesController {
 	
 	/// LISTAGE DES CARTES DANS LES MENUS DEROULANTS
 	
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
 	@GetMapping("/gestionDesCartes")
 	public String ListerCartes(@ModelAttribute Carte cartes, Model model) {
 
@@ -43,6 +45,7 @@ public class CartesController {
 	
 	/// AJOUT D'UNE CARTE
 	
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 		@PostMapping("/ajouterCarte")
 		public String ajouterProduit(@ModelAttribute Carte carte, Model model) {
 			
@@ -60,7 +63,7 @@ public class CartesController {
 	
 	
 		/// SUPPRESSION D'UNE CARTE
-		
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 		@GetMapping({ "/supprimerCarte" })
 		public String supprimerProduit(@RequestParam int id, Model model) {
 
@@ -86,7 +89,7 @@ public class CartesController {
 
 
 		
-
+		@PreAuthorize("hasRole('ROLE_ADMIN')")
 		@PostMapping("/modifierCarte")
 		public String editerProduit(@ModelAttribute Carte carte, Model model) {
 
