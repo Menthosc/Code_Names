@@ -64,4 +64,35 @@ export class JeuService {
       );
   }
 
+
+    reveler(){
+      var cCase=$(this).find('span').text(); //récupère le mot de la carte dans la case cliquée
+    	var that = $(this);
+
+      this.httpClient.post("http://localhost:8080/api/jeu", nomCase,this.httpOptions).subscribe();
+      function(couleur){ //pour révéler les cartes en récupérant la couleur via la Controller
+        var texte = $(that).find('span').text();
+
+        var monTexte = $('<h5> Le joueur a cliqué sur </h5>');
+
+        monTexte.append(texte);
+        $('section#infos').append(monTexte);
+
+        var monTexte2 = $('<h5> Et la couleur est... : </h5>');
+        monTexte2.append(couleur);
+        $('section#infos').append(monTexte2);
+
+        var couleurNoire = "NOIRE" ;
+        if (couleur == couleurNoire){
+         var monTexte3 = $('<h5> Dommage... vous avez perdu </h5>');
+         $('section#infos').append(monTexte3);
+        }
+
+        that.addClass(couleur);
+        that.addClass('reveal');
+      }
+
+    }
+
+
 }
