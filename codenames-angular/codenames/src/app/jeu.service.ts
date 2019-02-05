@@ -37,13 +37,15 @@ export class JeuService {
   findAll(
     // id : number
   ){
-    id = 124 ; // a modifier pour recuperer l'id de la grille utilisee
-      this.httpClient.get("http://localhost:8080/api/listeCase" + id, this.httpOptions).subscribe(resp =>
-        {
-          console.log(resp);
-          this.cases = resp;
+    let id:number = 54 ; // a modifier pour recuperer l'id de la grille utilisee
+    if (this.cases == null) {
+        this.httpClient.get("http://localhost:8080/api/listeCase" + id, this.httpOptions).subscribe(resp =>
+          {
+            console.log(resp);
+            this.cases = resp;
+          }
+          );
         }
-        );
     }
 
   action(){
