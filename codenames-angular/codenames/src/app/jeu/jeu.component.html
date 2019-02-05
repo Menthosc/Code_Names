@@ -56,7 +56,7 @@
 
 	<section id="cartes">
 		<div id="grille">
-			<div *ngFor="let c of jeuService.findAll()" (click)="jeuService.reveler()" class="{{couleur}} {{infoReveal}}">
+			<div *ngFor="let c of jeuService.findAll()" (click)="jeuService.reveler(c)" class="{{couleur}} {{infoReveal}}">
 			<span>{{ c.carte.libelle }}</span>
 
  		</div>

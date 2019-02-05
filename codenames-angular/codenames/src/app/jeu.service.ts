@@ -92,8 +92,7 @@ export class JeuService {
         return infoJoueur;
         return infoCouleur;
 
-      that.addClass(couleur);
-      that.addClass('reveal');
+  
     }
 
 
