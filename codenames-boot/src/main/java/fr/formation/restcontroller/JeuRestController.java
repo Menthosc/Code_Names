@@ -64,8 +64,8 @@ public class JeuRestController {
 
 	
 	@PostMapping(value="/jeu")
-	public String recupCarte(@RequestParam String nomCase, HttpSession session, Model model) {
-		Case cCase = daoCase.findByCarteLibelle(nomCase, grille.getId());
+	public String recupCarte(@RequestParam String nomCase, @RequestBody int grilleId) {
+		Case cCase = daoCase.findByCarteLibelle(nomCase, grilleId);
 		String couleur = String.valueOf(cCase.getCouleur());
 		
 		if (couleur == "ROUGE") {

@@ -67,7 +67,7 @@ export class JeuService {
   }
 
     reveler(c:Case){
-
+      let id:number = 54 ;
       let nomCase:String = c.carte.libelle;
       let couleur: String = c.couleur;
       let infoJoueur: String = "";
@@ -75,7 +75,7 @@ export class JeuService {
       let infoCouleurNoir: String = "";
       let infoReveal: String = "reveal";
 
-      this.httpClient.post("http://localhost:8080/api/jeu", nomCase,this.httpOptions).subscribe();
+      this.httpClient.post("http://localhost:8080/api/jeu", nomCase, id, this.httpOptions).subscribe();
 
         infoJoueur = " Le joueur a cliqué sur ";
         infoCouleur = "Et la couleur est ";
