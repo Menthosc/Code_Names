@@ -19,7 +19,7 @@ export class JeuService {
    let myHeaders: HttpHeaders = new HttpHeaders;
 
    //on appliques les identifiants a l'en tete
-   myHeaders = myHeaders.append("Authorization", "Basic " + btoa("menthosc@live.fr:123456"));
+   myHeaders = myHeaders.append("Authorization", "Basic " + btoa("user:123456"));
 
 
     // options http pour la requete
@@ -68,31 +68,31 @@ export class JeuService {
 
 
     reveler(){
-      var cCase=$(this).find('span').text(); //récupère le mot de la carte dans la case cliquée
-    	var that = $(this);
+      var cCase: String =$(this).find('span').text(); //récupère le mot de la carte dans la case cliquée
+    	var that: any = $(this);
+      var couleur: String = cCase.couleur ;
+      this.httpClient.post("http://localhost:8080/api/jeu", cCase, this.httpOptions).subscribe();
 
-      this.httpClient.post("http://localhost:8080/api/jeu", nomCase,this.httpOptions).subscribe();
-      function(couleur){ //pour révéler les cartes en récupérant la couleur via la Controller
-        var texte = $(that).find('span').text();
+      var texte: String = $(that).find('span').text();
 
-        var monTexte = $('<h5> Le joueur a cliqué sur </h5>');
+      var monTexte: String = $('<h5> Le joueur a cliqué sur </h5>');
 
-        monTexte.append(texte);
-        $('section#infos').append(monTexte);
+      monTexte.append(texte);
+      $('section#infos').append(monTexte);
 
-        var monTexte2 = $('<h5> Et la couleur est... : </h5>');
-        monTexte2.append(couleur);
-        $('section#infos').append(monTexte2);
+      var monTexte2: String = $('<h5> Et la couleur est... : </h5>');
+      monTexte2.append(couleur);
+      $('section#infos').append(monTexte2);
 
-        var couleurNoire = "NOIRE" ;
-        if (couleur == couleurNoire){
-         var monTexte3 = $('<h5> Dommage... vous avez perdu </h5>');
-         $('section#infos').append(monTexte3);
-        }
-
-        that.addClass(couleur);
-        that.addClass('reveal');
+      var couleurNoire: String = "NOIRE" ;
+      if (couleur == couleurNoire){
+       var monTexte3 = $('<h5> Dommage... vous avez perdu </h5>');
+       $('section#infos').append(monTexte3);
       }
+
+      that.addClass(couleur);
+      that.addClass('reveal');
+
 
     }
 
