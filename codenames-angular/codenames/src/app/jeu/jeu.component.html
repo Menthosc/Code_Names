@@ -1,22 +1,4 @@
 
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/security/tags">
-
-<head>
-	<title>CodeNames - Partie</title>
-	<meta charset="UTF-8">
-	<meta name="description"content="Best game ever">
-	<meta name="viewport" content="width=devide-width, initial-scale=1" />
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-
-</head>
-
-
-
-
 <!-- Barre de navigation-->
 
 <nav id="jeu" class="navbar navbar-expand-lg navbar-light bg-light">
@@ -74,8 +56,8 @@
 
 	<section id="cartes">
 		<div id="grille">
-			<div *ngFor="let c : ${cases}">
-			<span>{{ case.carte.libelle }}</span>
+			<div *ngFor="let c of JeuService.findAll()">
+			<span>{{ c.carte.libelle }}</span>
 
  		</div>
  		</div>
@@ -88,7 +70,7 @@
 	</section>
 
 	<section id="grilleJeu">
-	<div *ngFor="case : ${maGrille.casesGrille}" id="miniCase" th:class="${case.couleur}">
+	<div *ngFor="let c of JeuService.findAll()" id="miniCase" th:class="{{c.couleur}}">
 
 
  	</div>
@@ -138,8 +120,6 @@
 
 	</div> <!-- end live-chat -->
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-
 
  		</div>
 	</section>
@@ -172,12 +152,12 @@
 			<div>
 				<h2>Scores</h2>
 				<h4>Score de l'équipe bleue</h4>
-				<span id="bleu">[[${ scoreBleu }]]</span>
+				<span id="bleu">{{ scoreBleu }}</span>
 			</div>
 			<br />
 			<div>
 				<h4>Score de l'équipe rouge</h4>
-				<span id="rouge">[[${ scoreRouge }]]</span>
+				<span id="rouge">{{ scoreRouge }}</span>
     		</div>
  		</div>
 	</section>
@@ -187,34 +167,15 @@
 	<img src="">
 	</div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 
-		<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-	<script src="js/jeu.js"></script>
+
+
+
+
 
 
 	<!-- <footer id="jeu" class="container mt-5 "> Copyright codenames.fr &copy; 2019 &nbsp;&nbsp; <i id="div_horloge"></i> </footer> -->
 
 
 </body>
-
-<script type="text/javascript">
-	window.onload=function() {
-	  horloge('div_horloge');
-	};
-
-	function horloge(el) {
-	  if(typeof el=="string") { el = document.getElementById(el); }
-	  function actualiser() {
-	    var date = new Date();
-	    var str = date.getHours();
-	    str += ':'+(date.getMinutes()<10?'0':'')+date.getMinutes();
-	    str += ':'+(date.getSeconds()<10?'0':'')+date.getSeconds();
-	    el.innerHTML = str;
-	  }
-	  actualiser();
-	  setInterval(actualiser,1000);
-}
-	</script>

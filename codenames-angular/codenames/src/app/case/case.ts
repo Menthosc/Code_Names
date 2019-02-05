@@ -1,14 +1,23 @@
 export class Case {
     public id;
-    public couleur ;
-    public carte{
-      public id;
-      public libelle;
-    };
-    public grilleCase{
-      public id ;
-    } ;
-  
+    public couleur;
 
-    constructor() { }
+
+
+    public carte = {
+      id: 0,
+      libelle: ""
+    };
+
+
+
+
+    public grilleCase = {
+      id: 0,
+    };
+
+
+
+
+    constructor() {}
 }
