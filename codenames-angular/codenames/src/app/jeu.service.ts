@@ -10,7 +10,8 @@ import { ActionJoueur } from './action-joueur/action';
 export class JeuService {
   public cases: any = new Array<Case>();
   public action2: any = new ActionJoueur();
-  private httpOptions: any;
+  private httpOptions: any ;
+  private scores: any ;
 
   constructor(private appConfig: AppServiceService, private httpClient: HttpClient) {
 
@@ -26,19 +27,18 @@ export class JeuService {
       headers: myHeaders
     };
 
+   }
 
-}
 
-  grilleId(id : number){
+  findgrilleId(id : number){
      this.httpClient.post("http://localhost:8080/api/grille", id, this.httpOptions).subscribe();
   }
 
-  findAll(){
-
+  findAll(
     // id : number
-
-    let id: number = 124 ; // a modifier pour recuperer l'id de la grille utilisee
-      this.httpClient.get("http://localhost:8080/api/listeCase/" + id, this.httpOptions).subscribe(resp =>
+  ){
+    id = 124 ; // a modifier pour recuperer l'id de la grille utilisee
+      this.httpClient.get("http://localhost:8080/api/listeCase" + id, this.httpOptions).subscribe(resp =>
         {
           console.log(resp);
           this.cases = resp;
@@ -53,9 +53,15 @@ export class JeuService {
         this.action2 = resp;
       }
       );
+    }
+
+  score(){
+    this.httpClient.get("http://localhost:8080/api/scores", this.httpOptions).subscribe(resp =>
+      {
+        console.log(resp);
+        this.scores = resp;
+      }
+      );
   }
 
-
-
-
-  }
+}

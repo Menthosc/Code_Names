@@ -13,19 +13,11 @@ import { AppServiceService} from './app-service.service';
 
 
 
-
 //Configuration des routes
 const routes: Routes = [
 { path: 'jeu', component: JeuComponent },
 { path: '', redirectTo: 'jeu', pathMatch: 'full' },
 ];
-
-
-
-
-
-
-
 
 
 @NgModule({
