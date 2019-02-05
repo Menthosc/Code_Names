@@ -8,7 +8,7 @@ import { JeuComponent } from './jeu/jeu.component';
 import {HttpClientModule} from '@angular/common/http';
 import { CaseComponent } from './case/case.component';
 import { ActionJoueurComponent } from './action-joueur/action-joueur.component';
-
+import { AppServiceService } from './app-service.service';
 
 
 
@@ -20,18 +20,11 @@ const routes: Routes = [
 ];
 
 
-
-
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
     CaseComponent,
-    JeuComponent
+    JeuComponent,
     ActionJoueurComponent
   ],
   imports: [
@@ -40,7 +33,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     FormsModule
   ],
-  providers: [AppConfigService],
+  providers: [AppServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
