@@ -67,6 +67,7 @@ export class JeuService {
   }
 
 
+<<<<<<< HEAD
     reveler(){
       var cCase: String =$(this).find('span').text(); //récupère le mot de la carte dans la case cliquée
     	var that: any = $(this);
@@ -89,6 +90,38 @@ export class JeuService {
        var monTexte3 = $('<h5> Dommage... vous avez perdu </h5>');
        $('section#infos').append(monTexte3);
       }
+=======
+
+    reveler(c:Case){
+
+      let nomCase:String = c.carte.libelle;
+      let couleur: String = c.couleur;
+      let infoJoueur: String = "";
+      let infoCouleur: String = "";
+      let infoCouleurNoir: String = "";
+      let infoReveal: String = "reveal";
+
+
+      this.httpClient.post("http://localhost:8080/api/jeu", nomCase,this.httpOptions).subscribe();
+
+
+
+        infoJoueur = " Le joueur a cliqué sur ";
+        infoCouleur = "Et la couleur est ";
+
+        var couleurNoire = "NOIRE" ;
+
+        if (couleur == couleurNoire){
+         infoCouleurNoir = "Dommage... vous avez perdu !";
+         return  infoCouleurNoir;
+
+        }
+
+        return infoReveal;
+        return couleur;
+        return infoJoueur;
+        return infoCouleur;
+>>>>>>> master
 
       that.addClass(couleur);
       that.addClass('reveal');
