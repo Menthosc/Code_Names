@@ -8,10 +8,11 @@ import { ActionJoueur } from './action-joueur/action';
   providedIn: 'root'
 })
 export class JeuService {
-  public cases: any = new Array<Case>();
+  public cases: any = null;
   public action2: any = new ActionJoueur();
   private httpOptions: any ;
   private scores: any ;
+    private infos: Array<string> = new Array<string>();
 
   constructor(private appConfig: AppServiceService, private httpClient: HttpClient) {
 
@@ -19,7 +20,7 @@ export class JeuService {
    let myHeaders: HttpHeaders = new HttpHeaders;
 
    //on appliques les identifiants a l'en tete
-   myHeaders = myHeaders.append("Authorization", "Basic " + btoa("user:123456"));
+   myHeaders = null;//myHeaders.append("Authorization", "Basic " + btoa("user:123456"));
 
 
     // options http pour la requete
@@ -39,7 +40,7 @@ export class JeuService {
   ){
     let id:number = 54 ; // a modifier pour recuperer l'id de la grille utilisee
     if (this.cases == null) {
-        this.httpClient.get("http://localhost:8080/api/listeCase" + id, this.httpOptions).subscribe(resp =>
+        this.httpClient.get("http://localhost:8080/api/listeCase/" + id, this.httpOptions).subscribe(resp =>
           {
             console.log(resp);
             this.cases = resp;
@@ -70,29 +71,33 @@ export class JeuService {
       let id:number = 54 ;
       let nomCase:String = c.carte.libelle;
       let couleur: String = c.couleur;
-      let infoJoueur: String = "";
-      let infoCouleur: String = "";
-      let infoCouleurNoir: String = "";
-      let infoReveal: String = "reveal";
 
-      this.httpClient.post("http://localhost:8080/api/jeu", nomCase, id, this.httpOptions).subscribe();
+      let actionJoueur = { "nomCase": nomCase, "grilleId": id };
 
-        infoJoueur = " Le joueur a cliqué sur ";
-        infoCouleur = "Et la couleur est ";
+      this.httpClient.post("http://localhost:8080/api/case", actionJoueur, this.httpOptions).subscribe(resp => {
+          console.log(resp);
+          let info = "";
 
-        var couleurNoire = "NOIRE" ;
+          if (resp.couleur == "NOIRE") {
+             info = "Dommage... vous avez perdu !";
+          }
 
-        if (couleur == couleurNoire){
-         infoCouleurNoir = "Dommage... vous avez perdu !";
-         return  infoCouleurNoir;
-        }
+          else {
+            info = " Le joueur a cliqué sur " + resp.carte.libelle + ". Et la couleur est " + resp.couleur;
+          }
 
-        return infoReveal;
-        return couleur;
-        return infoJoueur;
-        return infoCouleur;
+          this.infos.push(info);
 
-  
+
+          //Case révélée
+          for (let c of this.cases) {
+            if (c.id == resp.id) {
+              c.couleur = resp.couleur;
+              c.revelee = true;
+              break;
+            }
+          }
+      });
     }
 
 

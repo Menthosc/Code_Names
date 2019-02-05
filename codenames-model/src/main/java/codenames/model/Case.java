@@ -22,7 +22,7 @@ public class Case {
 	private int id;
 	
 	@Column(name="CAS_COULEUR")
-	@JsonView(Views.Case.class)
+	@JsonView(Views.CaseRevelee.class)
 	private Couleur couleur;
 	
 	@ManyToOne

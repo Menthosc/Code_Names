@@ -44,8 +44,28 @@ public class JeuRestController {
 	
 	
 	@PostMapping("/case")
-	public ActionJoueur action(@RequestBody ActionJoueur action) {
-		return action;
+	@JsonView(Views.CaseRevelee.class)
+	public Case action(@RequestBody ActionJoueur action) {
+		Case cCase = daoCase.findByCarteLibelle(action.getNomCase(), action.getGrilleId());
+		String couleur = String.valueOf(cCase.getCouleur());
+		
+		if (couleur == "ROUGE") {
+			scoreRouge = scoreRouge + 1 ;
+		}
+		
+		if (couleur == "BLEUE") {
+			scoreBleu = scoreBleu + 1 ;
+		}
+		
+		Scores mesScores = new Scores() ;
+		mesScores.setScoreBleu(scoreBleu);
+		mesScores.setScoreRouge(scoreRouge);
+		
+//		Utilisateur user = (Utilisateur) session.getAttribute("monUtilisateur");
+//		String name = user.getUsername();
+//		System.out.println("Le joueur " + name + " a cliqué sur " + cCase.getCarte().getLibelle() + " dont la couleur est " + cCase.getCouleur());
+		
+		return cCase ;
 	}
 	
 	@PostMapping("/grille")
