@@ -67,7 +67,7 @@ export class JeuService {
   }
 
 
-<<<<<<< HEAD
+
     reveler(){
       var cCase: String =$(this).find('span').text(); //récupère le mot de la carte dans la case cliquée
     	var that: any = $(this);
@@ -90,7 +90,7 @@ export class JeuService {
        var monTexte3 = $('<h5> Dommage... vous avez perdu </h5>');
        $('section#infos').append(monTexte3);
       }
-=======
+
 
     reveler(c:Case){
 
@@ -121,7 +121,7 @@ export class JeuService {
         return couleur;
         return infoJoueur;
         return infoCouleur;
->>>>>>> master
+
 
       that.addClass(couleur);
       that.addClass('reveal');
