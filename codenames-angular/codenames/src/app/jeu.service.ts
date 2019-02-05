@@ -66,9 +66,6 @@ export class JeuService {
       );
   }
 
-
-
-
     reveler(c:Case){
 
       let nomCase:String = c.carte.libelle;
@@ -78,10 +75,7 @@ export class JeuService {
       let infoCouleurNoir: String = "";
       let infoReveal: String = "reveal";
 
-
       this.httpClient.post("http://localhost:8080/api/jeu", nomCase,this.httpOptions).subscribe();
-
-
 
         infoJoueur = " Le joueur a cliqué sur ";
         infoCouleur = "Et la couleur est ";
@@ -91,7 +85,6 @@ export class JeuService {
         if (couleur == couleurNoire){
          infoCouleurNoir = "Dommage... vous avez perdu !";
          return  infoCouleurNoir;
-
         }
 
         return infoReveal;
@@ -99,12 +92,10 @@ export class JeuService {
         return infoJoueur;
         return infoCouleur;
 
-
       that.addClass(couleur);
       that.addClass('reveal');
-
-
     }
+
 
 
 }
