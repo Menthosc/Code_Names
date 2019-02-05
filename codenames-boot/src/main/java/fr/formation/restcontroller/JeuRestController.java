@@ -87,6 +87,8 @@ public class JeuRestController {
 		return couleur ;
 	}
 	
+	
+	
 	@GetMapping("/scores")
 	public Scores scores() {
 		mesScores.setScoreBleu(mesScores.getScoreBleu());
