@@ -1,24 +1,23 @@
 package codenames.model;
 
 public class ActionJoueur {
-	private int caseId ;
-	private int joueurId ;
-	
-	public int getJoueurId() {
-		return joueurId;
+	private String nomCase;
+	private int grilleId;
+
+	public String getNomCase() {
+		return nomCase;
 	}
 
-	public void setJoueurId(int joueurId) {
-		this.joueurId = joueurId;
+	public void setNomCase(String nomCase) {
+		this.nomCase = nomCase;
 	}
 
-	public int getCaseId() {
-		return caseId;
+	public int getGrilleId() {
+		return grilleId;
 	}
 
-	public void setCaseId(int caseId) {
-		this.caseId = caseId;
+	public void setGrilleId(int grilleId) {
+		this.grilleId = grilleId;
 	}
-	
-	
+
 }

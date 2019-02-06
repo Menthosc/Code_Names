@@ -10,4 +10,8 @@ public class Views {
 	public static class Case extends Common {
 	}
 
+	
+	public static class CaseRevelee extends Case {
+	}
+
 }

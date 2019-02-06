@@ -281,7 +281,7 @@ div#grille > div {
 	float: left;
 	width: calc(20% - 15px);
 	height: 85px;
-	background-image: url(assets/images/carteCodeNames.jpg);
+	background-image: url(/assets/images/carteCodeNames.jpg);
 	background-size: cover;
 }
 
@@ -291,24 +291,24 @@ div#grille > div {
 /* Gestion des cartes couleurs*/
 
 div#grille > div.BLEUE.reveal {
-	background-image: url(assets/images/bleu.jpg);
+	background-image: url(/assets/images/bleu.jpg);
 	opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
 
 
 }
 
 div#grille > div.ROUGE.reveal {
-	background-image: url(assets//images/rouge.jpg);
+	background-image: url(/assets//images/rouge.jpg);
 		opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
 }
 
 div#grille > div.NOIRE.reveal {
-	background-image: url(assets/images/noir.jpg);
+	background-image: url(/assets/images/noir.jpg);
 		opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
 }
 
 div#grille > div.NEUTRE.reveal {
-	background-image: url(assets/images/blanc.jpg);
+	background-image: url(/assets/images/blanc.jpg);
 	opacity:0;animation: transitionCouleur  0.7s ease-in-out 0.1s forwards;
 }
 

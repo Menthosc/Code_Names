@@ -9,9 +9,20 @@ import { JeuService } from '../jeu.service';
 })
 export class JeuComponent implements OnInit {
 
-  constructor(private jeuService: JeuService) { }
+  constructor(private jeuService: JeuService) {
+    jeuService.findAll();
+  }
 
   ngOnInit() {
   }
 
+
+
+  getClasse(c: any) {
+    if (c.revelee) {
+      return "reveal " + c.couleur;
+    }
+
+    return "";
+  }
 }
